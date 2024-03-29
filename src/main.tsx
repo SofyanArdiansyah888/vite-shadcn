@@ -5,6 +5,7 @@ import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "../src/globals.css"
+import {ConfigProvider} from "antd";
 
 const queryClient = new QueryClient();
 const router = createRouter({
@@ -28,7 +29,14 @@ if (!rootElement.innerHTML) {
     const root = ReactDOM.createRoot(rootElement);
     root.render(
         <QueryClientProvider client={queryClient}>
+            <ConfigProvider theme={{
+                token:{
+                    colorPrimary: "orange",
+                    borderRadius: 8,
+                }
+            }}>
             <RouterProvider router={router} />
+            </ConfigProvider>
         </QueryClientProvider>
     );
 }

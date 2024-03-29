@@ -40,6 +40,7 @@
     "@tanstack/react-router": "^1.19.1",
     "@tanstack/react-table": "^8.15.3",
     "@tanstack/router-devtools": "^1.19.1",
+    "antd": "^5.15.4",
     "axios": "^1.6.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",

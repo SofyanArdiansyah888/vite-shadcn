@@ -1,16 +1,15 @@
-
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs.tsx";
-import {Button} from "@/components/ui/button.tsx";
-import {PlusCircledIcon} from "@radix-ui/react-icons";
 import {Separator} from "@/components/ui/separator.tsx";
-import {ScrollArea, ScrollBar} from "@/components/ui/scroll-area.tsx";
-import {AlbumArtwork} from "@/pages/dashboard/components/album-artwork.tsx";
 import {PodcastEmptyPlaceholder} from "@/pages/dashboard/components/podcast-empty-placeholder.tsx";
 import {Sidebar} from "@/pages/dashboard/components/sidebar.tsx";
 import {playlists} from "@/pages/dashboard/data/playlists.ts";
-import {listenNowAlbums, madeForYouAlbums} from "@/pages/dashboard/data/albums.ts";
+import Tableku from "@/pages/dashboard/components/tableku.tsx";
+import {Button, Input} from "antd";
+import {FilterIcon} from "lucide-react";
 
-export default function HomePage(){
+
+export default function HomePage() {
+    const {Search} = Input
     return <>
         <div className="md:hidden">
             {/*<Image*/}
@@ -32,9 +31,9 @@ export default function HomePage(){
             {/*<Menu />*/}
             <div className="border-t">
                 <div className="bg-background">
-                    <div className="grid lg:grid-cols-5">
-                        <Sidebar playlists={playlists} className="hidden lg:block" />
-                        <div className="col-span-3 lg:col-span-4 lg:border-l">
+                    <div className="grid lg:grid-cols-6">
+                        <Sidebar playlists={playlists} className="hidden lg:block"/>
+                        <div className="col-span-3 lg:col-span-5 lg:border-l">
                             <div className="h-full px-4 py-6 lg:px-8">
                                 <Tabs defaultValue="music" className="h-full space-y-6">
                                     <div className="space-between flex items-center">
@@ -47,71 +46,48 @@ export default function HomePage(){
                                                 Live
                                             </TabsTrigger>
                                         </TabsList>
-                                        <div className="ml-auto mr-4">
-                                            <Button>
-                                                <PlusCircledIcon className="mr-2 h-4 w-4" />
-                                                Add music
-                                            </Button>
-                                        </div>
+                                        {/*<div className="ml-auto mr-4">*/}
+                                        {/*    <Button size={"sm"}>*/}
+                                        {/*        <PlusCircledIcon className="mr-2 h-4 w-4" />*/}
+                                        {/*        Add music*/}
+                                        {/*    </Button>*/}
+                                        {/*</div>*/}
                                     </div>
                                     <TabsContent
                                         value="music"
                                         className="border-none p-0 outline-none"
                                     >
                                         <div className="flex items-center justify-between">
-                                            <div className="space-y-1">
+                                            <div className="space-y-1 my-2">
                                                 <h2 className="text-2xl font-semibold tracking-tight">
-                                                    Listen Now
+                                                    List Karyawan
                                                 </h2>
                                                 <p className="text-sm text-muted-foreground">
                                                     Top picks for you. Updated daily.
                                                 </p>
                                             </div>
+                                            <div className={"flex gap-1"}>
+                                                <Search placeholder="Search Music" onSearch={() => {
+                                                }} enterButton/>
+                                                <Button
+                                                    size={"middle"}
+                                                    className={"flex gap-2 !bg-zinc-800 hover:!bg-zinc-500 border-0"}
+                                                >
+                                                    Filter
+                                                    <FilterIcon className={"w-4 h-4 mt-1"} strokeWidth={1}/>
+                                                </Button>
+                                            </div>
                                         </div>
-                                        <Separator className="my-4" />
-                                        <div className="relative">
-                                            <ScrollArea>
-                                                <div className="flex space-x-4 pb-4">
-                                                    {listenNowAlbums.map((album) => (
-                                                        <AlbumArtwork
-                                                            key={album.name}
-                                                            album={album}
-                                                            className="w-[250px]"
-                                                            aspectRatio="portrait"
-                                                            width={250}
-                                                            height={330}
-                                                        />
-                                                    ))}
-                                                </div>
-                                                <ScrollBar orientation="horizontal" />
-                                            </ScrollArea>
-                                        </div>
-                                        <div className="mt-6 space-y-1">
-                                            <h2 className="text-2xl font-semibold tracking-tight">
-                                                Made for You
-                                            </h2>
-                                            <p className="text-sm text-muted-foreground">
-                                                Your personal playlists. Updated daily.
-                                            </p>
-                                        </div>
-                                        <Separator className="my-4" />
-                                        <div className="relative">
-                                            <ScrollArea>
-                                                <div className="flex space-x-4 pb-4">
-                                                    {madeForYouAlbums.map((album) => (
-                                                        <AlbumArtwork
-                                                            key={album.name}
-                                                            album={album}
-                                                            className="w-[150px]"
-                                                            aspectRatio="square"
-                                                            width={150}
-                                                            height={150}
-                                                        />
-                                                    ))}
-                                                </div>
-                                                <ScrollBar orientation="horizontal" />
-                                            </ScrollArea>
-                                        </div>
+
+
+                                        <Separator className=""/>
+
+
+                                        <Tableku/>
+
+
+                                        {/*<Separator className="my-4" />*/}
+
                                     </TabsContent>
                                     <TabsContent
                                         value="podcasts"
@@ -127,8 +103,8 @@ export default function HomePage(){
                                                 </p>
                                             </div>
                                         </div>
-                                        <Separator className="my-4" />
-                                        <PodcastEmptyPlaceholder />
+                                        <Separator className="my-4"/>
+                                        <PodcastEmptyPlaceholder/>
                                     </TabsContent>
                                 </Tabs>
                             </div>

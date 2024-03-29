@@ -50,6 +50,9 @@
   }
 }
 
+.ant-btn{
+  @apply bg-primary hover:!bg-primary/80 !text-white
+}
 
 @layer base {
   * {
