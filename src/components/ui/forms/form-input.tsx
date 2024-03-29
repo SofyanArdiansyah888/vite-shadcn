@@ -1,6 +1,6 @@
 import {FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
 import {Input} from "@/components/ui/input";
-import {Control, FieldValues} from "react-hook-form";
+import {Control} from "react-hook-form";
 
 type TFormInput = {
     label: string,
@@ -9,7 +9,7 @@ type TFormInput = {
     type?: React.HTMLInputTypeAttribute,
     control: Control<any>
 }
-export default function FormInput({label, placeholder, name, control,type = "text"}: TFormInput) {
+export default function FormInput({label, placeholder, name, control, type = "text"}: TFormInput) {
     return <FormField
         control={control}
         name={name}

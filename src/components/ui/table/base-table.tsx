@@ -1,9 +1,9 @@
 'use client'
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
 import {flexRender, Table as TanstakTable} from "@tanstack/react-table";
-import * as React from "react";
 
-export default function BaseTable<T>({table, data}: { table: TanstakTable<T>, data:T[] }) {
+
+export default function BaseTable<T>({table}: { table: TanstakTable<T>, data: T[] }) {
 
     return <div className="rounded-md border">
         <Table>

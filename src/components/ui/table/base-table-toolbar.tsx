@@ -2,7 +2,6 @@
 
 import {Cross2Icon} from "@radix-ui/react-icons"
 import {Table} from "@tanstack/react-table"
-import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import {BaseTableViewOptions} from "@/components/ui/table/base-table-view-options";
 import React from "react";
@@ -15,10 +14,10 @@ interface DataTableToolbarProps<TData> {
 }
 
 export default function BaseTableToolbar<TData>({
-                                            table,
-                                            FilterComponent,
-                                            ActionComponent
-                                        }: DataTableToolbarProps<TData>) {
+                                                    table,
+                                                    FilterComponent,
+                                                    ActionComponent
+                                                }: DataTableToolbarProps<TData>) {
     const isFiltered = table.getState().columnFilters.length > 0
 
     return (
@@ -38,7 +37,7 @@ export default function BaseTableToolbar<TData>({
             </div>
             <div className={"flex gap-2 items-end"}>
                 <BaseTableViewOptions table={table}/>
-                { ActionComponent }
+                {ActionComponent}
             </div>
 
         </div>

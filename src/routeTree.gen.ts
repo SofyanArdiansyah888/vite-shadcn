@@ -12,11 +12,35 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
+import { Route as MasterSchoolImport } from './routes/master/school'
+import { Route as AuthRegisterImport } from './routes/auth/register'
+import { Route as AuthLoginImport } from './routes/auth/login'
+import { Route as AuthForgetPasswordImport } from './routes/auth/forget-password'
 
 // Create/Update Routes
 
 const IndexRoute = IndexImport.update({
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MasterSchoolRoute = MasterSchoolImport.update({
+  path: '/master/school',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AuthRegisterRoute = AuthRegisterImport.update({
+  path: '/auth/register',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AuthLoginRoute = AuthLoginImport.update({
+  path: '/auth/login',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AuthForgetPasswordRoute = AuthForgetPasswordImport.update({
+  path: '/auth/forget-password',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -28,11 +52,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/auth/forget-password': {
+      preLoaderRoute: typeof AuthForgetPasswordImport
+      parentRoute: typeof rootRoute
+    }
+    '/auth/login': {
+      preLoaderRoute: typeof AuthLoginImport
+      parentRoute: typeof rootRoute
+    }
+    '/auth/register': {
+      preLoaderRoute: typeof AuthRegisterImport
+      parentRoute: typeof rootRoute
+    }
+    '/master/school': {
+      preLoaderRoute: typeof MasterSchoolImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren([IndexRoute])
+export const routeTree = rootRoute.addChildren([
+  IndexRoute,
+  AuthForgetPasswordRoute,
+  AuthLoginRoute,
+  AuthRegisterRoute,
+  MasterSchoolRoute,
+])
 
 /* prettier-ignore-end */
