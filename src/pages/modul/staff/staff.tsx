@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 import {Form, Input, InputNumber, Popconfirm, Table, Typography} from 'antd';
 import {AddButton, DeleteButtonIcon, DetailButtonIcon, EditButtonIcon, FilterButton} from "@/components/ui/button.tsx";
-import MainLayout from "@/components/layout/main-layout.tsx";
-import SecondaryNav from "@/components/navigation/secondary-nav.tsx";
 import {Link} from "@tanstack/react-router";
 import {Separator} from "@/components/ui/separator.tsx";
 import {BadgeDeleteFilter, BadgeFilter} from "@/components/ui/custom-badge.tsx";
+import StaffLayout from "@/components/layout/staff-layout.tsx";
 
 interface Item {
     key: string;
@@ -173,8 +172,7 @@ const StaffPage: React.FC = () => {
     });
 
     const {Search} = Input
-    return (<MainLayout>
-            <SecondaryNav/>
+    return (<StaffLayout>
             <section className={"px-12 py-4"}>
 
                 <div className="flex items-center justify-between">
@@ -228,7 +226,7 @@ const StaffPage: React.FC = () => {
                     />
                 </Form>
             </section>
-        </MainLayout>
+        </StaffLayout>
 
     );
 };

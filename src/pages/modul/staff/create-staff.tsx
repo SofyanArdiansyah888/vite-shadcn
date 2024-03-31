@@ -1,14 +1,12 @@
-import MainLayout from "@/components/layout/main-layout.tsx";
-import SecondaryNav from "@/components/navigation/secondary-nav.tsx";
 import {BackButton, SaveButton} from "@/components/ui/button.tsx";
 import {Form, Input} from "antd";
 import {Separator} from "@/components/ui/separator.tsx";
+import StaffLayout from "@/components/layout/staff-layout.tsx";
 
 export default function CreateStaff() {
     const [form] = Form.useForm();
 
-    return <MainLayout>
-        <SecondaryNav/>
+    return <StaffLayout>
         <section className={"py-4 px-12 space-y-4"}>
             <div className="flex items-center justify-between">
                 <div className="space-y-1 my-2">
@@ -71,5 +69,5 @@ export default function CreateStaff() {
             {/*</CardFooter>*/}
             {/*</Card>*/}
         </section>
-    </MainLayout>
+    </StaffLayout>
 }

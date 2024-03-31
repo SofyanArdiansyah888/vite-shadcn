@@ -1,4 +1,3 @@
-import MainLayout from "@/components/layout/main-layout.tsx";
 import PortalCard from "@/pages/main/portal/components/portal-card.tsx";
 import {
     BadgeInfoIcon,
@@ -13,11 +12,11 @@ import {
     SchoolIcon,
     TimerIcon
 } from "lucide-react";
-import SecondaryNav from "@/components/navigation/secondary-nav.tsx";
+import PortalLayout from "@/components/layout/portal-layout.tsx";
 
 export default function PortalPage() {
-    return <MainLayout>
-        <SecondaryNav/>
+
+    return <PortalLayout>
         <section className="flex-1 space-y-4 p-8 pt-6">
             <div className={"grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4"}>
                 <PortalCard
@@ -110,5 +109,5 @@ export default function PortalPage() {
 
             </div>
         </section>
-    </MainLayout>
+    </PortalLayout>
 }
