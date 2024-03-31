@@ -55,7 +55,7 @@ export default function CreateStaff() {
             </Form>
             {/*</CardContent>*/}
             {/*<CardFooter className={"flex justify-end"}>*/}
-            <Button size={"xs"} variant={"primary"}>Submit</Button>
+            {/*<Button size={"xs"} variant={"primary"}>Submit</Button>*/}
             {/*</CardFooter>*/}
             {/*</Card>*/}
         </section>

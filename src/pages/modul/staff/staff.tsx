@@ -217,7 +217,7 @@ const StaffPage: React.FC = () => {
                             <Badge
                                 size={"small"}
                                 className={"border-[1px] border-primary text-primary cursor-pointer p-2 rounded-lg flex gap-1 text-center items-center text-xs"}>
-                                Hapus Semua
+                                Hapus Filter
                             </Badge>
 
 
