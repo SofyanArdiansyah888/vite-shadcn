@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
-import {Badge, Form, Input, InputNumber, Popconfirm, Table, Typography} from 'antd';
-import {Button} from "@/components/ui/button.tsx";
-import {FilterIcon, XCircleIcon} from "lucide-react";
+import {Form, Input, InputNumber, Popconfirm, Table, Typography} from 'antd';
+import {AddButton, DeleteButtonIcon, DetailButtonIcon, EditButtonIcon, FilterButton} from "@/components/ui/button.tsx";
 import MainLayout from "@/components/layout/main-layout.tsx";
 import SecondaryNav from "@/components/navigation/secondary-nav.tsx";
 import {Link} from "@tanstack/react-router";
 import {Separator} from "@/components/ui/separator.tsx";
+import {BadgeDeleteFilter, BadgeFilter} from "@/components/ui/custom-badge.tsx";
 
 interface Item {
     key: string;
@@ -77,10 +77,10 @@ const StaffPage: React.FC = () => {
 
     const isEditing = (record: Item) => record.key === editingKey;
 
-    const edit = (record: Partial<Item> & { key: React.Key }) => {
-        form.setFieldsValue({name: '', age: '', address: '', ...record});
-        setEditingKey(record.key);
-    };
+    // const edit = (record: Partial<Item> & { key: React.Key }) => {
+    //     form.setFieldsValue({name: '', age: '', address: '', ...record});
+    //     setEditingKey(record.key);
+    // };
 
     const cancel = () => {
         setEditingKey('');
@@ -126,12 +126,13 @@ const StaffPage: React.FC = () => {
         {
             title: 'address',
             dataIndex: 'address',
-            width: '40%',
+            // width: '40%',
             editable: true,
         },
         {
             title: 'operation',
             dataIndex: 'operation',
+            width: '100px',
             render: (_: any, record: Item) => {
                 const editable = isEditing(record);
                 return editable ? (
@@ -144,9 +145,12 @@ const StaffPage: React.FC = () => {
             </Popconfirm>
           </span>
                 ) : (
-                    <Typography.Link disabled={editingKey !== ''} onClick={() => edit(record)}>
-                        Edit
-                    </Typography.Link>
+                    <div className={"flex gap-1"}>
+                        <EditButtonIcon/>
+                        <DetailButtonIcon/>
+                        <DeleteButtonIcon/>
+                    </div>
+
                 );
             },
         },
@@ -185,13 +189,7 @@ const StaffPage: React.FC = () => {
                     <div className={"flex gap-1"}>
                         <Search placeholder="Search Music" onSearch={() => {
                         }} enterButton/>
-                        <Button
-                            size={"sm"}
-                            className={"flex gap-2 !bg-zinc-800 hover:!bg-zinc-500 border-0"}
-                        >
-                            Filter
-                            <FilterIcon className={"w-4 h-4 mt-1"} strokeWidth={1}/>
-                        </Button>
+                        <FilterButton/>
                     </div>
                 </div>
 
@@ -201,35 +199,13 @@ const StaffPage: React.FC = () => {
                 <div className={"flex justify-between  py-2 gap-1"}>
                     <div className={"overscroll-x-auto "}>
                         <div className={"flex flex-row flex-wrap  gap-1 py-1  "}>
-                            <Badge
-                                size={"small"}
-                                className={"border-[1px] p-2 rounded-lg flex gap-1 text-center items-center text-xs"}>
-                                Jenis Kendaraan
-                                <XCircleIcon className={"w-4 h-4 text-zinc-500 cursor-pointer"}/>
-                            </Badge>
-                            <Badge
-                                size={"small"}
-                                className={"border-[1px] p-2 rounded-lg flex gap-1 text-center items-center text-xs"}>
-                                Jenis Kendaraan
-                                <XCircleIcon className={"w-4 h-4 text-zinc-500 cursor-pointer"}/>
-                            </Badge>
-
-                            <Badge
-                                size={"small"}
-                                className={"border-[1px] border-primary text-primary cursor-pointer p-2 rounded-lg flex gap-1 text-center items-center text-xs"}>
-                                Hapus Filter
-                            </Badge>
-
-
+                            <BadgeFilter title={"Suzuki"}/>
+                            <BadgeFilter title={"Hitam"}/>
+                            <BadgeDeleteFilter/>
                         </div>
                     </div>
                     <Link to={"/staff/create"}>
-                        <Button
-                            size={"sm"}
-                            variant={"primary"}
-                            className={"text-xs"}>
-                            + Tambah
-                        </Button>
+                        <AddButton/>
                     </Link>
                 </div>
                 <Form form={form} component={false}>

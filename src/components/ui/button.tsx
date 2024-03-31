@@ -3,6 +3,10 @@ import {Slot} from "@radix-ui/react-slot"
 import {cva, type VariantProps} from "class-variance-authority"
 
 import {cn} from "@/lib/utils"
+import {ArrowLeft, EyeIcon, FilterIcon, PencilIcon, PlusIcon, SaveIcon, TrashIcon} from "lucide-react";
+import {useRouter} from "@tanstack/react-router";
+import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip.tsx";
+
 
 const buttonVariants = cva(
     "inline-flex items-center justify-center font-light whitespace-nowrap rounded-md text-sm  ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-stone-950 dark:focus-visible:ring-stone-300",
@@ -24,8 +28,8 @@ const buttonVariants = cva(
                 default: "h-10 px-4 py-2",
                 sm: "h-8 rounded-md px-3",
                 lg: "h-11 rounded-md px-8",
-                xs: "h-7 rounded-md px-2",
-                icon: "h-10 w-10",
+                xs: "h-8 rounded-md px-2",
+                icon: "h-7 w-8",
             },
         },
         defaultVariants: {
@@ -55,5 +59,109 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 )
 Button.displayName = "Button"
 
+interface IButtonProps {
+    onClick?: React.MouseEventHandler<HTMLButtonElement>,
+    icon?: React.ReactNode,
+    tooltip?: string,
+    variant?: "primary" | "default" | "destructive" | "outline" | "secondary" | "ghost" | "link",
+    className?: string
+}
+
+function BackButton() {
+    const router = useRouter()
+
+    function handleClick() {
+        router.history.back()
+    }
+
+    return <Button
+        size={"xs"}
+        variant={"outline"}
+        className={"gap-1 text-xs"}
+        onClick={handleClick}
+    >
+        <ArrowLeft className={"w-4 h-4"} strokeWidth={1}/>
+        Kembali
+    </Button>
+}
+
+function SaveButton({onClick}: IButtonProps) {
+    return <Button type={"submit"} size={"xs"} variant={"primary"} className={`gap-1 text-xs`} onClick={onClick}>
+        <SaveIcon className={"w-4 h-4"} strokeWidth={1}/>
+        Simpan
+    </Button>
+}
+
+function AddButton({onClick}: IButtonProps) {
+    return <Button size={"xs"} variant={"primary"} className={"gap-1 text-xs"} onClick={onClick}>
+        <PlusIcon className={"w-4 h-4"} strokeWidth={1}/>
+        Tambah
+    </Button>
+}
+
+function FilterButton({onClick}: IButtonProps) {
+    return <Button
+        size={"xs"}
+        className={"flex gap-2 !bg-zinc-800 hover:!bg-zinc-500 border-0"}
+        onClick={onClick}
+    >
+        <FilterIcon className={"w-4 h-4 mt-1"} strokeWidth={1}/>
+        Filter
+    </Button>
+}
+
+function ButtonIcon({onClick, icon, tooltip, variant,className}: IButtonProps) {
+    return (
+        <TooltipProvider>
+            <Tooltip>
+                <TooltipTrigger asChild>
+                    <Button variant={variant} size="icon" onClick={onClick} className={className}>
+                        {icon}
+                    </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                    <p>{tooltip}</p>
+                </TooltipContent>
+            </Tooltip>
+        </TooltipProvider>
+    )
+}
+
+function EditButtonIcon(props: IButtonProps) {
+    return <ButtonIcon {...props}
+                       icon={<PencilIcon className="h-4 w-4"/>}
+                       tooltip={"Edit"}
+                       variant={"primary"}
+    />
+}
+
+function DetailButtonIcon(props: IButtonProps) {
+    return <ButtonIcon {...props}
+                       icon={<EyeIcon className="h-4 w-4"/>}
+                       tooltip={"Detail"}
+                       variant={"default"}
+                       className={"bg-blue-800"}
+    />
+}
+
+function DeleteButtonIcon(props: IButtonProps) {
+    return <ButtonIcon {...props}
+                       icon={<TrashIcon className="h-4 w-4"/>}
+                       tooltip={"Hapus"}
+                       variant={"destructive"}
+    />
+}
+
 // eslint-disable-next-line react-refresh/only-export-components
-export {Button, buttonVariants}
+export {
+    Button,
+    buttonVariants,
+    BackButton,
+    SaveButton,
+    AddButton,
+    FilterButton,
+    ButtonIcon,
+    EditButtonIcon,
+    DeleteButtonIcon,
+    DetailButtonIcon
+}

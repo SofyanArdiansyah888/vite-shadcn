@@ -1,7 +1,8 @@
 import MainLayout from "@/components/layout/main-layout.tsx";
 import SecondaryNav from "@/components/navigation/secondary-nav.tsx";
-import {Button} from "@/components/ui/button.tsx";
+import {BackButton, SaveButton} from "@/components/ui/button.tsx";
 import {Form, Input} from "antd";
+import {Separator} from "@/components/ui/separator.tsx";
 
 export default function CreateStaff() {
     const [form] = Form.useForm();
@@ -9,13 +10,24 @@ export default function CreateStaff() {
     return <MainLayout>
         <SecondaryNav/>
         <section className={"py-4 px-12 space-y-4"}>
-            <div className={"w-full flex justify-end gap-2"}>
-                <Button size={"xs"} variant={"outline"}>Kembali</Button>
-                <Button size={"xs"} variant={"primary"}>Simpan</Button>
+            <div className="flex items-center justify-between">
+                <div className="space-y-1 my-2">
+                    <h2 className="text-2xl font-semibold tracking-tight">
+                        Tambah Staff
+                    </h2>
+                    {/*<p className="text-sm text-muted-foreground">*/}
+                    {/*    Top picks for you. Updated daily.*/}
+                    {/*</p>*/}
+                </div>
+                <div className={"flex justify-end gap-2"}>
+                    <BackButton/>
+                    <SaveButton/>
+                </div>
             </div>
+            <Separator className=""/>
             {/*<Card className={"border-t-2 !border-t-primary"}>*/}
             {/*<CardContent className={"py-4 space-y-8"}>*/}
-            <h3 className={"font-semibold"}>Buat Data Staff / Guru Baru</h3>
+
             <Form
                 form={form}
                 layout={"vertical"}
