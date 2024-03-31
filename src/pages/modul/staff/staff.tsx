@@ -1,7 +1,11 @@
 import React, {useState} from 'react';
 import {Badge, Form, Input, InputNumber, Popconfirm, Table, Typography} from 'antd';
 import {Button} from "@/components/ui/button.tsx";
-import {XCircleIcon} from "lucide-react";
+import {FilterIcon, XCircleIcon} from "lucide-react";
+import MainLayout from "@/components/layout/main-layout.tsx";
+import SecondaryNav from "@/components/navigation/secondary-nav.tsx";
+import {Link} from "@tanstack/react-router";
+import {Separator} from "@/components/ui/separator.tsx";
 
 interface Item {
     key: string;
@@ -23,7 +27,7 @@ for (let i = 0; i < 100; i++) {
 interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
     editing: boolean;
     dataIndex: string;
-    title: any;
+    title: string;
     inputType: 'number' | 'text';
     record: Item;
     index: number;
@@ -66,7 +70,7 @@ const EditableCell: React.FC<EditableCellProps> = ({
     );
 };
 
-const Tableku: React.FC = () => {
+const StaffPage: React.FC = () => {
     const [form] = Form.useForm();
     const [data, setData] = useState(originData);
     const [editingKey, setEditingKey] = useState('');
@@ -164,105 +168,93 @@ const Tableku: React.FC = () => {
         };
     });
 
-    function handleAddClick() {
-        setData([
-            {
-                key: "",
-                name: "",
-                age: 0,
-                address: "",
-            },
-            ...data
-        ])
-    }
+    const {Search} = Input
+    return (<MainLayout>
+            <SecondaryNav/>
+            <section className={"px-12 py-4"}>
 
-    return (<>
-            <div className={"flex justify-between  py-2 gap-1"}>
-                <div className={"overscroll-x-auto "}>
-                    <div className={"flex flex-row flex-wrap  gap-1 py-1  "}>
-                        <Badge
-                            size={"small"}
-                            className={"border-[1px] p-2 rounded-lg flex gap-1 text-center items-center text-xs"}>
-                            Jenis Kendaraan
-                            <XCircleIcon className={"w-4 h-4 text-zinc-500 cursor-pointer"}/>
-                        </Badge>
-                        <Badge
-                            size={"small"}
-                            className={"border-[1px] p-2 rounded-lg flex gap-1 text-center items-center text-xs"}>
-                            Jenis Kendaraan
-                            <XCircleIcon className={"w-4 h-4 text-zinc-500 cursor-pointer"}/>
-                        </Badge>
-                        <Badge
-                            size={"small"}
-                            className={"border-[1px] p-2 rounded-lg flex gap-1 text-center items-center text-xs"}>
-                            Jenis Kendaraan
-                            <XCircleIcon className={"w-4 h-4 text-zinc-500 cursor-pointer"}/>
-                        </Badge>
-                        <Badge
-                            size={"small"}
-                            className={"border-[1px] p-2 rounded-lg flex gap-1 text-center items-center text-xs"}>
-                            Jenis Kendaraan
-                            <XCircleIcon className={"w-4 h-4 text-zinc-500 cursor-pointer"}/>
-                        </Badge>
-                        <Badge
-                            size={"small"}
-                            className={"border-[1px] p-2 rounded-lg flex gap-1 text-center items-center text-xs"}>
-                            Jenis Kendaraan
-                            <XCircleIcon className={"w-4 h-4 text-zinc-500 cursor-pointer"}/>
-                        </Badge>
-                        <Badge
-                            size={"small"}
-                            className={"border-[1px] p-2 rounded-lg flex gap-1 text-center items-center text-xs"}>
-                            Jenis Kendaraan
-                            <XCircleIcon className={"w-4 h-4 text-zinc-500 cursor-pointer"}/>
-                        </Badge>
-                        <Badge
-                            size={"small"}
-                            className={"border-[1px] p-2 rounded-lg flex gap-1 text-center items-center text-xs"}>
-                            Jenis Kendaraan
-                            <XCircleIcon className={"w-4 h-4 text-zinc-500 cursor-pointer"}/>
-                        </Badge>
-                        <Badge
-                            size={"small"}
-                            className={"border-[1px] p-2 rounded-lg flex gap-1 text-center items-center text-xs"}>
-                            Jenis Kendaraan
-                            <XCircleIcon className={"w-4 h-4 text-zinc-500 cursor-pointer"}/>
-                        </Badge>
-                        <Badge
-                            size={"small"}
-                            className={"border-[1px] border-primary text-primary cursor-pointer p-2 rounded-lg flex gap-1 text-center items-center text-xs"}>
-                            Hapus Semua
-                        </Badge>
-
-
+                <div className="flex items-center justify-between">
+                    <div className="space-y-1 my-2">
+                        <h2 className="text-2xl font-semibold tracking-tight">
+                            List Karyawan
+                        </h2>
+                        <p className="text-sm text-muted-foreground">
+                            Top picks for you. Updated daily.
+                        </p>
+                    </div>
+                    <div className={"flex gap-1"}>
+                        <Search placeholder="Search Music" onSearch={() => {
+                        }} enterButton/>
+                        <Button
+                            size={"sm"}
+                            className={"flex gap-2 !bg-zinc-800 hover:!bg-zinc-500 border-0"}
+                        >
+                            Filter
+                            <FilterIcon className={"w-4 h-4 mt-1"} strokeWidth={1}/>
+                        </Button>
                     </div>
                 </div>
-                <Button onClick={handleAddClick} size={"sm"} variant={"primary"} className={"text-xs"}>+
-                    Tambah</Button>
-            </div>
-            <Form form={form} component={false}>
-                <Table
-                    components={{
-                        body: {
-                            cell: EditableCell,
-                        },
-                    }}
-                    bordered
-                    dataSource={data}
-                    columns={mergedColumns}
-                    rowClassName="editable-row"
-                    pagination={{
-                        onChange: cancel,
-                    }}
-                    size={"small"}
-                    scroll={{
-                        y: 400
-                    }}
-                />
-            </Form>
-        </>
+
+
+                <Separator className=""/>
+
+                <div className={"flex justify-between  py-2 gap-1"}>
+                    <div className={"overscroll-x-auto "}>
+                        <div className={"flex flex-row flex-wrap  gap-1 py-1  "}>
+                            <Badge
+                                size={"small"}
+                                className={"border-[1px] p-2 rounded-lg flex gap-1 text-center items-center text-xs"}>
+                                Jenis Kendaraan
+                                <XCircleIcon className={"w-4 h-4 text-zinc-500 cursor-pointer"}/>
+                            </Badge>
+                            <Badge
+                                size={"small"}
+                                className={"border-[1px] p-2 rounded-lg flex gap-1 text-center items-center text-xs"}>
+                                Jenis Kendaraan
+                                <XCircleIcon className={"w-4 h-4 text-zinc-500 cursor-pointer"}/>
+                            </Badge>
+
+                            <Badge
+                                size={"small"}
+                                className={"border-[1px] border-primary text-primary cursor-pointer p-2 rounded-lg flex gap-1 text-center items-center text-xs"}>
+                                Hapus Semua
+                            </Badge>
+
+
+                        </div>
+                    </div>
+                    <Link to={"/staff/create"}>
+                        <Button
+                            size={"sm"}
+                            variant={"primary"}
+                            className={"text-xs"}>
+                            + Tambah
+                        </Button>
+                    </Link>
+                </div>
+                <Form form={form} component={false}>
+                    <Table
+                        components={{
+                            body: {
+                                cell: EditableCell,
+                            },
+                        }}
+                        dataSource={data}
+                        columns={mergedColumns}
+                        rowClassName="editable-row"
+                        pagination={{
+                            onChange: cancel,
+                        }}
+                        size={"small"}
+                        scroll={{
+                            y: 400
+                        }}
+                    />
+                </Form>
+            </section>
+        </MainLayout>
 
     );
 };
 
-export default Tableku;
+export default StaffPage;

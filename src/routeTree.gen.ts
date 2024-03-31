@@ -12,6 +12,8 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
+import { Route as StaffIndexImport } from './routes/staff/index'
+import { Route as StaffCreateImport } from './routes/staff/create'
 import { Route as MasterSchoolImport } from './routes/master/school'
 import { Route as AuthRegisterImport } from './routes/auth/register'
 import { Route as AuthLoginImport } from './routes/auth/login'
@@ -21,6 +23,16 @@ import { Route as AuthForgetPasswordImport } from './routes/auth/forget-password
 
 const IndexRoute = IndexImport.update({
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const StaffIndexRoute = StaffIndexImport.update({
+  path: '/staff/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const StaffCreateRoute = StaffCreateImport.update({
+  path: '/staff/create',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -68,6 +80,14 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MasterSchoolImport
       parentRoute: typeof rootRoute
     }
+    '/staff/create': {
+      preLoaderRoute: typeof StaffCreateImport
+      parentRoute: typeof rootRoute
+    }
+    '/staff/': {
+      preLoaderRoute: typeof StaffIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -79,6 +99,8 @@ export const routeTree = rootRoute.addChildren([
   AuthLoginRoute,
   AuthRegisterRoute,
   MasterSchoolRoute,
+  StaffCreateRoute,
+  StaffIndexRoute,
 ])
 
 /* prettier-ignore-end */

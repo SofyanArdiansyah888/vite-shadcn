@@ -53,6 +53,9 @@
 .ant-btn{
   @apply bg-primary hover:!bg-primary/80 !text-white
 }
+.ant-form-item{
+  @apply !mb-0
+}
 
 @layer base {
   * {

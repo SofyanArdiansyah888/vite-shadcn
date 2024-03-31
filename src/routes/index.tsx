@@ -1,7 +1,7 @@
 import {createFileRoute} from '@tanstack/react-router'
-import HomePage from "@/pages/dashboard/home.tsx";
+import PortalPage from "@/pages/main/portal/portal.tsx";
 
 export const Route =
     createFileRoute('/')({
-    component: HomePage
-})
+        component: PortalPage
+    })
