@@ -2,12 +2,16 @@ import {LogOutIcon} from "lucide-react";
 import MainLayout from "@/components/layout/main-layout.tsx";
 import SecondaryNav from "@/components/navigation/secondary-nav.tsx";
 import {PersonIcon} from "@radix-ui/react-icons";
+import {useRouterState} from "@tanstack/react-router";
+import {activeCheck} from "@/lib/utils.ts";
 
 export default function StaffLayout({children}: { children: React.ReactNode }) {
+    const router = useRouterState()
+
     const menus = [
         {
             link: "/staff",
-            button: <div className={"gap-2 flex items-center"}>
+            button: <div className={`gap-2 flex items-center ${activeCheck("/staff",router)}`}>
                 <PersonIcon className={"w-4 h-4"} strokeWidth={1}/>
                 Data Staff
             </div>,

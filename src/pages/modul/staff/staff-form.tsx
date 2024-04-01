@@ -3,7 +3,7 @@ import {Form, Input} from "antd";
 import {Separator} from "@/components/ui/separator.tsx";
 import StaffLayout from "@/components/layout/staff-layout.tsx";
 
-export default function CreateStaff() {
+export default function StaffForm() {
     const [form] = Form.useForm();
 
     return <StaffLayout>
@@ -30,8 +30,8 @@ export default function CreateStaff() {
                 form={form}
                 layout={"vertical"}
             >
-                <div className={"grid grid-cols-3 gap-x-4 gap-y-0 gap-y-2"}>
-                    <Form.Item label="Field A">
+                <div className={"grid grid-cols-3 gap-x-4 gap-y-1"}>
+                    <Form.Item label="Matakuliah">
                         <Input/>
                     </Form.Item>
                     <Form.Item label="Field A">

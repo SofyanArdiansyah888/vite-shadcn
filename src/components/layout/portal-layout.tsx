@@ -2,12 +2,15 @@ import SecondaryNav from "@/components/navigation/secondary-nav.tsx";
 import MainLayout from "@/components/layout/main-layout.tsx";
 import {CircleGaugeIcon, CircleUserIcon, SchoolIcon} from "lucide-react";
 import {DashboardIcon} from "@radix-ui/react-icons";
+import {useRouterState} from "@tanstack/react-router";
+import {activeCheck} from "@/lib/utils.ts";
 
 export default function PortalLayout({children}: { children: React.ReactNode }) {
+    const router = useRouterState()
     const menus = [
         {
             link: "/",
-            button: <div className={"gap-2 flex items-center"}>
+            button: <div className={`gap-2 flex items-center ${activeCheck("/",router)}`}>
                 <CircleGaugeIcon className={"w-4 h-4"} strokeWidth={1}/>
                 Portal
             </div>,

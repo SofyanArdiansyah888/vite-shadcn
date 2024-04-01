@@ -56,6 +56,9 @@
 .ant-form-item{
   @apply !mb-0
 }
+.ant-table-cell{
+  @apply !py-1 !px-3
+}
 
 @layer base {
   * {

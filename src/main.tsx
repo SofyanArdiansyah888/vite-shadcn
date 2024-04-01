@@ -31,7 +31,7 @@ if (!rootElement.innerHTML) {
         <QueryClientProvider client={queryClient}>
             <ConfigProvider theme={{
                 token:{
-                    colorPrimary: "orange",
+                    colorPrimary: "#EA580C",
                     borderRadius: 8,
                 }
             }}>
