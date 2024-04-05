@@ -1,26 +1,46 @@
-import {Label} from "@/components/ui/label.tsx";
-import {Select} from "antd";
+import {Form, Select} from "antd";
+import {RuleObject, RuleRender} from "rc-field-form/lib/interface";
 
-interface IFormSelect {
-    label: string
-    defaultValue: string
-    options: { value: string, label: string }[]
-    onChange?: any
+
+export interface IFormSelectValue {
+    value: string,
+    label: string,
+    disabled?: boolean
 }
 
-export default function FormSelect({label, onChange, defaultValue}: IFormSelect) {
-    return <div className={"space-y-1"}>
-        <Label>{label}</Label>
+interface IFormSelect {
+    name: string,
+    label: string,
+    defaultValue?: Pick<IFormSelectValue, "value" | "label">
+    options: IFormSelectValue[]
+    onChange?: ((value: Pick<IFormSelectValue, "value" | "label">, option: (IFormSelectValue | IFormSelectValue[])) => void) | undefined,
+    mode?: "multiple" | "tags" | undefined,
+    placeholder?: string,
+    rules?: RuleObject[] | RuleRender[]
+}
+
+export default function FormSelect({
+                                       name,
+                                       label,
+                                       onChange,
+                                       defaultValue,
+                                       options,
+                                       mode,
+                                       placeholder,
+                                       rules
+                                   }: IFormSelect) {
+    return <Form.Item name={name} label={label} rules={rules}>
         <Select
+            key={name}
+            mode={mode}
             defaultValue={defaultValue}
             style={{width: "100%"}}
             onChange={onChange}
-            options={[
-                {value: 'jack', label: 'Jack'},
-                {value: 'lucy', label: 'Lucy'},
-                {value: 'Yiminghe', label: 'yiminghe'},
-                {value: 'disabled', label: 'Disabled', disabled: true},
-            ]}
+            options={options}
+            allowClear={true}
+            placeholder={placeholder}
+            labelInValue={true}
         />
-    </div>
+    </Form.Item>
+
 }
