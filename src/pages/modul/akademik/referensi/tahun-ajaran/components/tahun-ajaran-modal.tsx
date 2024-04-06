@@ -1,9 +1,9 @@
 import FormModal from "@/components/shared/modal/form-modal.tsx";
 import {Form} from "antd";
 import FormInput from "@/components/shared/form/form-input.tsx";
-import FormSelect from "@/components/shared/form/form-select.tsx";
 import TahunAjaranEntity from "@/pages/modul/akademik/referensi/tahun-ajaran/data/tahun-ajaran.entity.ts";
 import {Dispatch, useEffect} from "react";
+import SekolahSelect from "@/components/shared/form/sekolah-select.tsx";
 
 interface ITahunAjaranModal {
     selectedData: TahunAjaranEntity | undefined,
@@ -24,13 +24,13 @@ export default function TahunAjaranModal({isOpen, handleGroupModal, selectedData
         if (selectedData) {
             form.setFieldsValue({...selectedData})
         }
-        if(!isOpen){
+        if (!isOpen) {
             form.resetFields()
         }
         return () => {
-            setSelectedData(undefined )
+            setSelectedData(undefined)
         }
-    }, [form, selectedData, setSelectedData,isOpen])
+    }, [form, selectedData, setSelectedData, isOpen])
 
     return <FormModal<TahunAjaranEntity>
         form={form}
@@ -38,16 +38,9 @@ export default function TahunAjaranModal({isOpen, handleGroupModal, selectedData
         isOpen={isOpen}
         setIsOpen={(value) => handleGroupModal("modal", value as boolean)}
         onSubmit={handleSubmit}>
-        <FormSelect
-            name={"sekolah"}
-            label={"Sekolah"}
-            options={[
-                {
-                    value: "",
-                    label: "SD Mangkura I"
-                }
-            ]}
-        />
+
+        <SekolahSelect/>
+
         <FormInput
             name={"tahun_ajaran"}
             label={"Tahun Ajaran"}
