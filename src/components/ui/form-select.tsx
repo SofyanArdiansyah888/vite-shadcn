@@ -12,6 +12,7 @@ interface IFormSelect {
     name: string,
     label: string,
     defaultValue?: Pick<IFormSelectValue, "value" | "label">
+    value?: Pick<IFormSelectValue, "value" | "label">
     options: IFormSelectValue[]
     onChange?: ((value: Pick<IFormSelectValue, "value" | "label">, option: (IFormSelectValue | IFormSelectValue[])) => void) | undefined,
     mode?: "multiple" | "tags" | undefined,
@@ -27,10 +28,12 @@ export default function FormSelect({
                                        options,
                                        mode,
                                        placeholder,
-                                       rules
+                                       rules,
+                                       value
                                    }: IFormSelect) {
     return <Form.Item name={name} label={label} rules={rules}>
         <Select
+            value={value}
             key={name}
             mode={mode}
             defaultValue={defaultValue}

@@ -32,7 +32,6 @@ export default function FilterModal<T>({
     async function handleOKModal() {
         try {
             const values = await formInstance?.validateFields();
-            formInstance?.resetFields();
             onSubmit(values)
         } catch (error) {
             console.log('Failed:', error);
