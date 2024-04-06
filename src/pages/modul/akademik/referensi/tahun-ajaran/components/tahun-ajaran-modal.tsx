@@ -24,10 +24,13 @@ export default function TahunAjaranModal({isOpen, handleGroupModal, selectedData
         if (selectedData) {
             form.setFieldsValue({...selectedData})
         }
+        if(!isOpen){
+            form.resetFields()
+        }
         return () => {
             setSelectedData(undefined )
         }
-    }, [form, selectedData, setSelectedData])
+    }, [form, selectedData, setSelectedData,isOpen])
 
     return <FormModal<TahunAjaranEntity>
         form={form}

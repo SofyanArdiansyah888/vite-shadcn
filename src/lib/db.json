@@ -105,5 +105,42 @@
       "updated_at": "2024-03-31T12:00:00",
       "deleted_at": null
     }
+  ],
+  "tahun-ajaran": [
+    {
+      "id": "1",
+      "tahun_ajaran": "2022/2023",
+      "nama_sekolah": "Sekolah Dasar Negeri 1",
+      "created_at": "2022-01-01T12:00:00",
+      "updated_at": "2022-01-01T12:00:00"
+    },
+    {
+      "id": "2",
+      "tahun_ajaran": "2023/2024",
+      "nama_sekolah": "Sekolah Menengah Pertama 2",
+      "created_at": "2022-02-01T12:00:00",
+      "updated_at": "2022-02-01T12:00:00"
+    },
+    {
+      "id": "3",
+      "tahun_ajaran": "2024/2025",
+      "nama_sekolah": "Sekolah Menengah Atas 3",
+      "created_at": "2022-03-01T12:00:00",
+      "updated_at": "2022-03-01T12:00:00"
+    },
+    {
+      "id": "4",
+      "tahun_ajaran": "2025/2026",
+      "nama_sekolah": "Sekolah Dasar Negeri 4",
+      "created_at": "2022-04-01T12:00:00",
+      "updated_at": "2022-04-01T12:00:00"
+    },
+    {
+      "id": "5",
+      "tahun_ajaran": "2026/2027",
+      "nama_sekolah": "Sekolah Menengah Pertama 5",
+      "created_at": "2022-05-01T12:00:00",
+      "updated_at": "2022-05-01T12:00:00"
+    }
   ]
 }

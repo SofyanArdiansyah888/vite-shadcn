@@ -72,6 +72,7 @@ export default function TahunAjaranTable({handleGroupModal, params, setSelectedD
         },
     ];
 
+
     return <Table
         dataSource={data}
         columns={columns}
