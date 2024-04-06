@@ -1,6 +1,6 @@
 import {Table} from "antd";
-import React, {useState} from "react";
 import {DeleteButtonIcon, DetailButtonIcon, EditButtonIcon} from "@/components/ui/button.tsx";
+import {useGetList} from "@/hooks/useApi.tsx";
 
 interface Item {
     key: string;
@@ -9,20 +9,19 @@ interface Item {
     address: string;
 }
 
-const originData: Item[] = [];
-for (let i = 0; i < 100; i++) {
-    originData.push({
-        key: i.toString(),
-        name: `Edward ${i}`,
-        age: "Laki-laki",
-        address: `London Park no. ${i}`,
-    });
-}
+
 
 export default function StaffTable() {
-    const [data] = useState(originData);
+    const {data} = useGetList<Item[]>({
+        endpoint: "/staff",
+        name: "staff",
+        params: {}
+    })
+
     const cancel = () => {
     };
+
+
 
     const columns = [
         {
@@ -46,7 +45,7 @@ export default function StaffTable() {
             dataIndex: 'operation',
             width: '100px',
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            render: (_: never, record: Item) =>
+            render: (_: never, __: Item) =>
                 <div className={"flex gap-1"}>
                     <EditButtonIcon/>
                     <DetailButtonIcon/>
