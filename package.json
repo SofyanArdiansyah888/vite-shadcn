@@ -47,6 +47,7 @@
     "clsx": "^2.1.0",
     "cmdk": "^1.0.0",
     "dropzone": "^6.0.0-beta.2",
+    "json-server": "^1.0.0-alpha.23",
     "lucide-react": "^0.363.0",
     "react": "^18.2.0",
     "react-day-picker": "^8.10.0",

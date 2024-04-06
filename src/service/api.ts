@@ -45,7 +45,7 @@ export function apiRequest<T>({
 
 
 
-export function getList<T>(endpoint: string, params: never) {
+export function getList<T>(endpoint: string, params: any) {
     const urlSearchParams = new URLSearchParams();
     if (params) {
         Object.entries(params).map((item) => {

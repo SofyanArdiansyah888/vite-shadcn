@@ -1,19 +1,21 @@
 import {
     NavigationMenu,
+    NavigationMenuContent,
     NavigationMenuItem,
     NavigationMenuList,
     NavigationMenuTrigger
 } from "@/components/ui/navigation-menu.tsx";
 import {Link} from "@tanstack/react-router";
+import {ReactNode} from "react";
 
 interface ISubmenu {
     link: string
-    title: string
+    button: ReactNode
 }
 
 interface IMenu {
     link: string
-    button: React.ReactNode
+    button: ReactNode
     submenu?: ISubmenu[]
 }
 
@@ -28,34 +30,30 @@ export default function SecondaryNav({menus}: ISecondaryNavProps) {
                 <NavigationMenuList className={"space-x-0"}>
                     {
                         menus?.map((item, key) => {
-                            return <NavigationMenuItem key={key}>
-                                <Link to={item.link}>
-                                    <NavigationMenuTrigger
-                                        className={"bg-transparent gap-2 hover:text-primary font-medium"}>
-                                        {item.button}
-                                    </NavigationMenuTrigger>
-                                </Link>
-                                {/*{*/}
-                                {/*    item?.submenu ? <>*/}
-                                {/*            <NavigationMenuTrigger*/}
-                                {/*                className={"bg-transparent gap-2 hover:text-primary font-medium"}>*/}
-                                {/*                {item.button}*/}
-                                {/*            </NavigationMenuTrigger>*/}
-                                {/*            <NavigationMenuContent>*/}
-                                {/*                <ul>*/}
-                                {/*                    {item?.submenu?.map((subItem, subKey) => <li*/}
-                                {/*                        key={subKey}>{subItem.title}</li>)}*/}
-                                {/*                </ul>*/}
-                                {/*            </NavigationMenuContent>*/}
-                                {/*        </> :*/}
-                                {/*        <Link to={item.link}>*/}
-                                {/*            <NavigationMenuTrigger*/}
-                                {/*                className={"bg-transparent gap-2 hover:text-primary font-medium"}>*/}
-                                {/*                {item.button}*/}
-                                {/*            </NavigationMenuTrigger>*/}
-                                {/*        </Link>*/}
-                                {/*}*/}
+                            if (!item?.submenu) {
+                                return <NavigationMenuItem key={key}>
+                                    <Link to={item.link}>
+                                        <NavigationMenuTrigger
+                                            className={"bg-transparent gap-2 hover:text-primary font-medium"}>
+                                            {item.button}
+                                        </NavigationMenuTrigger>
+                                    </Link>
+                                </NavigationMenuItem>
+                            }
+
+                            return <NavigationMenuItem>
+                                <NavigationMenuTrigger
+                                    className={"bg-transparent gap-2 hover:text-primary font-medium"}>
+                                    {item.button}
+                                </NavigationMenuTrigger>
+                                <NavigationMenuContent>
+                                    <ul>
+                                        {item?.submenu?.map((subItem, subKey) =>  <li
+                                            key={subKey}><Link to={subItem.link}>{subItem.button}</Link></li>)}
+                                    </ul>
+                                </NavigationMenuContent>
                             </NavigationMenuItem>
+
                         })
                     }
                     {/*<NavigationMenuItem>*/}

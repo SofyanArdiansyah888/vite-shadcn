@@ -2,7 +2,7 @@ import FormSelect, {IFormSelectValue} from "@/components/ui/form-select.tsx";
 import {useEffect, useState} from "react";
 import FilterModal from "@/components/shared/modal/filter-modal.tsx";
 import {Form} from "antd";
-import useStaffStore from "@/pages/modul/staff/components/useStaffStore.tsx";
+import useStaffStore from "@/pages/modul/staff/data/useStaffStore.tsx";
 
 export interface IFilterPayload {
     jenis_kelamin?: Pick<IFormSelectValue, "value" | "label">;

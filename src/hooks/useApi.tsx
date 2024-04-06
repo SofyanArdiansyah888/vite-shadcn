@@ -16,8 +16,8 @@ export function useGetList<T>({
                            }: IGet) {
 
     return useQuery<T>({
-        queryKey: [name],
-        queryFn: async () => await getList(endpoint, params),
+        queryKey: [name,params],
+        queryFn: async ({queryKey}) => await getList(endpoint, queryKey[1]),
     });
 }
 

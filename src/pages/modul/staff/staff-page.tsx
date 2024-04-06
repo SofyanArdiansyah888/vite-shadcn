@@ -5,7 +5,7 @@ import {BadgeDeleteFilter, BadgeFilter} from "@/components/ui/custom-badge.tsx";
 import StaffLayout from "@/components/layout/staff-layout.tsx";
 import StaffFilter from "@/pages/modul/staff/components/staff-filter.tsx";
 import CustomHeader from "@/components/shared/custom-header.tsx";
-import useStaffStore from "@/pages/modul/staff/components/useStaffStore.tsx";
+import useStaffStore from "@/pages/modul/staff/data/useStaffStore.tsx";
 import StaffTable from "@/pages/modul/staff/components/staff-table.tsx";
 
 

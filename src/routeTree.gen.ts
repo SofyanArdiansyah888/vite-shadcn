@@ -13,11 +13,19 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
 import { Route as StaffIndexImport } from './routes/staff/index'
+import { Route as AkademikIndexImport } from './routes/akademik/index'
 import { Route as StaffCreateImport } from './routes/staff/create'
 import { Route as MasterSchoolImport } from './routes/master/school'
 import { Route as AuthRegisterImport } from './routes/auth/register'
 import { Route as AuthLoginImport } from './routes/auth/login'
 import { Route as AuthForgetPasswordImport } from './routes/auth/forget-password'
+import { Route as AkademikJadwalPengajarImport } from './routes/akademik/jadwal-pengajar'
+import { Route as AkademikJadwalPelajaranImport } from './routes/akademik/jadwal-pelajaran'
+import { Route as AkademikAnggotaKelasImport } from './routes/akademik/anggota-kelas'
+import { Route as AkademikAbsensiPertemuanImport } from './routes/akademik/absensi-pertemuan'
+import { Route as AkademikReferensiTahunAjaranImport } from './routes/akademik/referensi/tahun-ajaran'
+import { Route as AkademikReferensiMatapelajaranImport } from './routes/akademik/referensi/matapelajaran'
+import { Route as AkademikReferensiKelasImport } from './routes/akademik/referensi/kelas'
 
 // Create/Update Routes
 
@@ -28,6 +36,11 @@ const IndexRoute = IndexImport.update({
 
 const StaffIndexRoute = StaffIndexImport.update({
   path: '/staff/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AkademikIndexRoute = AkademikIndexImport.update({
+  path: '/akademik/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -56,12 +69,65 @@ const AuthForgetPasswordRoute = AuthForgetPasswordImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const AkademikJadwalPengajarRoute = AkademikJadwalPengajarImport.update({
+  path: '/akademik/jadwal-pengajar',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AkademikJadwalPelajaranRoute = AkademikJadwalPelajaranImport.update({
+  path: '/akademik/jadwal-pelajaran',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AkademikAnggotaKelasRoute = AkademikAnggotaKelasImport.update({
+  path: '/akademik/anggota-kelas',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AkademikAbsensiPertemuanRoute = AkademikAbsensiPertemuanImport.update({
+  path: '/akademik/absensi-pertemuan',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AkademikReferensiTahunAjaranRoute =
+  AkademikReferensiTahunAjaranImport.update({
+    path: '/akademik/referensi/tahun-ajaran',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const AkademikReferensiMatapelajaranRoute =
+  AkademikReferensiMatapelajaranImport.update({
+    path: '/akademik/referensi/matapelajaran',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const AkademikReferensiKelasRoute = AkademikReferensiKelasImport.update({
+  path: '/akademik/referensi/kelas',
+  getParentRoute: () => rootRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
       preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/akademik/absensi-pertemuan': {
+      preLoaderRoute: typeof AkademikAbsensiPertemuanImport
+      parentRoute: typeof rootRoute
+    }
+    '/akademik/anggota-kelas': {
+      preLoaderRoute: typeof AkademikAnggotaKelasImport
+      parentRoute: typeof rootRoute
+    }
+    '/akademik/jadwal-pelajaran': {
+      preLoaderRoute: typeof AkademikJadwalPelajaranImport
+      parentRoute: typeof rootRoute
+    }
+    '/akademik/jadwal-pengajar': {
+      preLoaderRoute: typeof AkademikJadwalPengajarImport
       parentRoute: typeof rootRoute
     }
     '/auth/forget-password': {
@@ -84,8 +150,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StaffCreateImport
       parentRoute: typeof rootRoute
     }
+    '/akademik/': {
+      preLoaderRoute: typeof AkademikIndexImport
+      parentRoute: typeof rootRoute
+    }
     '/staff/': {
       preLoaderRoute: typeof StaffIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/akademik/referensi/kelas': {
+      preLoaderRoute: typeof AkademikReferensiKelasImport
+      parentRoute: typeof rootRoute
+    }
+    '/akademik/referensi/matapelajaran': {
+      preLoaderRoute: typeof AkademikReferensiMatapelajaranImport
+      parentRoute: typeof rootRoute
+    }
+    '/akademik/referensi/tahun-ajaran': {
+      preLoaderRoute: typeof AkademikReferensiTahunAjaranImport
       parentRoute: typeof rootRoute
     }
   }
@@ -95,12 +177,20 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexRoute,
+  AkademikAbsensiPertemuanRoute,
+  AkademikAnggotaKelasRoute,
+  AkademikJadwalPelajaranRoute,
+  AkademikJadwalPengajarRoute,
   AuthForgetPasswordRoute,
   AuthLoginRoute,
   AuthRegisterRoute,
   MasterSchoolRoute,
   StaffCreateRoute,
+  AkademikIndexRoute,
   StaffIndexRoute,
+  AkademikReferensiKelasRoute,
+  AkademikReferensiMatapelajaranRoute,
+  AkademikReferensiTahunAjaranRoute,
 ])
 
 /* prettier-ignore-end */
