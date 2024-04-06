@@ -1,4 +1,4 @@
-import FormSelect, {IFormSelectValue} from "@/components/ui/form-select.tsx";
+import FormSelect, {IFormSelectValue} from "@/components/shared/form/form-select.tsx";
 import {useEffect, useState} from "react";
 import FilterModal from "@/components/shared/modal/filter-modal.tsx";
 import {Form} from "antd";
