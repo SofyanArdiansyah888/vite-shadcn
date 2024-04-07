@@ -60,8 +60,8 @@ export function getList<T>(endpoint: string, params: any) {
     });
 }
 
-export function getDetail(endpoint: string, id: string) {
-    return apiRequest({
+export function getDetail<T>(endpoint: string, id: string) {
+    return apiRequest<T>({
         // token: user?.token,
         method: "GET",
         endpoint: `${endpoint}/${id}`,

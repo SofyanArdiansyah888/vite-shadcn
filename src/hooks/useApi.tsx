@@ -5,7 +5,7 @@ import {useQuery} from "@tanstack/react-query";
 interface IGet {
     name: string;
     endpoint: string;
-    params: {}
+    params: {};
 }
 
 
@@ -24,14 +24,14 @@ export function useGetList<T>({
 interface IGetDetail extends Omit<IGet, "params">{
     id: string
 }
-export function useGetDetail({
+export function useGetDetail<T>({
                                  name,
                                  endpoint,
                                  id
                              }: IGetDetail) {
 
-    return useQuery({
+    return useQuery<T>({
         queryKey: [name, id],
-        queryFn: async ({queryKey}) => await getDetail(endpoint, queryKey[1]),
+        queryFn: async ({queryKey}) => await getDetail<T>(endpoint, queryKey[1] as string),
     });
 }

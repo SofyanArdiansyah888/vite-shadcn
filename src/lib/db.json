@@ -256,5 +256,172 @@
       "updated_at": "2022-01-05T12:00:00",
       "catatan": "Catatan 5"
     }
+  ],
+  "absensi-pertemuan": [
+    {
+      "id": "1",
+      "sekolah": "Sekolah Dasar Negeri 1",
+      "tahun_ajaran": "2022/2023",
+      "kelas": "Kelas 1A",
+      "tanggal": "2022-01-01",
+      "matapelajaran": "Matematika",
+      "guru": "Budi Santoso",
+      "catatan": "Catatan pertemuan 1",
+      "materi": "Pengenalan Bilangan Bulat",
+      "absensi": [
+        {
+          "nama": "Ani",
+          "hadir": true,
+          "absen": false,
+          "izin": false,
+          "sakit": false,
+          "created_at": "2022-01-01T08:00:00",
+          "updated_at": "2022-01-01T08:00:00"
+        },
+        {
+          "nama": "Budi",
+          "hadir": false,
+          "absen": true,
+          "izin": false,
+          "sakit": false,
+          "created_at": "2022-01-01T08:00:00",
+          "updated_at": "2022-01-01T08:00:00"
+        }
+      ],
+      "created_at": "2022-01-01T12:00:00",
+      "updated_at": "2022-01-01T12:00:00"
+    },
+    {
+      "id": "2",
+      "sekolah": "Sekolah Dasar Negeri 1",
+      "tahun_ajaran": "2022/2023",
+      "kelas": "Kelas 1B",
+      "tanggal": "2022-01-02",
+      "matapelajaran": "Bahasa Indonesia",
+      "guru": "Ani Rahmawati",
+      "catatan": "Catatan pertemuan 2",
+      "materi": "Pengenalan Huruf Vokal",
+      "absensi": [
+        {
+          "nama": "Cahyo",
+          "hadir": true,
+          "absen": false,
+          "izin": false,
+          "sakit": false,
+          "created_at": "2022-01-02T08:00:00",
+          "updated_at": "2022-01-02T08:00:00"
+        },
+        {
+          "nama": "Dewi",
+          "hadir": true,
+          "absen": false,
+          "izin": false,
+          "sakit": false,
+          "created_at": "2022-01-02T08:00:00",
+          "updated_at": "2022-01-02T08:00:00"
+        }
+      ],
+      "created_at": "2022-01-02T12:00:00",
+      "updated_at": "2022-01-02T12:00:00"
+    },
+    {
+      "id": "3",
+      "sekolah": "Sekolah Dasar Negeri 2",
+      "tahun_ajaran": "2022/2023",
+      "kelas": "Kelas 2A",
+      "tanggal": "2022-01-03",
+      "matapelajaran": "IPA",
+      "guru": "Cahyo Wibowo",
+      "catatan": "Catatan pertemuan 3",
+      "materi": "Pengenalan Sistem Pernapasan",
+      "absensi": [
+        {
+          "nama": "Eko",
+          "hadir": true,
+          "absen": false,
+          "izin": false,
+          "sakit": false,
+          "created_at": "2022-01-03T08:00:00",
+          "updated_at": "2022-01-03T08:00:00"
+        },
+        {
+          "nama": "Fani",
+          "hadir": false,
+          "absen": false,
+          "izin": true,
+          "sakit": false,
+          "created_at": "2022-01-03T08:00:00",
+          "updated_at": "2022-01-03T08:00:00"
+        }
+      ],
+      "created_at": "2022-01-03T12:00:00",
+      "updated_at": "2022-01-03T12:00:00"
+    },
+    {
+      "id": "4",
+      "sekolah": "Sekolah Dasar Negeri 2",
+      "tahun_ajaran": "2022/2023",
+      "kelas": "Kelas 2B",
+      "tanggal": "2022-01-04",
+      "matapelajaran": "IPS",
+      "guru": "Dewi Utami",
+      "catatan": "Catatan pertemuan 4",
+      "materi": "Pengenalan Sistem Pemerintahan",
+      "absensi": [
+        {
+          "nama": "Gani",
+          "hadir": true,
+          "absen": false,
+          "izin": false,
+          "sakit": false,
+          "created_at": "2022-01-04T08:00:00",
+          "updated_at": "2022-01-04T08:00:00"
+        },
+        {
+          "nama": "Hani",
+          "hadir": true,
+          "absen": false,
+          "izin": false,
+          "sakit": false,
+          "created_at": "2022-01-04T08:00:00",
+          "updated_at": "2022-01-04T08:00:00"
+        }
+      ],
+      "created_at": "2022-01-04T12:00:00",
+      "updated_at": "2022-01-04T12:00:00"
+    },
+    {
+      "id": "5",
+      "sekolah": "Sekolah Dasar Negeri 3",
+      "tahun_ajaran": "2022/2023",
+      "kelas": "Kelas 3A",
+      "tanggal": "2022-01-05",
+      "matapelajaran": "Seni Budaya",
+      "guru": "Eko Susilo",
+      "catatan": "Catatan pertemuan 5",
+      "materi": "Pengenalan Seni Lukis",
+      "absensi": [
+        {
+          "nama": "Ika",
+          "hadir": true,
+          "absen": false,
+          "izin": false,
+          "sakit": false,
+          "created_at": "2022-01-05T08:00:00",
+          "updated_at": "2022-01-05T08:00:00"
+        },
+        {
+          "nama": "Joni",
+          "hadir": false,
+          "absen": false,
+          "izin": false,
+          "sakit": true,
+          "created_at": "2022-01-05T08:00:00",
+          "updated_at": "2022-01-05T08:00:00"
+        }
+      ],
+      "created_at": "2022-01-05T12:00:00",
+      "updated_at": "2022-01-05T12:00:00"
+    }
   ]
 }
