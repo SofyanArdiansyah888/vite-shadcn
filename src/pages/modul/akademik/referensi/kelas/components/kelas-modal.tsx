@@ -4,6 +4,8 @@ import FormInput from "@/components/shared/form/form-input.tsx";
 import {Dispatch, useEffect} from "react";
 import SekolahSelect from "@/components/shared/form/sekolah-select.tsx";
 import KelasEntity from "@/pages/modul/akademik/referensi/kelas/data/kelas.entity.ts";
+import TahunAjaranSelect from "@/components/shared/form/tahun-ajaran-select.tsx";
+import WaliKelasSelect from "@/components/shared/form/wali-kelas-select.tsx";
 
 interface IKelasModal {
     selectedData:KelasEntity | undefined,
@@ -39,11 +41,13 @@ export default function KelasModal({isOpen, handleGroupModal, selectedData, setS
         setIsOpen={(value) => handleGroupModal("modal", value as boolean)}
         onSubmit={handleSubmit}>
 
-        <SekolahSelect/>
+        <SekolahSelect />
+        <TahunAjaranSelect />
+        <WaliKelasSelect />
 
         <FormInput
-            name={"tahun_ajaran"}
-            label={"Tahun Ajaran"}
+            name={"nama_kelas"}
+            label={"Nama Kelas"}
         />
     </FormModal>
 }

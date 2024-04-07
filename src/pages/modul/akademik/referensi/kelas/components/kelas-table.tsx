@@ -5,12 +5,15 @@ import KelasEntity from "@/pages/modul/akademik/referensi/kelas/data/kelas.entit
 import {tanggalID} from "@/lib/formatter.ts";
 import {IUseParams} from "@/hooks/useParams.tsx";
 import {Dispatch} from "react";
+import {deleteAlert} from "@/components/shared/alert.tsx";
 
-export default function KelasTable({handleGroupModal, params, setSelectedData}: {
+export default function KelasTable({handleGroupModal, params, setSelectedData, setDetail}: {
     params: IUseParams,
     handleGroupModal: (key: string, value: boolean) => void,
     setSelectedData: Dispatch<KelasEntity>
+    setDetail: Dispatch<{ key: string, value: string }[]>
 }) {
+
 
     const {data, isLoading} = useGetList<KelasEntity[]>({
         endpoint: "/kelas",
@@ -18,19 +21,51 @@ export default function KelasTable({handleGroupModal, params, setSelectedData}: 
         params
     })
 
-
     function handleEditClick(data: KelasEntity) {
-        console.log(data)
         setSelectedData(data)
         handleGroupModal("modal", true)
     }
 
     function handleDeleteClick(data: KelasEntity) {
-        console.log(data)
+        deleteAlert({
+            data,
+            handleSubmit: () => {
+                return new Promise((resolve, reject) => {
+                    setTimeout(Math.random() > 0.5 ? resolve : reject, 1000);
+                }).catch(() => console.log('Oops errors!'));
+            }
+        })
     }
 
     function handleDetailClick(data: KelasEntity) {
-        console.log(data)
+        const temp = [
+            {
+                key: "Nama Sekolah",
+                value: data.nama_sekolah
+            },
+            {
+                key: "Nama Kelas",
+                value: data.nama_kelas
+            },
+            {
+                key: "Tahun Ajaran",
+                value: data.tahun_ajaran
+            },
+            {
+                key: "Wali Kelas",
+                value: data.wali_kelas
+            },
+            {
+                key: "Created",
+                value: tanggalID(data.created_at)
+            },
+            {
+                key: "Updated",
+                value: tanggalID(data.updated_at)
+            }
+        ]
+        setDetail(temp)
+        handleGroupModal("detailModal", true)
     }
 
     const columns = [
