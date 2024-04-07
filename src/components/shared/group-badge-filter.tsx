@@ -1,4 +1,4 @@
-import {BadgeDeleteFilter, BadgeFilter} from "@/components/ui/custom-badge.tsx";
+import {BadgeDeleteFilter, BadgeFilter} from "@/components/shared/custom-badge.tsx";
 import {IFormSelectValue} from "@/components/shared/form/form-select.tsx";
 
 interface IBadgeFilter {
