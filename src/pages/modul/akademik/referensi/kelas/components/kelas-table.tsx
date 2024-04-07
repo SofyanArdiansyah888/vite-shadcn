@@ -41,11 +41,11 @@ export default function KelasTable({handleGroupModal, params, setSelectedData, s
         const temp = [
             {
                 key: "Nama Sekolah",
-                value: data.nama_sekolah
+                value: data.sekolah
             },
             {
                 key: "Nama Kelas",
-                value: data.nama_kelas
+                value: data.kelas
             },
             {
                 key: "Tahun Ajaran",
@@ -71,7 +71,7 @@ export default function KelasTable({handleGroupModal, params, setSelectedData, s
     const columns = [
         {
             title: 'Nama Sekolah',
-            dataIndex: 'nama_sekolah',
+            dataIndex: 'sekolah',
             // width: '25%',
             sorter: true,
         },
@@ -86,7 +86,7 @@ export default function KelasTable({handleGroupModal, params, setSelectedData, s
         },
         {
             title: 'Nama Kelas',
-            dataIndex: 'nama_kelas',
+            dataIndex: 'kelas',
             width: '15%',
         },
         {

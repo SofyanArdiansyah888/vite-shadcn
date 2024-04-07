@@ -46,7 +46,7 @@ export default function KelasModal({isOpen, handleGroupModal, selectedData, setS
         <WaliKelasSelect />
 
         <FormInput
-            name={"nama_kelas"}
+            name={"kelas"}
             label={"Nama Kelas"}
         />
     </FormModal>

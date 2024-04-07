@@ -22,7 +22,7 @@ export default function KelasFilter() {
 
     useEffect(() => {
         form.setFieldsValue({
-            nama_sekolah: filterPayload.nama_sekolah,
+            sekolah: filterPayload.sekolah,
             tahun_ajaran: filterPayload.tahun_ajaran,
         })
     }, [filterPayload, form, isOpen]);
@@ -36,10 +36,10 @@ export default function KelasFilter() {
     >
 
         <FormSelect
-            name={"nama_sekolah"}
+            name={"sekolah"}
             label={"Sekolah"}
-            defaultValue={filterPayload.nama_sekolah}
-            onChange={(value) => handleChange("nama_sekolah", value)}
+            defaultValue={filterPayload.sekolah}
+            onChange={(value) => handleChange("sekolah", value)}
             options={[
                 {value: 'laki laki', label: 'Laki Laki'},
                 {value: 'perempuan', label: 'Perempuan'},
