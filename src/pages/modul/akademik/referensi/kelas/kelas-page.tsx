@@ -7,6 +7,9 @@ import TahunAjaranModal from "@/pages/modul/akademik/referensi/tahun-ajaran/comp
 import useGroupModal from "@/hooks/useGroupModal.tsx";
 import useParams from "@/hooks/useParams.tsx";
 import TahunAjaranEntity from "@/pages/modul/akademik/referensi/tahun-ajaran/data/tahun-ajaran.entity.ts";
+import KelasTable from "@/pages/modul/akademik/referensi/kelas/components/kelas-table.tsx";
+import KelasEntity from "@/pages/modul/akademik/referensi/kelas/data/kelas.entity.ts";
+import KelasModal from "@/pages/modul/akademik/referensi/kelas/components/kelas-modal.tsx";
 
 
 const KelasPage: React.FC = () => {
@@ -14,7 +17,7 @@ const KelasPage: React.FC = () => {
         modal: false
     })
     const {params,handleParamsChange} = useParams({})
-    const [selectedData, setSelectedData] = useState<TahunAjaranEntity>()
+    const [selectedData, setSelectedData] = useState<KelasEntity>()
 
     return (<AkademikLayout>
             <section className={"px-12 py-4"}>
@@ -25,13 +28,13 @@ const KelasPage: React.FC = () => {
                 <div className={"flex justify-end  py-2 gap-1"}>
                     <AddButton onClick={() => handleGroupModal('modal', true)}/>
                 </div>
-                <TahunAjaranTable
+                <KelasTable
                     setSelectedData={setSelectedData}
                     handleGroupModal={handleGroupModal}
                     params={params}
                 />
             </section>
-            <TahunAjaranModal
+            <KelasModal
                 isOpen={groupModal.modal}
                 handleGroupModal={handleGroupModal}
                 selectedData={selectedData}

@@ -142,5 +142,52 @@
       "created_at": "2022-05-01T12:00:00",
       "updated_at": "2022-05-01T12:00:00"
     }
+  ],
+  "kelas": [
+    {
+      "id": "1",
+      "tahun_ajaran": "2022/2023",
+      "nama_sekolah": "Sekolah Dasar Negeri 1",
+      "wali_kelas": "Budi Santoso",
+      "nama_kelas": "Kelas 1A",
+      "created_at": "2022-01-01T12:00:00",
+      "updated_at": "2022-01-01T12:00:00"
+    },
+    {
+      "id": "2",
+      "tahun_ajaran": "2022/2023",
+      "nama_sekolah": "Sekolah Dasar Negeri 1",
+      "wali_kelas": "Ani Rahmawati",
+      "nama_kelas": "Kelas 1B",
+      "created_at": "2022-01-02T12:00:00",
+      "updated_at": "2022-01-02T12:00:00"
+    },
+    {
+      "id": "3",
+      "tahun_ajaran": "2022/2023",
+      "nama_sekolah": "Sekolah Dasar Negeri 2",
+      "wali_kelas": "Cahyo Wibowo",
+      "nama_kelas": "Kelas 2A",
+      "created_at": "2022-01-03T12:00:00",
+      "updated_at": "2022-01-03T12:00:00"
+    },
+    {
+      "id": "4",
+      "tahun_ajaran": "2022/2023",
+      "nama_sekolah": "Sekolah Dasar Negeri 2",
+      "wali_kelas": "Dewi Utami",
+      "nama_kelas": "Kelas 2B",
+      "created_at": "2022-01-04T12:00:00",
+      "updated_at": "2022-01-04T12:00:00"
+    },
+    {
+      "id": "5",
+      "tahun_ajaran": "2022/2023",
+      "nama_sekolah": "Sekolah Dasar Negeri 3",
+      "wali_kelas": "Eko Susilo",
+      "nama_kelas": "Kelas 3A",
+      "created_at": "2022-01-05T12:00:00",
+      "updated_at": "2022-01-05T12:00:00"
+    }
   ]
 }
