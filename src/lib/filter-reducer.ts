@@ -1,5 +1,9 @@
+import {IFormSelectValue} from "@/components/shared/form/form-select.tsx";
+
 export interface IFilterReducer<T> {
-    filterPayload: T
+    filterPayload: {
+        [key: string] :  Pick<IFormSelectValue, "value" | "label">
+    }
     changeFilterPayload: (payload: T) => void,
     resetFilterPayload: () => void,
     deleteFilterPayload: (name: string) => void,

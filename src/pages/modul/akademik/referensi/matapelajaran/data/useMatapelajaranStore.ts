@@ -6,14 +6,7 @@ export interface IFilterPayload {
     sekolah?: Pick<IFormSelectValue, "value" | "label">;
     tahun_ajaran?: Pick<IFormSelectValue, "value" | "label">;
 }
-
-interface IMatapelajaranStore extends IFilterReducer<IFilterPayload> {
-
-}
-
-const useKelasStore = create<IMatapelajaranStore>((set) => ({
+const useKelasStore = create<IFilterReducer<IFilterPayload>>((set) => ({
     ...filterReducer(set)
 }))
-
-
 export default useKelasStore

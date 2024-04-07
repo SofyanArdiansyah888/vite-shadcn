@@ -2,13 +2,14 @@ import FormSelect, {IFormSelectValue} from "@/components/shared/form/form-select
 import {useEffect, useState} from "react";
 import FilterModal from "@/components/shared/modal/filter-modal.tsx";
 import {Form} from "antd";
-import useKelasStore, {IFilterPayload} from "@/pages/modul/akademik/referensi/kelas/data/useKelasStore.ts";
-
+import {IFilterPayload} from "@/pages/modul/akademik/referensi/kelas/data/useKelasStore.ts";
+import useMatapelajaranStore from "@/pages/modul/akademik/referensi/matapelajaran/data/useMatapelajaranStore.ts";
 
 
 export default function MatapelajaranFilter() {
-    const {changeFilterPayload, filterPayload} = useKelasStore();
     const [form] = Form.useForm();
+    const {changeFilterPayload, filterPayload} = useMatapelajaranStore();
+
     const [isOpen, setIsOpen] = useState(false)
 
     function handleChange(name: string, value: Pick<IFormSelectValue, "value" | "label">) {

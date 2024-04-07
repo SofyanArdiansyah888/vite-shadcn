@@ -11,7 +11,7 @@ import MatapelajaranFilter from "@/pages/modul/akademik/referensi/matapelajaran/
 import MatapelajaranEntity from "@/pages/modul/akademik/referensi/matapelajaran/data/matapelajaran.entity.ts";
 import useMatapelajaranStore from "@/pages/modul/akademik/referensi/matapelajaran/data/useMatapelajaranStore.ts";
 import DetailModal from "@/components/shared/modal/detail-modal.tsx";
-import {BadgeDeleteFilter, BadgeFilter} from "@/components/ui/custom-badge.tsx";
+import GroupBadgeFilter from "@/components/shared/group-badge-filter.tsx";
 
 
 const MatapelajaranPage: React.FC = () => {
@@ -36,23 +36,10 @@ const MatapelajaranPage: React.FC = () => {
                 />
                 <div className={"flex justify-between  py-2 gap-1"}>
                     <div className={"overscroll-x-auto "}>
-                        <div className={"flex flex-row flex-wrap  gap-1 py-1  "}>
-                            {
-                                Object.entries(filterPayload).map((item, key) =>
-                                        item[1] && <BadgeFilter
-                                            key={key}
-                                            title={item[1]?.label}
-                                            onClick={() => deleteFilterPayload(item[0])}
-                                        />
-                                )
-                            }
-                            {
-                                Object.entries(filterPayload)
-                                    .filter(item => item[1] !== undefined)
-                                    .length > 0 &&
-                                <BadgeDeleteFilter onClick={resetFilterPayload}/>
-                            }
-                        </div>
+                        <GroupBadgeFilter filterPayload={filterPayload}
+                                          deleteFilterPayload={deleteFilterPayload}
+                                          resetFilterPayload={resetFilterPayload}
+                        />
                     </div>
                     <AddButton onClick={() => handleGroupModal('modal', true)}/>
                 </div>

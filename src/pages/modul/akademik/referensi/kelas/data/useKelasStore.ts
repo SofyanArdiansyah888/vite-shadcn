@@ -7,13 +7,7 @@ export interface IFilterPayload {
     tahun_ajaran?: Pick<IFormSelectValue, "value" | "label">;
 }
 
-interface IKelasStore extends IFilterReducer<IFilterPayload> {
-
-}
-
-const useKelasStore = create<IKelasStore>((set) => ({
+const useKelasStore = create<IFilterReducer<IFilterPayload>>((set) => ({
     ...filterReducer(set)
 }))
-
-
 export default useKelasStore
