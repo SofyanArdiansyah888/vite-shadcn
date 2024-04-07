@@ -1,5 +1,5 @@
 {
-  "staff" : [
+  "staff": [
     {
       "id": "1",
       "nama": "John Doe",
@@ -188,6 +188,73 @@
       "kelas": "Kelas 3A",
       "created_at": "2022-01-05T12:00:00",
       "updated_at": "2022-01-05T12:00:00"
+    }
+  ],
+  "jadwal-pengajar": [
+    {
+      "id": "1",
+      "tahun_ajaran": "2022/2023",
+      "sekolah": "Sekolah Dasar Negeri 1",
+      "hari": "Senin",
+      "kelas": "Kelas 1A",
+      "mulai": "08:00",
+      "selesai": "10:00",
+      "guru": "Budi Santoso",
+      "created_at": "2022-01-01T12:00:00",
+      "updated_at": "2022-01-01T12:00:00",
+      "catatan": "Catatan 1"
+    },
+    {
+      "id": "2",
+      "tahun_ajaran": "2022/2023",
+      "sekolah": "Sekolah Dasar Negeri 1",
+      "hari": "Selasa",
+      "kelas": "Kelas 1B",
+      "mulai": "08:00",
+      "selesai": "10:00",
+      "guru": "Ani Rahmawati",
+      "created_at": "2022-01-02T12:00:00",
+      "updated_at": "2022-01-02T12:00:00",
+      "catatan": "Catatan 2"
+    },
+    {
+      "id": "3",
+      "tahun_ajaran": "2022/2023",
+      "sekolah": "Sekolah Dasar Negeri 2",
+      "hari": "Rabu",
+      "kelas": "Kelas 2A",
+      "mulai": "08:00",
+      "selesai": "10:00",
+      "guru": "Cahyo Wibowo",
+      "created_at": "2022-01-03T12:00:00",
+      "updated_at": "2022-01-03T12:00:00",
+      "catatan": "Catatan 3"
+    },
+    {
+      "id": "4",
+      "tahun_ajaran": "2022/2023",
+      "sekolah": "Sekolah Dasar Negeri 2",
+      "hari": "Kamis",
+      "kelas": "Kelas 2B",
+      "mulai": "08:00",
+      "selesai": "10:00",
+      "guru": "Dewi Utami",
+      "created_at": "2022-01-04T12:00:00",
+      "updated_at": "2022-01-04T12:00:00",
+      "catatan": "Catatan 4"
+    },
+    {
+      "id": "5",
+      "tahun_ajaran": "2022/2023",
+      "sekolah": "Sekolah Dasar Negeri 3",
+      "hari": "Jumat",
+      "kelas": "Kelas 3A",
+      "mulai": "08:00",
+      "selesai": "10:00",
+      "guru": "Eko Susilo",
+      "created_at": "2022-01-05T12:00:00",
+      "updated_at": "2022-01-05T12:00:00",
+      "catatan": "Catatan 5"
     }
   ]
 }

@@ -45,7 +45,7 @@ const JadwalPengajarPage: React.FC = () => {
             </section>
 
             <DetailModal
-                title={"Detail Kelas"}
+                title={"Detail Jadwal Pengajar"}
                 isOpen={groupModal.detailModal}
                 setIsOpen={(value) => handleGroupModal("detailModal", value as boolean)}
                 details={detail}

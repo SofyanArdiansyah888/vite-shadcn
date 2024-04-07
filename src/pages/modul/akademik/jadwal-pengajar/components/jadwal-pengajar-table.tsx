@@ -14,28 +14,36 @@ export default function JadwalPengajarTable({handleGroupModal, params, setDetail
     setDetail: Dispatch<{ key: string, value: string }[]>
 }) {
     const {data, isLoading} = useGetList<JadwalPengajarEntity[]>({
-        endpoint: "/kelas",
-        name: "kelas",
+        endpoint: "/jadwal-pengajar",
+        name: "jadwal-pengajar",
         params
     })
 
     function handleDetailClick(data: JadwalPengajarEntity) {
         const temp = [
             {
-                key: "Nama Sekolah",
-                value: data.sekolah
+                key: 'Hari',
+                value: data.hari,
             },
             {
-                key: "Nama Kelas",
-                value: data.kelas
+                key: 'Kelas',
+                value: data.kelas,
             },
             {
-                key: "Tahun Ajaran",
-                value: data.tahun_ajaran
+                key: 'Mulai',
+                value: data.mulai,
             },
             {
-                key: "Wali Kelas",
-                value: data.wali_kelas
+                key: 'Selesai',
+                value: data.selesai,
+            },
+            {
+                key: 'Catatan',
+                value: data.catatan,
+            },
+            {
+                key: 'Pengajar',
+                value: data.guru,
             },
             {
                 key: "Created",
@@ -52,37 +60,32 @@ export default function JadwalPengajarTable({handleGroupModal, params, setDetail
 
     const columns: TableProps<JadwalPengajarEntity>['columns'] = [
         {
-            title: 'Nama Sekolah',
-            dataIndex: 'sekolah',
-            // width: '25%',
+            title: 'Hari',
+            dataIndex: 'hari',
             sorter: true,
         },
         {
-            title: 'Tahun Ajaran',
-            dataIndex: 'tahun_ajaran',
-            width: '15%',
-        },
-        {
-            title: 'Wali Kelas',
-            dataIndex: 'wali_kelas',
-        },
-        {
-            title: 'Nama Kelas',
+            title: 'Kelas',
             dataIndex: 'kelas',
             width: '15%',
         },
         {
-            title: 'Created',
-            dataIndex: 'created_at',
-            width: '15%',
-            render: (_, item) => <div>{tanggalID(item.created_at)}</div>
+            title: 'Mulai',
+            dataIndex: 'mulai',
         },
         {
-            title: 'Updated',
-            dataIndex: 'updated_at',
-            width: '15%',
-            render: (_, item) => <div>{tanggalID(item.updated_at)}</div>
+            title: 'Selesai',
+            dataIndex: 'selesai',
         },
+        {
+            title: 'Catatan',
+            dataIndex: 'catatan',
+        },
+        {
+            title: 'Pengajar',
+            dataIndex: 'guru',
+        },
+
         {
             title: 'Action',
             dataIndex: 'operation',
