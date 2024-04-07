@@ -36,7 +36,7 @@ export default function TahunAjaranTable({handleGroupModal, params, setSelectedD
     const columns = [
         {
             title: 'Nama Sekolah',
-            dataIndex: 'nama_sekolah',
+            dataIndex: 'sekolah',
             // width: '25%',
             sorter: true,
         },

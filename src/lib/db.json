@@ -110,35 +110,35 @@
     {
       "id": "1",
       "tahun_ajaran": "2022/2023",
-      "nama_sekolah": "Sekolah Dasar Negeri 1",
+      "sekolah": "Sekolah Dasar Negeri 1",
       "created_at": "2022-01-01T12:00:00",
       "updated_at": "2022-01-01T12:00:00"
     },
     {
       "id": "2",
       "tahun_ajaran": "2023/2024",
-      "nama_sekolah": "Sekolah Menengah Pertama 2",
+      "sekolah": "Sekolah Menengah Pertama 2",
       "created_at": "2022-02-01T12:00:00",
       "updated_at": "2022-02-01T12:00:00"
     },
     {
       "id": "3",
       "tahun_ajaran": "2024/2025",
-      "nama_sekolah": "Sekolah Menengah Atas 3",
+      "sekolah": "Sekolah Menengah Atas 3",
       "created_at": "2022-03-01T12:00:00",
       "updated_at": "2022-03-01T12:00:00"
     },
     {
       "id": "4",
       "tahun_ajaran": "2025/2026",
-      "nama_sekolah": "Sekolah Dasar Negeri 4",
+      "sekolah": "Sekolah Dasar Negeri 4",
       "created_at": "2022-04-01T12:00:00",
       "updated_at": "2022-04-01T12:00:00"
     },
     {
       "id": "5",
       "tahun_ajaran": "2026/2027",
-      "nama_sekolah": "Sekolah Menengah Pertama 5",
+      "sekolah": "Sekolah Menengah Pertama 5",
       "created_at": "2022-05-01T12:00:00",
       "updated_at": "2022-05-01T12:00:00"
     }
@@ -147,45 +147,45 @@
     {
       "id": "1",
       "tahun_ajaran": "2022/2023",
-      "nama_sekolah": "Sekolah Dasar Negeri 1",
+      "sekolah": "Sekolah Dasar Negeri 1",
       "wali_kelas": "Budi Santoso",
-      "nama_kelas": "Kelas 1A",
+      "kelas": "Kelas 1A",
       "created_at": "2022-01-01T12:00:00",
       "updated_at": "2022-01-01T12:00:00"
     },
     {
       "id": "2",
       "tahun_ajaran": "2022/2023",
-      "nama_sekolah": "Sekolah Dasar Negeri 1",
+      "sekolah": "Sekolah Dasar Negeri 1",
       "wali_kelas": "Ani Rahmawati",
-      "nama_kelas": "Kelas 1B",
+      "kelas": "Kelas 1B",
       "created_at": "2022-01-02T12:00:00",
       "updated_at": "2022-01-02T12:00:00"
     },
     {
       "id": "3",
       "tahun_ajaran": "2022/2023",
-      "nama_sekolah": "Sekolah Dasar Negeri 2",
+      "sekolah": "Sekolah Dasar Negeri 2",
       "wali_kelas": "Cahyo Wibowo",
-      "nama_kelas": "Kelas 2A",
+      "kelas": "Kelas 2A",
       "created_at": "2022-01-03T12:00:00",
       "updated_at": "2022-01-03T12:00:00"
     },
     {
       "id": "4",
       "tahun_ajaran": "2022/2023",
-      "nama_sekolah": "Sekolah Dasar Negeri 2",
+      "sekolah": "Sekolah Dasar Negeri 2",
       "wali_kelas": "Dewi Utami",
-      "nama_kelas": "Kelas 2B",
+      "kelas": "Kelas 2B",
       "created_at": "2022-01-04T12:00:00",
       "updated_at": "2022-01-04T12:00:00"
     },
     {
       "id": "5",
       "tahun_ajaran": "2022/2023",
-      "nama_sekolah": "Sekolah Dasar Negeri 3",
+      "sekolah": "Sekolah Dasar Negeri 3",
       "wali_kelas": "Eko Susilo",
-      "nama_kelas": "Kelas 3A",
+      "kelas": "Kelas 3A",
       "created_at": "2022-01-05T12:00:00",
       "updated_at": "2022-01-05T12:00:00"
     }
