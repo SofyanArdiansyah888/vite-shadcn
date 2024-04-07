@@ -41,6 +41,8 @@ export default function FormModal<T>({
         title={title}
         open={isOpen}
         onOk={handleOKModal}
+        okText={"Simpan"}
+        cancelText={"Batal"}
         confirmLoading={confirmLoading}
         onCancel={() => setIsOpen(false)}
         destroyOnClose
