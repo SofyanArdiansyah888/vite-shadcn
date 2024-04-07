@@ -29,12 +29,13 @@ const StaffPage: React.FC = () => {
                     handleSearch={handleSearchChange}
                 />
                 <div className={"flex justify-between  py-2 gap-1"}>
-                    <div className={"overscroll-x-auto "}>
-                        <GroupBadgeFilter filterPayload={filterPayload}
-                                          deleteFilterPayload={deleteFilterPayload}
-                                          resetFilterPayload={resetFilterPayload}
-                        />
-                    </div>
+
+                    <GroupBadgeFilter
+                        filterPayload={filterPayload}
+                        deleteFilterPayload={deleteFilterPayload}
+                        resetFilterPayload={resetFilterPayload}
+                    />
+
                     <Link to={"/staff/create"}>
                         <AddButton/>
                     </Link>

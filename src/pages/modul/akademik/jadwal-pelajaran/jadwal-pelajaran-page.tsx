@@ -36,13 +36,11 @@ const JadwalPelajaranPage: React.FC = () => {
                     handleSearch={(value) => handleParamsChange("search", value)}
                 />
                 <div className={"flex justify-between  py-2 gap-1"}>
-                    <div className={"overscroll-x-auto "}>
-                        <GroupBadgeFilter filterPayload={filterPayload}
-                                          deleteFilterPayload={deleteFilterPayload}
-                                          resetFilterPayload={resetFilterPayload}
-                        />
-                    </div>
-
+                    <GroupBadgeFilter
+                        filterPayload={filterPayload}
+                        deleteFilterPayload={deleteFilterPayload}
+                        resetFilterPayload={resetFilterPayload}
+                    />
                 </div>
                 <KelasJadwalPelajaranTable
                     setSelectedData={setSelectedData}
