@@ -3,7 +3,7 @@ import {Form} from "antd";
 import FormInput from "@/components/shared/form/form-input.tsx";
 import {Dispatch, useEffect} from "react";
 import SekolahSelect from "@/components/shared/form/sekolah-select.tsx";
-import KelasEntity from "@/pages/modul/akademik/referensi/kelas/data/kelas.entity.ts";
+import JadwalPelajaranEntity from "@/pages/modul/akademik/referensi/kelas/data/kelas.entity.ts";
 import TahunAjaranSelect from "@/components/shared/form/tahun-ajaran-select.tsx";
 import WaliKelasSelect from "@/components/shared/form/wali-kelas-select.tsx";
 
