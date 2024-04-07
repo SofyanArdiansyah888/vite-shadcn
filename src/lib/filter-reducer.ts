@@ -1,8 +1,6 @@
-import {IFilterPayload} from "@/pages/modul/staff/components/staff-filter.tsx";
-
-export interface IFilterReducer {
-    filterPayload: IFilterPayload
-    changeFilterPayload: (payload: IFilterPayload) => void,
+export interface IFilterReducer<T> {
+    filterPayload: T
+    changeFilterPayload: (payload: T) => void,
     resetFilterPayload: () => void,
     deleteFilterPayload: (name: string) => void,
 }

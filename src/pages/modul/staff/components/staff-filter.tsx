@@ -2,13 +2,8 @@ import FormSelect, {IFormSelectValue} from "@/components/shared/form/form-select
 import {useEffect, useState} from "react";
 import FilterModal from "@/components/shared/modal/filter-modal.tsx";
 import {Form} from "antd";
-import useStaffStore from "@/pages/modul/staff/data/useStaffStore.tsx";
+import useStaffStore, {IFilterPayload} from "@/pages/modul/staff/data/useStaffStore.tsx";
 
-export interface IFilterPayload {
-    jenis_kelamin?: Pick<IFormSelectValue, "value" | "label">;
-    jabatan?: Pick<IFormSelectValue, "value" | "label">;
-    status_kepegawaian?: Pick<IFormSelectValue, "value" | "label">;
-}
 
 export default function StaffFilter() {
     const {changeFilterPayload, filterPayload} = useStaffStore();
