@@ -9,8 +9,9 @@ import {
     CircleUserRoundIcon,
     CoinsIcon,
     GraduationCapIcon,
-    SchoolIcon, TestTube2Icon,
-    TimerIcon, TimerReset
+    SchoolIcon,
+    TimerIcon,
+    TimerReset
 } from "lucide-react";
 import PortalLayout from "@/components/layout/portal-layout.tsx";
 
