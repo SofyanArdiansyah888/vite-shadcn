@@ -1,4 +1,4 @@
-import {Table} from "antd";
+import {Table, TableProps} from "antd";
 import {DeleteButtonIcon, DetailButtonIcon, EditButtonIcon} from "@/components/ui/button.tsx";
 import {useGetList} from "@/hooks/useApi.tsx";
 import useStaffStore from "@/pages/modul/staff/data/useStaffStore.tsx";
@@ -19,7 +19,7 @@ export default function StaffTable() {
     const cancel = () => {
     };
 
-    const columns = [
+    const columns: TableProps<StaffEntity>['columns'] = [
         {
             title: 'Nama Staff',
             dataIndex: 'nama',
@@ -44,7 +44,7 @@ export default function StaffTable() {
             dataIndex: 'operation',
             width: '100px',
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            render: (_: never, __: StaffEntity) =>
+            render: (_, __) =>
                 <div className={"flex gap-1"}>
                     <EditButtonIcon/>
                     <DetailButtonIcon/>

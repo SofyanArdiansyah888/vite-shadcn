@@ -1,4 +1,4 @@
-import {Table} from "antd";
+import {Table, TableProps} from "antd";
 import {DeleteButtonIcon, DetailButtonIcon, EditButtonIcon} from "@/components/ui/button.tsx";
 import {useGetList} from "@/hooks/useApi.tsx";
 import KelasEntity from "@/pages/modul/akademik/referensi/kelas/data/kelas.entity.ts";
@@ -68,7 +68,7 @@ export default function KelasTable({handleGroupModal, params, setSelectedData, s
         handleGroupModal("detailModal", true)
     }
 
-    const columns = [
+    const columns: TableProps<KelasEntity>['columns'] = [
         {
             title: 'Nama Sekolah',
             dataIndex: 'sekolah',
@@ -93,20 +93,20 @@ export default function KelasTable({handleGroupModal, params, setSelectedData, s
             title: 'Created',
             dataIndex: 'created_at',
             width: '15%',
-            render: (_: never, item: KelasEntity) => <div>{tanggalID(item.created_at)}</div>
+            render: (_, item) => <div>{tanggalID(item.created_at)}</div>
         },
         {
             title: 'Updated',
             dataIndex: 'updated_at',
             width: '15%',
-            render: (_: never, item: KelasEntity) => <div>{tanggalID(item.updated_at)}</div>
+            render: (_, item) => <div>{tanggalID(item.updated_at)}</div>
         },
         {
             title: 'Action',
             dataIndex: 'operation',
             width: '100px',
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            render: (_: never, data: KelasEntity) =>
+            render: (_, data) =>
                 <div className={"flex gap-1"}>
                     <EditButtonIcon onClick={() => handleEditClick(data)}/>
                     <DetailButtonIcon onClick={() => handleDetailClick(data)}/>

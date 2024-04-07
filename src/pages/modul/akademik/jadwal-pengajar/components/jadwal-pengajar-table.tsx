@@ -1,3 +1,4 @@
+import type {TableProps} from 'antd';
 import {Table} from "antd";
 import {DetailButtonIcon} from "@/components/ui/button.tsx";
 import {useGetList} from "@/hooks/useApi.tsx";
@@ -49,7 +50,7 @@ export default function JadwalPengajarTable({handleGroupModal, params, setDetail
         handleGroupModal("detailModal", true)
     }
 
-    const columns = [
+    const columns: TableProps<JadwalPengajarEntity>['columns'] = [
         {
             title: 'Nama Sekolah',
             dataIndex: 'sekolah',
@@ -74,20 +75,19 @@ export default function JadwalPengajarTable({handleGroupModal, params, setDetail
             title: 'Created',
             dataIndex: 'created_at',
             width: '15%',
-            render: (_: never, item: JadwalPengajarEntity) => <div>{tanggalID(item.created_at)}</div>
+            render: (_, item) => <div>{tanggalID(item.created_at)}</div>
         },
         {
             title: 'Updated',
             dataIndex: 'updated_at',
             width: '15%',
-            render: (_: never, item: JadwalPengajarEntity) => <div>{tanggalID(item.updated_at)}</div>
+            render: (_, item) => <div>{tanggalID(item.updated_at)}</div>
         },
         {
             title: 'Action',
             dataIndex: 'operation',
             width: '100px',
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            render: (_: never, data: JadwalPengajarEntity) =>
+            render: (_, data) =>
                 <div className={"flex gap-1"}>
                     <DetailButtonIcon onClick={() => handleDetailClick(data)}/>
                 </div>
