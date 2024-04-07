@@ -1,16 +1,20 @@
 import {useEffect, useState} from "react";
 import FilterModal from "@/components/shared/modal/filter-modal.tsx";
 import {Form} from "antd";
-import useKelasStore, {IFilterPayload} from "@/pages/modul/akademik/referensi/kelas/data/useKelasStore.ts";
+
 import SekolahSelect from "@/components/shared/form/select/sekolah-select.tsx";
 import TahunAjaranSelect from "@/components/shared/form/select/tahun-ajaran-select.tsx";
+import GuruSelect from "@/components/shared/form/select/guru-select.tsx";
+import HariSelect from "@/components/shared/form/select/hari-select.tsx";
+import useJadwalPengajarStore, {
+    IFilterPayload
+} from "@/pages/modul/akademik/jadwal-pengajar/data/useJadwalPengajarStore.ts";
 
 
-export default function KelasFilter() {
-    const {changeFilterPayload, filterPayload} = useKelasStore();
+export default function JadwalPengajarFilter() {
+    const {changeFilterPayload, filterPayload} = useJadwalPengajarStore();
     const [form] = Form.useForm();
     const [isOpen, setIsOpen] = useState(false)
-
 
     function handleSubmit(value: IFilterPayload) {
         changeFilterPayload({...value})
@@ -26,14 +30,16 @@ export default function KelasFilter() {
 
     return <FilterModal<IFilterPayload>
         form={form}
-        title={"Filter Staff"}
+        title={"Filter Jadwal Pengajar"}
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         onSubmit={handleSubmit}
     >
-
         <SekolahSelect/>
         <TahunAjaranSelect/>
+        <GuruSelect/>
+        <HariSelect/>
 
     </FilterModal>
 }
+

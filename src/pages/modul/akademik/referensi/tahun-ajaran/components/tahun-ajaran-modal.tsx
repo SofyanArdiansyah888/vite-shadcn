@@ -3,7 +3,7 @@ import {Form} from "antd";
 import FormInput from "@/components/shared/form/form-input.tsx";
 import TahunAjaranEntity from "@/pages/modul/akademik/referensi/tahun-ajaran/data/tahun-ajaran.entity.ts";
 import {Dispatch, useEffect} from "react";
-import SekolahSelect from "@/components/shared/form/sekolah-select.tsx";
+import SekolahSelect from "@/components/shared/form/select/sekolah-select.tsx";
 
 interface ITahunAjaranModal {
     selectedData: TahunAjaranEntity | undefined,

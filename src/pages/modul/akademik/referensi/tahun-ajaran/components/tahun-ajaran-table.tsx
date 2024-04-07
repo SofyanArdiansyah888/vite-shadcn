@@ -6,10 +6,11 @@ import {tanggalID} from "@/lib/formatter.ts";
 import {IUseParams} from "@/hooks/useParams.tsx";
 import {Dispatch} from "react";
 
-export default function TahunAjaranTable({handleGroupModal, params, setSelectedData}: {
+export default function TahunAjaranTable({handleGroupModal, params, setSelectedData,setDetail}: {
     params: IUseParams,
     handleGroupModal: (key: string, value: boolean) => void,
-    setSelectedData: Dispatch<TahunAjaranEntity>
+    setSelectedData: Dispatch<TahunAjaranEntity>,
+    setDetail: Dispatch<{ key: string, value: string }[]>
 }) {
 
     const {data, isLoading} = useGetList<TahunAjaranEntity[]>({
@@ -30,7 +31,34 @@ export default function TahunAjaranTable({handleGroupModal, params, setSelectedD
     }
 
     function handleDetailClick(data: TahunAjaranEntity) {
-        console.log(data)
+        const temp = [
+            {
+                key: "Nama Sekolah",
+                value: data.sekolah
+            },
+            // {
+            //     key: "Nama Kelas",
+            //     value: data.kelas
+            // },
+            {
+                key: "Tahun Ajaran",
+                value: data.tahun_ajaran
+            },
+            // {
+            //     key: "Wali Kelas",
+            //     value: data.wali_kelas
+            // },
+            {
+                key: "Created",
+                value: tanggalID(data.created_at)
+            },
+            {
+                key: "Updated",
+                value: tanggalID(data.updated_at)
+            }
+        ]
+        setDetail(temp)
+        handleGroupModal("detailModal", true)
     }
 
     const columns = [

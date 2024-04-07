@@ -40,28 +40,28 @@ export default function AkademikLayout({children}: { children: React.ReactNode }
         },
         {
             link: "/akademik/anggota-kelas",
-            button: <div className={`gap-2 flex items-center ${activeCheck("/staff", router)}`}>
+            button: <div className={`gap-2 flex items-center ${activeCheck("/akademik/anggota-kelas", router)}`}>
                 <PersonIcon className={"w-4 h-4"} strokeWidth={1}/>
                 Anggota Kelas
             </div>,
         },
         {
             link: "/akademik/jadwal-pelajaran",
-            button: <div className={`gap-2 flex items-center ${activeCheck("/staff", router)}`}>
+            button: <div className={`gap-2 flex items-center ${activeCheck("/akademik/jadwal-pelajaran", router)}`}>
                 <CountdownTimerIcon className={"w-4 h-4"} strokeWidth={1}/>
                 Jadwal Pelajaran
             </div>,
         },
         {
             link: "/akademik/jadwal-pengajar",
-            button: <div className={`gap-2 flex items-center ${activeCheck("/staff", router)}`}>
+            button: <div className={`gap-2 flex items-center ${activeCheck("/akademik/jadwal-pengajar", router)}`}>
                 <CalendarCheck className={"w-4 h-4"} strokeWidth={1}/>
                 Jadwal Pengajar
             </div>,
         },
         {
             link: "/akademik/absensi-pertemuan",
-            button: <div className={`gap-2 flex items-center ${activeCheck("/staff", router)}`}>
+            button: <div className={`gap-2 flex items-center ${activeCheck("/akademik/absensi-pertemuan", router)}`}>
                 <TimerReset className={"w-4 h-4"} strokeWidth={1}/>
                 Absensi Pertemuan
             </div>,

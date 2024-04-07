@@ -7,6 +7,7 @@ import TahunAjaranModal from "@/pages/modul/akademik/referensi/tahun-ajaran/comp
 import useGroupModal from "@/hooks/useGroupModal.tsx";
 import useParams from "@/hooks/useParams.tsx";
 import TahunAjaranEntity from "@/pages/modul/akademik/referensi/tahun-ajaran/data/tahun-ajaran.entity.ts";
+import DetailModal from "@/components/shared/modal/detail-modal.tsx";
 
 
 const TahunAjaranPage: React.FC = () => {
@@ -15,7 +16,7 @@ const TahunAjaranPage: React.FC = () => {
     })
     const {params,handleParamsChange} = useParams({})
     const [selectedData, setSelectedData] = useState<TahunAjaranEntity>()
-
+    const [detail, setDetail] = useState<{ key: string, value: string }[]>([])
     return (<AkademikLayout>
             <section className={"px-12 py-4"}>
                 <CustomHeader
@@ -29,6 +30,7 @@ const TahunAjaranPage: React.FC = () => {
                     setSelectedData={setSelectedData}
                     handleGroupModal={handleGroupModal}
                     params={params}
+                    setDetail={setDetail}
                 />
             </section>
             <TahunAjaranModal
@@ -36,6 +38,12 @@ const TahunAjaranPage: React.FC = () => {
                 handleGroupModal={handleGroupModal}
                 selectedData={selectedData}
                 setSelectedData={setSelectedData}
+            />
+            <DetailModal
+                title={"Detail Tahun Ajaran"}
+                isOpen={groupModal.detailModal}
+                setIsOpen={(value) => handleGroupModal("detailModal", value as boolean)}
+                details={detail}
             />
         </AkademikLayout>
 

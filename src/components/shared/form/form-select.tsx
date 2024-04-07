@@ -33,6 +33,7 @@ export default function FormSelect({
                                    }: IFormSelect) {
     return <Form.Item name={name} label={label} rules={rules}>
         <Select
+            showSearch
             value={value}
             key={name}
             mode={mode}

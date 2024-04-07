@@ -2,8 +2,8 @@ import FormModal from "@/components/shared/modal/form-modal.tsx";
 import {Form} from "antd";
 import FormInput from "@/components/shared/form/form-input.tsx";
 import {Dispatch, useEffect} from "react";
-import SekolahSelect from "@/components/shared/form/sekolah-select.tsx";
-import TahunAjaranSelect from "@/components/shared/form/tahun-ajaran-select.tsx";
+import SekolahSelect from "@/components/shared/form/select/sekolah-select.tsx";
+import TahunAjaranSelect from "@/components/shared/form/select/tahun-ajaran-select.tsx";
 import MatapelajaranEntity from "@/pages/modul/akademik/referensi/matapelajaran/data/matapelajaran.entity.ts";
 
 interface IKelasModal {

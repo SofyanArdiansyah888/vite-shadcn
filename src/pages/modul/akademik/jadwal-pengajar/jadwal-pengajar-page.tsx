@@ -4,13 +4,13 @@ import AkademikLayout from "@/components/layout/akademik-layout.tsx";
 import useGroupModal from "@/hooks/useGroupModal.tsx";
 import useParams from "@/hooks/useParams.tsx";
 import DetailModal from "@/components/shared/modal/detail-modal.tsx";
-import KelasFilter from "@/pages/modul/akademik/referensi/kelas/components/kelas-filter.tsx";
-import useJadwalPelajaranStore from "@/pages/modul/akademik/jadwal-pelajaran/data/useJadwalPelajaranStore.ts";
 import JadwalPengajarTable from "@/pages/modul/akademik/jadwal-pengajar/components/jadwal-pengajar-table.tsx";
 import GroupBadgeFilter from "@/components/shared/group-badge-filter.tsx";
+import JadwalPengajarFilter from "@/pages/modul/akademik/jadwal-pengajar/components/jadwal-pengajar-filter.tsx";
+import useJadwalPengajarStore from "@/pages/modul/akademik/jadwal-pengajar/data/useJadwalPengajarStore.ts";
 
 const JadwalPengajarPage: React.FC = () => {
-    const {filterPayload, resetFilterPayload, deleteFilterPayload} = useJadwalPelajaranStore()
+    const {filterPayload, resetFilterPayload, deleteFilterPayload} = useJadwalPengajarStore()
     const {groupModal, handleGroupModal} = useGroupModal({
         modal: false,
         detailModal: false,
@@ -27,7 +27,7 @@ const JadwalPengajarPage: React.FC = () => {
             <section className={"px-12 py-4"}>
                 <CustomHeader
                     title={"Jadwal Pengajar"}
-                    additionalAction={<KelasFilter/>}
+                    additionalAction={<JadwalPengajarFilter/>}
                     handleSearch={(value) => handleParamsChange("search", value)}
                 />
                 <div className={"flex justify-between  py-2 gap-1"}>
