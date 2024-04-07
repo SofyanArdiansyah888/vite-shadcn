@@ -9,8 +9,8 @@ import {
     CircleUserRoundIcon,
     CoinsIcon,
     GraduationCapIcon,
-    SchoolIcon,
-    TimerIcon
+    SchoolIcon, TestTube2Icon,
+    TimerIcon, TimerReset
 } from "lucide-react";
 import PortalLayout from "@/components/layout/portal-layout.tsx";
 
@@ -104,6 +104,14 @@ export default function PortalPage() {
                     subtitle={"Kelola data alumni di sekolah anda"}
                     icon={<GraduationCapIcon strokeWidth={0.4} className={"h-20 w-20"}/>}
                     color={"emerald"}
+                    link={"/"}
+                />
+
+                <PortalCard
+                    title={"Computer Based Test (CBT)"}
+                    subtitle={"Kelola ujian siswa anda dengan mudah"}
+                    icon={<TimerReset strokeWidth={0.4} className={"h-20 w-20"}/>}
+                    color={"blue"}
                     link={"/"}
                 />
 
