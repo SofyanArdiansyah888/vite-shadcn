@@ -4,6 +4,7 @@ import FormInput from "@/components/shared/form/form-input.tsx";
 import {Dispatch, useEffect} from "react";
 import SekolahSelect from "@/components/shared/form/select/sekolah-select.tsx";
 import FormTextarea from "@/components/shared/form/form-textarea.tsx";
+import InformasiEntity from "@/pages/informasi/data/informasi.entity.ts";
 
 
 interface IInformasiModal {
