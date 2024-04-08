@@ -16,8 +16,8 @@ export default function JenisPelanggaranTable({handleGroupModal, params, setSele
 
 
     const {data, isLoading} = useGetList<JenisPelanggaranEntity[]>({
-        endpoint: "/kelas",
-        name: "kelas",
+        endpoint: "/jenis-pelanggaran",
+        name: "jenis-pelanggaran",
         params
     })
 
@@ -44,16 +44,13 @@ export default function JenisPelanggaranTable({handleGroupModal, params, setSele
                 value: data.sekolah
             },
             {
-                key: "Nama Kelas",
-                value: data.kelas
+                key: "Pelanggaran",
+                value: data.pelanggaran
             },
             {
-                key: "Tahun Ajaran",
-                value: data.tahun_ajaran
-            },
-            {
-                key: "Wali Kelas",
-                value: data.wali_kelas
+                key: "Poin",
+                value: data.poin,
+                colspan: "col-span-2"
             },
             {
                 key: "Created",
@@ -70,23 +67,18 @@ export default function JenisPelanggaranTable({handleGroupModal, params, setSele
 
     const columns: TableProps<JenisPelanggaranEntity>['columns'] = [
         {
-            title: 'Nama Sekolah',
+            title: 'Sekolah',
             dataIndex: 'sekolah',
-            // width: '25%',
             sorter: true,
         },
         {
-            title: 'Tahun Ajaran',
-            dataIndex: 'tahun_ajaran',
-            width: '15%',
+            title: 'Pelanggaran',
+            dataIndex: 'pelanggaran',
+            width: '20%',
         },
         {
-            title: 'Wali Kelas',
-            dataIndex: 'wali_kelas',
-        },
-        {
-            title: 'Nama Kelas',
-            dataIndex: 'kelas',
+            title: 'Poin',
+            dataIndex: 'poin',
             width: '15%',
         },
         {
