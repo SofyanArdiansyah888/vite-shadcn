@@ -423,5 +423,47 @@
       "created_at": "2022-01-05T12:00:00",
       "updated_at": "2022-01-05T12:00:00"
     }
+  ],
+  "informasi": [
+    {
+      "id": "1",
+      "judul": "Pengumuman Ujian Semester",
+      "konten": "Ujian semester akan dilaksanakan pada tanggal 10 Februari 2024. Persiapkan diri dengan sebaik-baiknya.",
+      "sekolah": "Sekolah Dasar Negeri 1",
+      "created_at": "2024-02-01T08:00:00",
+      "updated_at": "2024-02-01T08:00:00"
+    },
+    {
+      "id": "2",
+      "judul": "Penerimaan Siswa Baru",
+      "konten": "Pendaftaran siswa baru untuk tahun ajaran 2024/2025 akan dibuka mulai tanggal 15 Maret 2024. Informasikan kepada calon siswa yang berminat.",
+      "sekolah": "Sekolah Dasar Negeri 2",
+      "created_at": "2024-02-15T08:00:00",
+      "updated_at": "2024-02-15T08:00:00"
+    },
+    {
+      "id": "3",
+      "judul": "Perubahan Jadwal Pelajaran",
+      "konten": "Mohon perhatian semua siswa dan guru, terdapat perubahan jadwal pelajaran untuk hari Senin. Silakan lihat jadwal yang baru di aplikasi sekolah.",
+      "sekolah": "Sekolah Dasar Negeri 3",
+      "created_at": "2024-03-01T08:00:00",
+      "updated_at": "2024-03-01T08:00:00"
+    },
+    {
+      "id": "4",
+      "judul": "Kegiatan Ekstrakurikuler",
+      "konten": "Bagi siswa yang berminat mengikuti kegiatan ekstrakurikuler, silakan mendaftar pada tanggal 5 April 2024 di ruang BK.",
+      "sekolah": "Sekolah Dasar Negeri 4",
+      "created_at": "2024-03-15T08:00:00",
+      "updated_at": "2024-03-15T08:00:00"
+    },
+    {
+      "id": "5",
+      "judul": "Pengumuman Libur Akhir Tahun",
+      "konten": "Sekolah akan libur pada tanggal 20 Juni 2024 hingga 5 Juli 2024 dalam rangka menyambut libur akhir tahun. Selamat berlibur!",
+      "sekolah": "Sekolah Dasar Negeri 5",
+      "created_at": "2024-04-01T08:00:00",
+      "updated_at": "2024-04-01T08:00:00"
+    }
   ]
 }

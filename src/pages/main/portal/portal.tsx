@@ -57,7 +57,7 @@ export default function PortalPage() {
                     subtitle={"Kelola agenda kegiatan sekolah anda untuk di informasikan ke user sekolah"}
                     icon={<BookIcon strokeWidth={0.4} className={"h-20 w-20"}/>}
                     color={"gray"}
-                    link={"/"}
+                    link={"/agenda"}
                 />
 
                 <PortalCard
@@ -97,7 +97,7 @@ export default function PortalPage() {
                     subtitle={"Broadcast informasi singkat"}
                     icon={<BadgeInfoIcon strokeWidth={0.4} className={"h-20 w-20"}/>}
                     color={"rose"}
-                    link={"/"}
+                    link={"/informasi"}
                 />
 
                 <PortalCard
