@@ -17,6 +17,9 @@ import { Route as IndexImport } from './routes/index'
 import { Route as StaffIndexImport } from './routes/staff/index'
 import { Route as AkademikIndexImport } from './routes/akademik/index'
 import { Route as StaffCreateImport } from './routes/staff/create'
+import { Route as PelanggaranPoinPelanggaranImport } from './routes/pelanggaran/poin-pelanggaran'
+import { Route as PelanggaranPelanggaranSiswaImport } from './routes/pelanggaran/pelanggaran-siswa'
+import { Route as PelanggaranJenisPelanggaranImport } from './routes/pelanggaran/jenis-pelanggaran'
 import { Route as MasterSchoolImport } from './routes/master/school'
 import { Route as AuthRegisterImport } from './routes/auth/register'
 import { Route as AuthLoginImport } from './routes/auth/login'
@@ -62,6 +65,25 @@ const StaffCreateRoute = StaffCreateImport.update({
   path: '/staff/create',
   getParentRoute: () => rootRoute,
 } as any)
+
+const PelanggaranPoinPelanggaranRoute = PelanggaranPoinPelanggaranImport.update(
+  {
+    path: '/pelanggaran/poin-pelanggaran',
+    getParentRoute: () => rootRoute,
+  } as any,
+)
+
+const PelanggaranPelanggaranSiswaRoute =
+  PelanggaranPelanggaranSiswaImport.update({
+    path: '/pelanggaran/pelanggaran-siswa',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const PelanggaranJenisPelanggaranRoute =
+  PelanggaranJenisPelanggaranImport.update({
+    path: '/pelanggaran/jenis-pelanggaran',
+    getParentRoute: () => rootRoute,
+  } as any)
 
 const MasterSchoolRoute = MasterSchoolImport.update({
   path: '/master/school',
@@ -174,6 +196,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MasterSchoolImport
       parentRoute: typeof rootRoute
     }
+    '/pelanggaran/jenis-pelanggaran': {
+      preLoaderRoute: typeof PelanggaranJenisPelanggaranImport
+      parentRoute: typeof rootRoute
+    }
+    '/pelanggaran/pelanggaran-siswa': {
+      preLoaderRoute: typeof PelanggaranPelanggaranSiswaImport
+      parentRoute: typeof rootRoute
+    }
+    '/pelanggaran/poin-pelanggaran': {
+      preLoaderRoute: typeof PelanggaranPoinPelanggaranImport
+      parentRoute: typeof rootRoute
+    }
     '/staff/create': {
       preLoaderRoute: typeof StaffCreateImport
       parentRoute: typeof rootRoute
@@ -229,6 +263,9 @@ export const routeTree = rootRoute.addChildren([
   AuthLoginRoute,
   AuthRegisterRoute,
   MasterSchoolRoute,
+  PelanggaranJenisPelanggaranRoute,
+  PelanggaranPelanggaranSiswaRoute,
+  PelanggaranPoinPelanggaranRoute,
   StaffCreateRoute,
   AkademikIndexRoute,
   StaffIndexRoute,
