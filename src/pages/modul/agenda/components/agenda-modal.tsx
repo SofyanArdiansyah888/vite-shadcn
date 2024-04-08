@@ -3,28 +3,30 @@ import {Form} from "antd";
 import FormInput from "@/components/shared/form/form-input.tsx";
 import {Dispatch, useEffect} from "react";
 import SekolahSelect from "@/components/shared/form/select/sekolah-select.tsx";
-import AgendaEntity from "@/pages/modul/informasi/data/informasi.entity.ts";
+
 import FormTextarea from "@/components/shared/form/form-textarea.tsx";
+import AgendaEntity from "@/pages/modul/agenda/data/agenda.entity.ts";
+import FormDatetime from "@/components/shared/form/form-datetime.tsx";
 
 
 interface IInformasiModal {
-    selectedData: InformasiEntity | undefined,
-    setSelectedData: Dispatch<InformasiEntity | undefined>,
+    selectedData: AgendaEntity | undefined,
+    setSelectedData: Dispatch<AgendaEntity | undefined>,
     isOpen: boolean,
     handleGroupModal: (key: string, value: boolean) => void
 }
 
-export default function InformasiModal({isOpen, handleGroupModal, selectedData, setSelectedData}: IInformasiModal) {
+export default function AgendaModal({isOpen, handleGroupModal, selectedData, setSelectedData}: IInformasiModal) {
     const [form] = Form.useForm();
 
-    function handleSubmit(value: InformasiEntity) {
+    function handleSubmit(value: AgendaEntity) {
         console.log(value)
         handleGroupModal("modal", false)
     }
 
     useEffect(() => {
         if (selectedData) {
-            form.setFieldsValue({...selectedData})
+            // form.setFieldsValue({...selectedData})
         }
         if (!isOpen) {
             form.resetFields()
@@ -34,9 +36,9 @@ export default function InformasiModal({isOpen, handleGroupModal, selectedData, 
     }, [form, selectedData, setSelectedData, isOpen])
 
 
-    return <FormModal<InformasiEntity>
+    return <FormModal<AgendaEntity>
         form={form}
-        title={`${selectedData ? "Edit Informasi" : "Tambah Informasi"}`}
+        title={`${selectedData ? "Edit Agenda" : "Tambah Agenda"}`}
         isOpen={isOpen}
         setIsOpen={(value) => handleGroupModal("modal", value as boolean)}
         onSubmit={handleSubmit}>
@@ -47,9 +49,19 @@ export default function InformasiModal({isOpen, handleGroupModal, selectedData, 
             label={"Judul"}
         />
 
+        <FormDatetime
+            name={"dari"}
+            label={"Dari"}
+        />
+
+        <FormDatetime
+            name={"sampai"}
+            label={"Sampai"}
+        />
+
         <FormTextarea
-            name={"konten"}
-            label={"Konten"}
+            name={"keterangan"}
+            label={"Keterangan"}
         />
 
     </FormModal>

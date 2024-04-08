@@ -33,6 +33,7 @@ export default function DetailModal({
         footer={[<Button key="back" onClick={() => setIsOpen(false)}>
             Tutup
         </Button>]}
+        centered
     >
         <Separator className={"mb-8"}/>
         <section className={`grid ${column} gap-x-6 gap-y-4`}>

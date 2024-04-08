@@ -47,12 +47,13 @@ export default function FormModal<T>({
         onCancel={() => setIsOpen(false)}
         destroyOnClose
         className={"!w-[350px]"}
+        centered
     >
         <section className={"py-6"}>
             <Form
                 form={form}
                 layout={"vertical"}
-                className={"!space-y-4"}
+                className={"!space-y-4 "}
             >
                 {children}
             </Form>

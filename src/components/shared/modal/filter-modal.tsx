@@ -48,6 +48,7 @@ export default function FilterModal<T>({
             onCancel={() => setIsOpen(false)}
             destroyOnClose
             className={"!w-[350px]"}
+            centered
         >
             <section className={"py-6"}>
                 <Form

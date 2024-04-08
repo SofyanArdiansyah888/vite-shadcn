@@ -465,5 +465,57 @@
       "created_at": "2024-04-01T08:00:00",
       "updated_at": "2024-04-01T08:00:00"
     }
+  ],
+  "agenda": [
+    {
+      "id": "1",
+      "sekolah": "Sekolah Dasar Negeri 1",
+      "acara": "Rapat Guru",
+      "keterangan": "Pembahasan rencana kegiatan bulan depan.",
+      "dari": "2024-05-01T08:00:00",
+      "sampai": "2024-05-01T12:00:00",
+      "created_at": "2024-04-01T08:00:00",
+      "updated_at": "2024-04-01T08:00:00"
+    },
+    {
+      "id": "2",
+      "sekolah": "Sekolah Dasar Negeri 2",
+      "acara": "Penerimaan Siswa Baru",
+      "keterangan": "Penerimaan siswa baru untuk tahun ajaran 2024/2025.",
+      "dari": "2024-06-01T08:00:00",
+      "sampai": "2024-06-01T16:00:00",
+      "created_at": "2024-04-02T08:00:00",
+      "updated_at": "2024-04-02T08:00:00"
+    },
+    {
+      "id": "3",
+      "sekolah": "Sekolah Dasar Negeri 3",
+      "acara": "Ujian Akhir Semester",
+      "keterangan": "Ujian akhir semester untuk kelas 6.",
+      "dari": "2024-07-01T08:00:00",
+      "sampai": "2024-07-15T12:00:00",
+      "created_at": "2024-04-03T08:00:00",
+      "updated_at": "2024-04-03T08:00:00"
+    },
+    {
+      "id": "4",
+      "sekolah": "Sekolah Dasar Negeri 4",
+      "acara": "Pensi",
+      "keterangan": "Pensi tahunan sekolah.",
+      "dari": "2024-08-01T08:00:00",
+      "sampai": "2024-08-01T20:00:00",
+      "created_at": "2024-04-04T08:00:00",
+      "updated_at": "2024-04-04T08:00:00"
+    },
+    {
+      "id": "5",
+      "sekolah": "Sekolah Dasar Negeri 5",
+      "acara": "Perpisahan",
+      "keterangan": "Perpisahan untuk siswa kelas 6.",
+      "dari": "2024-09-01T08:00:00",
+      "sampai": "2024-09-01T12:00:00",
+      "created_at": "2024-04-05T08:00:00",
+      "updated_at": "2024-04-05T08:00:00"
+    }
   ]
 }

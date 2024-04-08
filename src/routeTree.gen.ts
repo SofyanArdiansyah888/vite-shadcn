@@ -12,6 +12,7 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as InformasiImport } from './routes/informasi'
+import { Route as AgendaImport } from './routes/agenda'
 import { Route as IndexImport } from './routes/index'
 import { Route as StaffIndexImport } from './routes/staff/index'
 import { Route as AkademikIndexImport } from './routes/akademik/index'
@@ -34,6 +35,11 @@ import { Route as AkademikAbsensiPertemuanDetailIdImport } from './routes/akadem
 
 const InformasiRoute = InformasiImport.update({
   path: '/informasi',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AgendaRoute = AgendaImport.update({
+  path: '/agenda',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -136,6 +142,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/agenda': {
+      preLoaderRoute: typeof AgendaImport
+      parentRoute: typeof rootRoute
+    }
     '/informasi': {
       preLoaderRoute: typeof InformasiImport
       parentRoute: typeof rootRoute
@@ -211,6 +221,7 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexRoute,
+  AgendaRoute,
   InformasiRoute,
   AkademikAnggotaKelasRoute,
   AkademikJadwalPengajarRoute,
