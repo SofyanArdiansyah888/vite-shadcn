@@ -15,7 +15,7 @@ export default interface StaffEntity {
     rfid: string;
     foto: string;
     password: string;
-    created_at: string | null;
-    updated_at: string | null;
-    deleted_at: string | null;
+    created_at: string;
+    updated_at: string;
+    deleted_at: string;
 }

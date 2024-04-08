@@ -17,6 +17,7 @@ import { Route as IndexImport } from './routes/index'
 import { Route as StaffIndexImport } from './routes/staff/index'
 import { Route as AkademikIndexImport } from './routes/akademik/index'
 import { Route as StaffCreateImport } from './routes/staff/create'
+import { Route as StaffIdImport } from './routes/staff/$id'
 import { Route as PelanggaranPoinPelanggaranImport } from './routes/pelanggaran/poin-pelanggaran'
 import { Route as PelanggaranPelanggaranSiswaImport } from './routes/pelanggaran/pelanggaran-siswa'
 import { Route as PelanggaranJenisPelanggaranImport } from './routes/pelanggaran/jenis-pelanggaran'
@@ -63,6 +64,11 @@ const AkademikIndexRoute = AkademikIndexImport.update({
 
 const StaffCreateRoute = StaffCreateImport.update({
   path: '/staff/create',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const StaffIdRoute = StaffIdImport.update({
+  path: '/staff/$id',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -208,6 +214,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PelanggaranPoinPelanggaranImport
       parentRoute: typeof rootRoute
     }
+    '/staff/$id': {
+      preLoaderRoute: typeof StaffIdImport
+      parentRoute: typeof rootRoute
+    }
     '/staff/create': {
       preLoaderRoute: typeof StaffCreateImport
       parentRoute: typeof rootRoute
@@ -266,6 +276,7 @@ export const routeTree = rootRoute.addChildren([
   PelanggaranJenisPelanggaranRoute,
   PelanggaranPelanggaranSiswaRoute,
   PelanggaranPoinPelanggaranRoute,
+  StaffIdRoute,
   StaffCreateRoute,
   AkademikIndexRoute,
   StaffIndexRoute,

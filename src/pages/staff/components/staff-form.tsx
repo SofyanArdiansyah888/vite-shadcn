@@ -1,73 +1,119 @@
-import {BackButton, SaveButton} from "@/components/ui/button.tsx";
-import {Form, Input} from "antd";
+import {Form} from "antd";
 import {Separator} from "@/components/ui/separator.tsx";
-import StaffLayout from "@/components/layout/staff-layout.tsx";
-
-export default function StaffForm() {
+import FormInput from "@/components/shared/form/form-input.tsx";
+import {BackButton, SaveButton} from "@/components/ui/button.tsx";
+import {useEffect} from "react";
+import StaffEntity from "@/pages/staff/data/staff.entity.ts";
+import JenisKelaminSelect from "@/components/shared/form/select/jenis-kelamin-select.tsx";
+import FormDate from "@/components/shared/form/form-date.tsx";
+import moment from "moment/moment";
+import FormUpload from "@/components/shared/form/form-upload.tsx";
+interface IStaffForm {
+    title: string
+    staff?: StaffEntity
+}
+export default function StaffForm({title,staff}:IStaffForm) {
     const [form] = Form.useForm();
-
-    return <StaffLayout>
-        <section className={"py-4 px-12 space-y-4"}>
-            <div className="flex items-center justify-between">
-                <div className="space-y-1 my-2">
-                    <h2 className="text-2xl font-semibold tracking-tight">
-                        Tambah Staff
-                    </h2>
-                    {/*<p className="text-sm text-muted-foreground">*/}
-                    {/*    Top picks for you. Updated daily.*/}
-                    {/*</p>*/}
-                </div>
-                <div className={"flex justify-end gap-2"}>
-                    <BackButton/>
-                    <SaveButton/>
-                </div>
+    console.log(staff,'staff form')
+    useEffect(() => {
+        if(staff){
+            form.setFieldsValue({
+                ...staff,
+                tanggal_lahir: moment(staff.tanggal_lahir)
+            })
+        }
+    }, [form, staff]);
+    return <Form
+        form={form}
+        layout={"vertical"}
+        className={""}
+    >
+        <div className="flex items-center justify-between ">
+            <div className="space-y-1 my-2">
+                <h2 className="text-2xl font-semibold tracking-tight">
+                    {title}
+                </h2>
             </div>
-            <Separator className=""/>
-            {/*<Card className={"border-t-2 !border-t-primary"}>*/}
-            {/*<CardContent className={"py-4 space-y-8"}>*/}
+            <div className={"flex justify-end gap-2"}>
+                <BackButton/>
+                <SaveButton/>
+            </div>
+        </div>
+        <Separator className="my-2"/>
+        <div className={"grid grid-cols-3 gap-x-4 gap-y-1 my-6"}>
+            <div className={"space-y-3"}>
+                <h3 className={"font-medium text-lg"}>Data Pribadi</h3>
+                <Separator/>
+                <FormInput
+                    name={"sekolah"}
+                    label={"Sekolah"}
+                />
+                <FormInput
+                    name={"nama"}
+                    label={"Nama Lengkap"}
+                    rules={[{required: true}]}
+                />
+                <FormInput
+                    name={"nik"}
+                    label={"Nik"}
+                    rules={[{required: true}]}
+                />
+                <JenisKelaminSelect />
+                <FormInput
+                    name={"tempat_lahir"}
+                    label={"Tempat Lahir"}
+                    rules={[{required: true}]}
+                />
+                <FormDate name={"tanggal_lahir"} label={"Tanggal Lahir"} />
 
-            <Form
-                form={form}
-                layout={"vertical"}
-            >
-                <div className={"grid grid-cols-3 gap-x-4 gap-y-1"}>
-                    <Form.Item label="Matakuliah">
-                        <Input/>
-                    </Form.Item>
-                    <Form.Item label="Field A">
-                        <Input/>
-                    </Form.Item>
-                    <Form.Item label="Field A">
-                        <Input/>
-                    </Form.Item>
-                    <Form.Item label="Field A">
-                        <Input/>
-                    </Form.Item>
-                    <Form.Item label="Field A">
-                        <Input/>
-                    </Form.Item>
-                    <Form.Item label="Field A">
-                        <Input/>
-                    </Form.Item>
-                    <Form.Item label="Field A">
-                        <Input/>
-                    </Form.Item>
-                    <Form.Item label="Field A">
-                        <Input/>
-                    </Form.Item>
-                    <Form.Item label="Field A">
-                        <Input/>
-                    </Form.Item>
-                    <Form.Item label="Field A">
-                        <Input/>
-                    </Form.Item>
-                </div>
-            </Form>
-            {/*</CardContent>*/}
-            {/*<CardFooter className={"flex justify-end"}>*/}
-            {/*<Button size={"xs"} variant={"primary"}>Submit</Button>*/}
-            {/*</CardFooter>*/}
-            {/*</Card>*/}
-        </section>
-    </StaffLayout>
+            </div>
+            <div className={"space-y-3"}>
+                <h3 className={"font-medium text-lg"}>Kepegawaian</h3>
+                <Separator/>
+                <FormInput
+                    name={"jabatan"}
+                    label={"Jabatan"}
+                />
+                <FormInput
+                    name={"nuptk"}
+                    label={"NUPTK"}
+                />
+                <FormInput
+                    name={"nip"}
+                    label={"NIP"}
+                />
+
+                <FormInput
+                    name={"status_kepegawaian"}
+                    label={"Status Kepegawaian"}
+                />
+
+                <FormInput
+                    name={"jenis_ptk"}
+                    label={"Jenis PTK"}
+                />
+
+            </div>
+
+            <div className={"space-y-3"}>
+                <h3 className={"font-medium text-lg"}>Info Lainnya</h3>
+                <Separator/>
+                <FormInput
+                    name={"telepon"}
+                    label={"Nomor Telepon/Whatsapp"}
+                />
+                <FormInput
+                    name={"email"}
+                    label={"Email"}
+                />
+                <FormInput
+                    name={"rfid"}
+                    label={"RFID"}
+                />
+                <FormUpload />
+            </div>
+
+
+        </div>
+    </Form>
 }

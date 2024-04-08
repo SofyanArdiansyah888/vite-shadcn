@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {AddButton} from "@/components/ui/button.tsx";
 import {Link} from "@tanstack/react-router";
 import StaffLayout from "@/components/layout/staff-layout.tsx";
@@ -7,10 +7,16 @@ import CustomHeader from "@/components/shared/custom-header.tsx";
 import useStaffStore from "@/pages/staff/data/useStaffStore.tsx";
 import StaffTable from "@/pages/staff/components/staff-table.tsx";
 import GroupBadgeFilter from "@/components/shared/group-badge-filter.tsx";
+import DetailModal, {IDetailInfoModal} from "@/components/shared/modal/detail-modal.tsx";
+import useGroupModal from "@/hooks/useGroupModal.tsx";
 
 
 const StaffPage: React.FC = () => {
     const {filterPayload, resetFilterPayload, deleteFilterPayload} = useStaffStore()
+    const {groupModal, handleGroupModal} = useGroupModal({
+        detailModal: false,
+    })
+    const [detail, setDetail] = useState<IDetailInfoModal[]>([])
 
     function handleSearchChange() {
 
@@ -24,7 +30,7 @@ const StaffPage: React.FC = () => {
     return (<StaffLayout>
             <section className={"px-12 py-4"}>
                 <CustomHeader
-                    title={"List Staff"}
+                    title={"List Guru / Pegawai"}
                     additionalAction={<StaffFilter/>}
                     handleSearch={handleSearchChange}
                 />
@@ -40,8 +46,19 @@ const StaffPage: React.FC = () => {
                         <AddButton/>
                     </Link>
                 </div>
-                <StaffTable/>
+                <StaffTable
+                    setDetail={setDetail}
+                    handleGroupModal={handleGroupModal}
+                />
             </section>
+            <DetailModal
+                title={"Detail Staff"}
+                isOpen={groupModal.detailModal}
+                setIsOpen={(value) => handleGroupModal("detailModal", value as boolean)}
+                details={detail}
+                column={"grid-cols-3"}
+                width={1000}
+            />
         </StaffLayout>
 
     );

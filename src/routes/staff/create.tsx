@@ -1,6 +1,6 @@
-import { createFileRoute } from '@tanstack/react-router'
-import StaffForm from "@/pages/staff/components/staff-form.tsx";
+import {createFileRoute} from '@tanstack/react-router'
+import StaffCreatePage from "@/pages/staff/staff-create-page.tsx";
 
 export const Route = createFileRoute('/staff/create')({
-  component: () => <StaffForm />
+    component: () => <StaffCreatePage/>
 })

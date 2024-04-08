@@ -3,8 +3,15 @@ import {DeleteButtonIcon, DetailButtonIcon, EditButtonIcon} from "@/components/u
 import {useGetList} from "@/hooks/useApi.tsx";
 import useStaffStore from "@/pages/staff/data/useStaffStore.tsx";
 import StaffEntity from "@/pages/staff/data/staff.entity.ts";
+import {Dispatch} from "react";
+import {Link} from "@tanstack/react-router";
+import {tanggalID} from "@/lib/formatter.ts";
+import {deleteAlert} from "@/components/shared/alert.tsx";
 
-export default function StaffTable() {
+export default function StaffTable({setDetail, handleGroupModal}: {
+    setDetail: Dispatch<{ key: string, value: string }[]>,
+    handleGroupModal: (key: string, value: boolean) => void,
+}) {
     const {filterPayload} = useStaffStore()
     const {data, isLoading} = useGetList<StaffEntity[]>({
         endpoint: "/staff",
@@ -18,6 +25,35 @@ export default function StaffTable() {
 
     const cancel = () => {
     };
+
+    function handleDetailClick(data: StaffEntity) {
+        const temp = Object.entries(data)
+            .filter((item) => !["deleted_at", "password", "id"].includes(item[0]))
+            .map((item) => {
+                let value = item[1]
+                if (["created_at", "updated_at", "tanggal_lahir"].includes(item[0])) {
+                    value = tanggalID(value)
+                }
+                return {
+                    key: item[0].replace("_", " "),
+                    value
+                }
+            })
+        setDetail(temp)
+        handleGroupModal("detailModal", true)
+    }
+
+    function handleDeleteClick(data: StaffEntity) {
+        console.log(data.nama)
+        deleteAlert({
+            data: data.nama,
+            handleSubmit: () => {
+                return new Promise((resolve, reject) => {
+                    setTimeout(Math.random() > 0.5 ? resolve : reject, 1000);
+                }).catch(() => console.log('Oops errors!'));
+            }
+        })
+    }
 
     const columns: TableProps<StaffEntity>['columns'] = [
         {
@@ -43,12 +79,13 @@ export default function StaffTable() {
             title: 'Action',
             dataIndex: 'operation',
             width: '100px',
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            render: (_, __) =>
+            render: (_, staff) =>
                 <div className={"flex gap-1"}>
-                    <EditButtonIcon/>
-                    <DetailButtonIcon/>
-                    <DeleteButtonIcon/>
+                    <Link to={`/staff/$id`} params={{id: staff.id}}>
+                        <EditButtonIcon/>
+                    </Link>
+                    <DetailButtonIcon onClick={() => handleDetailClick(staff)}/>
+                    <DeleteButtonIcon onClick={() => handleDeleteClick(staff)}/>
                 </div>
             ,
         },

@@ -12,7 +12,7 @@ export function deleteAlert({
     confirm({
         title: 'Kamu yakin ingin menghapus data ini ?',
         icon: <InfoIcon className={"mr-2 text-destructive"} strokeWidth={1} />,
-        content: `${data.kelas}`,
+        content: `${data}`,
         okText: 'Ya',
         okType: 'danger',
         cancelText: 'Tidak',
