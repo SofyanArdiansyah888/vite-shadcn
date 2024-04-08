@@ -641,5 +641,67 @@
       "updated_at": "2024-04-05T12:20:00Z",
       "deleted_at": ""
     }
+  ],
+  "poin-pelanggaran": [
+    {
+      "id": "1",
+      "sekolah": "SMP Negeri 1",
+      "tahun_ajaran": "2023/2024",
+      "kelas": "7A",
+      "siswa": "John Doe",
+      "jumlah_pelanggaran": "3",
+      "poin": "15",
+      "created_at": "2024-04-01T08:00:00Z",
+      "updated_at": "2024-04-01T08:05:00Z",
+      "deleted_at": ""
+    },
+    {
+      "id": "2",
+      "sekolah": "SMA Negeri 2",
+      "tahun_ajaran": "2023/2024",
+      "kelas": "10B",
+      "siswa": "Jane Smith",
+      "jumlah_pelanggaran": "1",
+      "poin": "5",
+      "created_at": "2024-04-02T09:30:00Z",
+      "updated_at": "2024-04-02T09:35:00Z",
+      "deleted_at": ""
+    },
+    {
+      "id": "3",
+      "sekolah": "SD Kristen 1",
+      "tahun_ajaran": "2023/2024",
+      "kelas": "4C",
+      "siswa": "Michael Brown",
+      "jumlah_pelanggaran": "2",
+      "poin": "10",
+      "created_at": "2024-04-03T10:45:00Z",
+      "updated_at": "2024-04-03T10:50:00Z",
+      "deleted_at": ""
+    },
+    {
+      "id": "4",
+      "sekolah": "SMK Islam 3",
+      "tahun_ajaran": "2023/2024",
+      "kelas": "11A",
+      "siswa": "Ahmad Khan",
+      "jumlah_pelanggaran": "5",
+      "poin": "25",
+      "created_at": "2024-04-04T11:00:00Z",
+      "updated_at": "2024-04-04T11:05:00Z",
+      "deleted_at": ""
+    },
+    {
+      "id": "5",
+      "sekolah": "SMP Swasta 5",
+      "tahun_ajaran": "2023/2024",
+      "kelas": "8B",
+      "siswa": "Maria Rodriguez",
+      "jumlah_pelanggaran": "4",
+      "poin": "20",
+      "created_at": "2024-04-05T12:15:00Z",
+      "updated_at": "2024-04-05T12:20:00Z",
+      "deleted_at": ""
+    }
   ]
 }
