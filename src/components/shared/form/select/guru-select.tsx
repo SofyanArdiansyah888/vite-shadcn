@@ -2,7 +2,7 @@ import FormSelect from "@/components/shared/form/form-select.tsx";
 import {ISelect} from "@/components/shared/form/select/ISelect.ts";
 
 
-export default function GuruSelect({name = "guru", label = "Guru"}: ISelect) {
+export default function GuruSelect({name = "guru", label = "Guru",rules}: ISelect) {
     return <FormSelect
         name={name}
         label={label}
@@ -12,5 +12,6 @@ export default function GuruSelect({name = "guru", label = "Guru"}: ISelect) {
                 label: "Jamal Sauri"
             }
         ]}
+        rules={rules}
     />
 }

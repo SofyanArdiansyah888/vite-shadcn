@@ -1,7 +1,7 @@
 import FormSelect from "@/components/shared/form/form-select.tsx";
 import {ISelect} from "@/components/shared/form/select/ISelect.ts";
 
-export default function WaliKelasSelect({name = "wali_kelas", label = "Wali Kelas"}: ISelect) {
+export default function WaliKelasSelect({name = "wali_kelas", label = "Wali Kelas", rules}: ISelect) {
     return <FormSelect
         name={name}
         label={label}
@@ -15,5 +15,6 @@ export default function WaliKelasSelect({name = "wali_kelas", label = "Wali Kela
                 label: "Ahmad Firdaus"
             }
         ]}
+        rules={rules}
     />
 }
