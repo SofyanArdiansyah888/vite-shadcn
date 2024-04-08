@@ -1,9 +1,10 @@
 import FormSelect from "@/components/shared/form/form-select.tsx";
+import {ISelect} from "@/components/shared/form/select/ISelect.ts";
 
-export default function TahunAjaranSelect(){
+export default function TahunAjaranSelect({name = "tahun_ajaran", label = "Tahun Ajaran"}: ISelect){
     return     <FormSelect
-        name={"tahun_ajaran"}
-        label={"Tahun ajaran"}
+        name={name}
+        label={label}
         options={[
             {
                 value: "",

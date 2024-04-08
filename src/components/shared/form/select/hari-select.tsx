@@ -1,9 +1,10 @@
 import FormSelect from "@/components/shared/form/form-select.tsx";
+import {ISelect} from "@/components/shared/form/select/ISelect.ts";
 
-export default function HariSelect() {
+export default function HariSelect({name = "hari", label = "Hari"}: ISelect) {
     return <FormSelect
-        name={"hari"}
-        label={"Hari"}
+        name={name}
+        label={label}
         options={[
             {
                 value: "senin",
