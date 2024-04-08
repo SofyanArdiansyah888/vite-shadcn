@@ -3,11 +3,17 @@ import {Button, Modal} from "antd";
 import {Separator} from "@/components/ui/separator.tsx";
 
 
-interface IDetailModal {
+export interface IDetailInfoModal {
+    key: string,
+    value: string,
+    colspan?: string
+}
+
+export interface IDetailModal {
     title: string,
     isOpen: boolean,
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>,
-    details: { key: string, value: string,colspan?: string }[],
+    details: IDetailInfoModal[],
     column?: string
 }
 
