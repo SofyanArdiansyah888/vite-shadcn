@@ -51,13 +51,13 @@ export default function PoinPelanggaranTable({handleGroupModal, params, setDetai
 
     const columns: TableProps<PoinPelanggaranEntity>['columns'] = [
         {
-            title: 'Sekolah',
-            dataIndex: 'sekolah',
+            title: 'Siswa',
+            dataIndex: 'siswa',
             sorter: true,
         },
         {
-            title: 'Pelanggaran',
-            dataIndex: 'pelanggaran',
+            title: 'Jumlah Pelanggaran',
+            dataIndex: 'jumlah_pelanggaran',
             width: '20%',
         },
         {
