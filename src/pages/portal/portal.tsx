@@ -39,7 +39,7 @@ export default function PortalPage() {
                     subtitle={"Fitur akademik untuk menunjang kualitas akademik di sekolah"}
                     icon={<SchoolIcon strokeWidth={0.4} className={"h-20 w-20"}/>}
                     color={"orange"}
-                    link={"/akademik/tahun-ajaran"}
+                    link={"/akademik/referensi/tahun-ajaran"}
                 />
 
                 <PortalCard
