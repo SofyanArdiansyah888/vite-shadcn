@@ -1,17 +1,15 @@
 import PortalCard from "@/pages/portal/components/portal-card.tsx";
-import {
-    BadgeInfoIcon,
-    BookIcon,
-    BriefcaseIcon,
-    CircleAlertIcon,
-    CircleUserIcon,
-    CircleUserRoundIcon,
-    CoinsIcon,
-    SchoolIcon,
-    TimerIcon,
-    TimerReset
-} from "lucide-react";
 import PortalLayout from "@/components/layout/portal-layout.tsx";
+import teacherUrl from "../../assets/teacher.svg"
+import imageUrl from "../../assets/children.svg"
+import certivicateUrl from "../../assets/certivicate.svg"
+import timeUrl from "../../assets/time.svg"
+import agendaUrl from "../../assets/agenda.svg"
+import moneyUrl from "../../assets/money.svg"
+import salaryUrl from "../../assets/salary.svg"
+import informationUrl from "../../assets/information.svg"
+import childrenPlayUrl from "../../assets/children-play.svg"
+import testUrl from "../../assets/test.svg"
 
 export default function PortalPage() {
 
@@ -19,25 +17,25 @@ export default function PortalPage() {
         <section className="flex-1 space-y-4 p-8 pt-6">
             <div className={"grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4"}>
                 <PortalCard
-                    title={"Data Guru & Staff"}
+                    title={"Data Pegawai"}
                     subtitle={"Kelola data guru dan staff di sekolah anda"}
-                    icon={<CircleUserIcon strokeWidth={0.4} className={"h-20 w-20"}/>}
-                    color={"green"}
+                    imageUrl={teacherUrl}
+                    color={"orange"}
                     link={"/staff"}
                 />
 
                 <PortalCard
                     title={"Data Siswa"}
                     subtitle={"Kelola data siswa di sekolah anda"}
-                    icon={<CircleUserRoundIcon strokeWidth={0.4} className={"h-20 w-20"}/>}
-                    color={"blue"}
-                    link={"/"}
+                    imageUrl={imageUrl}
+                    color={"orange"}
+                    link={"/siswa"}
                 />
 
                 <PortalCard
                     title={"Akademik"}
                     subtitle={"Fitur akademik untuk menunjang kualitas akademik di sekolah"}
-                    icon={<SchoolIcon strokeWidth={0.4} className={"h-20 w-20"}/>}
+                    imageUrl={certivicateUrl}
                     color={"orange"}
                     link={"/akademik/referensi/tahun-ajaran"}
                 />
@@ -45,40 +43,40 @@ export default function PortalPage() {
                 <PortalCard
                     title={"Absensi"}
                     subtitle={"Kelola daftar hadir guru,staff dan siswa di sekolah anda"}
-                    icon={<TimerIcon strokeWidth={0.4} className={"h-20 w-20"}/>}
-                    color={"zinc"}
+                    imageUrl={timeUrl}
+                    color={"orange"}
                     link={"/"}
                 />
 
                 <PortalCard
                     title={"Agenda"}
                     subtitle={"Kelola agenda kegiatan sekolah anda untuk di informasikan ke user sekolah"}
-                    icon={<BookIcon strokeWidth={0.4} className={"h-20 w-20"}/>}
-                    color={"gray"}
+                    imageUrl={agendaUrl}
+                    color={"orange"}
                     link={"/agenda"}
                 />
 
                 <PortalCard
                     title={"Pelanggaran Siswa"}
                     subtitle={"Kelola pelanggaran siswa dan langkah penyelesaian yang dilakukan"}
-                    icon={<CircleAlertIcon strokeWidth={0.4} className={"h-20 w-20"}/>}
-                    color={"red"}
+                    imageUrl={childrenPlayUrl}
+                    color={"orange"}
                     link={"/pelanggaran/jenis-pelanggaran"}
                 />
 
                 <PortalCard
                     title={"Keuangan"}
                     subtitle={"Kelola keuangan sekolah dengan mudah"}
-                    icon={<CoinsIcon strokeWidth={0.4} className={"h-20 w-20"}/>}
-                    color={"purple"}
+                    imageUrl={moneyUrl}
+                    color={"orange"}
                     link={"/"}
                 />
 
                 <PortalCard
                     title={"Penggajian"}
                     subtitle={"Kelola pencatatan dan rekap gaji guru dan staff di sekolah anda"}
-                    icon={<BriefcaseIcon strokeWidth={0.4} className={"h-20 w-20"}/>}
-                    color={"pink"}
+                    imageUrl={salaryUrl}
+                    color={"orange"}
                     link={"/"}
                 />
 
@@ -93,8 +91,8 @@ export default function PortalPage() {
                 <PortalCard
                     title={"Informasi"}
                     subtitle={"Broadcast informasi singkat"}
-                    icon={<BadgeInfoIcon strokeWidth={0.4} className={"h-20 w-20"}/>}
-                    color={"rose"}
+                    imageUrl={informationUrl}
+                    color={"orange"}
                     link={"/informasi"}
                 />
 
@@ -109,8 +107,8 @@ export default function PortalPage() {
                 <PortalCard
                     title={"Computer Based Test (CBT)"}
                     subtitle={"Kelola ujian siswa anda dengan mudah"}
-                    icon={<TimerReset strokeWidth={0.4} className={"h-20 w-20"}/>}
-                    color={"blue"}
+                    imageUrl={testUrl}
+                    color={"orange"}
                     link={"/"}
                 />
 
