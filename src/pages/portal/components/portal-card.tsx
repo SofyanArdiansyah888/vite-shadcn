@@ -34,7 +34,7 @@ const variants = cva("hover:text-white font-medium border-[1.3px] rounded-3xl", 
 export default function PortalCard({color, imageUrl, title, subtitle, link}: PortalPageProps) {
     return <Card className={`${cn(variants({color}))} cursor-pointer`}>
         <Link to={link}>
-            <CardContent className={"flex py-6 gap-2 items-center group"}>
+            <CardContent className={"flex py-6 gap-2 items-start group"}>
                 <div className={"basis-5/6 space-y-3"}>
                     <div className={"space-y-2"}>
                         <h2 className={"text-xl"}>{title}</h2>
