@@ -1,4 +1,4 @@
-import {Form, Input} from "antd";
+import {Form, Input, InputNumber} from "antd";
 import {RuleObject, RuleRender} from "rc-field-form/lib/interface";
 
 
@@ -9,6 +9,7 @@ export interface IFormSelectValue {
 }
 
 interface IFormSelect {
+    type?: string,
     name: string,
     label: string,
     value?: string,
@@ -23,10 +24,15 @@ export default function FormInput({
                                       onChange,
                                       placeholder,
                                       rules,
-                                      value
+                                      value,
+                                      type = "text"
                                   }: IFormSelect) {
     return <Form.Item name={name} label={label} rules={rules}>
-        <Input onChange={onChange} placeholder={placeholder} value={value}/>
+        {
+            type === "number" ?
+                <InputNumber className={"w-full"} onChange={onChange} placeholder={placeholder} value={value}/> :
+                <Input onChange={onChange} placeholder={placeholder} value={value}/>
+        }
     </Form.Item>
 
 }

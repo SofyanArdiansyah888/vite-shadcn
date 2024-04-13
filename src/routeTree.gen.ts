@@ -15,9 +15,12 @@ import { Route as InformasiImport } from './routes/informasi'
 import { Route as AgendaImport } from './routes/agenda'
 import { Route as IndexImport } from './routes/index'
 import { Route as StaffIndexImport } from './routes/staff/index'
+import { Route as SiswaIndexImport } from './routes/siswa/index'
 import { Route as AkademikIndexImport } from './routes/akademik/index'
 import { Route as StaffCreateImport } from './routes/staff/create'
 import { Route as StaffIdImport } from './routes/staff/$id'
+import { Route as SiswaCreateImport } from './routes/siswa/create'
+import { Route as SiswaIdImport } from './routes/siswa/$id'
 import { Route as PelanggaranPoinPelanggaranImport } from './routes/pelanggaran/poin-pelanggaran'
 import { Route as PelanggaranPelanggaranSiswaImport } from './routes/pelanggaran/pelanggaran-siswa'
 import { Route as PelanggaranJenisPelanggaranImport } from './routes/pelanggaran/jenis-pelanggaran'
@@ -57,6 +60,11 @@ const StaffIndexRoute = StaffIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const SiswaIndexRoute = SiswaIndexImport.update({
+  path: '/siswa/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const AkademikIndexRoute = AkademikIndexImport.update({
   path: '/akademik/',
   getParentRoute: () => rootRoute,
@@ -69,6 +77,16 @@ const StaffCreateRoute = StaffCreateImport.update({
 
 const StaffIdRoute = StaffIdImport.update({
   path: '/staff/$id',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const SiswaCreateRoute = SiswaCreateImport.update({
+  path: '/siswa/create',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const SiswaIdRoute = SiswaIdImport.update({
+  path: '/siswa/$id',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -214,6 +232,14 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PelanggaranPoinPelanggaranImport
       parentRoute: typeof rootRoute
     }
+    '/siswa/$id': {
+      preLoaderRoute: typeof SiswaIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/siswa/create': {
+      preLoaderRoute: typeof SiswaCreateImport
+      parentRoute: typeof rootRoute
+    }
     '/staff/$id': {
       preLoaderRoute: typeof StaffIdImport
       parentRoute: typeof rootRoute
@@ -224,6 +250,10 @@ declare module '@tanstack/react-router' {
     }
     '/akademik/': {
       preLoaderRoute: typeof AkademikIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/siswa/': {
+      preLoaderRoute: typeof SiswaIndexImport
       parentRoute: typeof rootRoute
     }
     '/staff/': {
@@ -276,9 +306,12 @@ export const routeTree = rootRoute.addChildren([
   PelanggaranJenisPelanggaranRoute,
   PelanggaranPelanggaranSiswaRoute,
   PelanggaranPoinPelanggaranRoute,
+  SiswaIdRoute,
+  SiswaCreateRoute,
   StaffIdRoute,
   StaffCreateRoute,
   AkademikIndexRoute,
+  SiswaIndexRoute,
   StaffIndexRoute,
   AkademikReferensiKelasRoute,
   AkademikReferensiMatapelajaranRoute,
