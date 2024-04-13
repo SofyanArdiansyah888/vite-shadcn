@@ -5,14 +5,14 @@ import {ReactNode, useEffect} from "react";
 import StaffEntity from "@/pages/staff/data/staff.entity.ts";
 import moment from "moment/moment";
 import {Tabs, TabsList, TabsTrigger} from "@/components/ui/tabs.tsx";
-import SiswaTab from "@/pages/siswa/components/siswa-tab.tsx";
+import SiswaTab from "@/pages/siswa/components/tabs/siswa-tab.tsx";
 import {PersonIcon} from "@radix-ui/react-icons";
 import {GraduationCapIcon, MapPinIcon, QrCodeIcon, StethoscopeIcon, UsersIcon} from "lucide-react";
-import TempatTinggalTab from "@/pages/siswa/components/tempat-tinggal-tab.tsx";
-import KesehatanTab from "@/pages/siswa/components/kesehatan-tab.tsx";
-import KeluargaTab from "@/pages/siswa/components/keluarga-tab.tsx";
-import RfidTab from "@/pages/siswa/components/rfid-tab.tsx";
-import PendidikanTab from "@/pages/siswa/components/pendidikan-tab.tsx";
+import TempatTinggalTab from "@/pages/siswa/components/tabs/tempat-tinggal-tab.tsx";
+import KesehatanTab from "@/pages/siswa/components/tabs/kesehatan-tab.tsx";
+import KeluargaTab from "@/pages/siswa/components/tabs/keluarga-tab.tsx";
+import RfidTab from "@/pages/siswa/components/tabs/rfid-tab.tsx";
+import PendidikanTab from "@/pages/siswa/components/tabs/pendidikan-tab.tsx";
 
 interface ISiswaForm {
     title: string
