@@ -109,7 +109,7 @@ export default function PortalPage() {
                     subtitle={"Kelola ujian siswa anda dengan mudah"}
                     imageUrl={testUrl}
                     color={"orange"}
-                    link={"/"}
+                    link={"/cbt"}
                 />
 
             </div>

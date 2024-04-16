@@ -16,6 +16,7 @@ import { Route as AgendaImport } from './routes/agenda'
 import { Route as IndexImport } from './routes/index'
 import { Route as StaffIndexImport } from './routes/staff/index'
 import { Route as SiswaIndexImport } from './routes/siswa/index'
+import { Route as CbtIndexImport } from './routes/cbt/index'
 import { Route as AkademikIndexImport } from './routes/akademik/index'
 import { Route as StaffCreateImport } from './routes/staff/create'
 import { Route as StaffIdImport } from './routes/staff/$id'
@@ -25,6 +26,7 @@ import { Route as PelanggaranPoinPelanggaranImport } from './routes/pelanggaran/
 import { Route as PelanggaranPelanggaranSiswaImport } from './routes/pelanggaran/pelanggaran-siswa'
 import { Route as PelanggaranJenisPelanggaranImport } from './routes/pelanggaran/jenis-pelanggaran'
 import { Route as MasterSchoolImport } from './routes/master/school'
+import { Route as CbtCreateSoalImport } from './routes/cbt/create-soal'
 import { Route as AuthRegisterImport } from './routes/auth/register'
 import { Route as AuthLoginImport } from './routes/auth/login'
 import { Route as AuthForgetPasswordImport } from './routes/auth/forget-password'
@@ -62,6 +64,11 @@ const StaffIndexRoute = StaffIndexImport.update({
 
 const SiswaIndexRoute = SiswaIndexImport.update({
   path: '/siswa/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CbtIndexRoute = CbtIndexImport.update({
+  path: '/cbt/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -111,6 +118,11 @@ const PelanggaranJenisPelanggaranRoute =
 
 const MasterSchoolRoute = MasterSchoolImport.update({
   path: '/master/school',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CbtCreateSoalRoute = CbtCreateSoalImport.update({
+  path: '/cbt/create-soal',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -216,6 +228,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRegisterImport
       parentRoute: typeof rootRoute
     }
+    '/cbt/create-soal': {
+      preLoaderRoute: typeof CbtCreateSoalImport
+      parentRoute: typeof rootRoute
+    }
     '/master/school': {
       preLoaderRoute: typeof MasterSchoolImport
       parentRoute: typeof rootRoute
@@ -250,6 +266,10 @@ declare module '@tanstack/react-router' {
     }
     '/akademik/': {
       preLoaderRoute: typeof AkademikIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/cbt/': {
+      preLoaderRoute: typeof CbtIndexImport
       parentRoute: typeof rootRoute
     }
     '/siswa/': {
@@ -302,6 +322,7 @@ export const routeTree = rootRoute.addChildren([
   AuthForgetPasswordRoute,
   AuthLoginRoute,
   AuthRegisterRoute,
+  CbtCreateSoalRoute,
   MasterSchoolRoute,
   PelanggaranJenisPelanggaranRoute,
   PelanggaranPelanggaranSiswaRoute,
@@ -311,6 +332,7 @@ export const routeTree = rootRoute.addChildren([
   StaffIdRoute,
   StaffCreateRoute,
   AkademikIndexRoute,
+  CbtIndexRoute,
   SiswaIndexRoute,
   StaffIndexRoute,
   AkademikReferensiKelasRoute,

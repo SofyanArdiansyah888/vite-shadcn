@@ -11,8 +11,6 @@ export default function StaffEditPage() {
         endpoint: `/staff`,
         id
     })
-    console.log(id,'id edit')
-    console.log(data,'data edit')
     return <StaffLayout>
         <section className={"py-4 px-12 space-y-4"}>
             <StaffForm
