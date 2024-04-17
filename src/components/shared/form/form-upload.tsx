@@ -1,10 +1,13 @@
 import {Button, Form, Upload} from "antd";
 import {UploadIcon} from "lucide-react";
-
-export default function FormUpload(){
+interface IFormUpload {
+    name?: string
+    label?:string
+}
+export default function FormUpload({name,label = "Upload"}:IFormUpload){
     return     <Form.Item
-        name="upload"
-        label="Upload"
+        name={name}
+        label={label}
         valuePropName="fileList"
         // getValueFromEvent={normFile}
         // extra="longgggggggggggggggggggggggggggggggggg"

@@ -1,5 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, {ReactNode, useEffect, useState} from "react";
 import {Form, FormInstance, Modal} from "antd";
+import {Scrollbar} from "@radix-ui/react-scroll-area";
+import {ScrollArea} from "@/components/ui/scroll-area.tsx";
+import {cn} from "@/lib/utils.ts";
 
 
 interface IFormModal<T> {
@@ -11,6 +14,9 @@ interface IFormModal<T> {
     setConfirmLoading?: React.Dispatch<React.SetStateAction<boolean>>,
     children: React.ReactNode,
     onSubmit: (values: T) => void;
+    scrollArea?: boolean,
+    sectionClass?: string,
+    modalClass?: string
     // handleFormClick?: ((e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined
 }
 
@@ -21,7 +27,10 @@ export default function FormModal<T>({
                                          children,
                                          setIsOpen,
                                          confirmLoading,
-                                         onSubmit
+                                         onSubmit,
+                                         scrollArea = false,
+                                         sectionClass,
+    modalClass
                                      }: IFormModal<T>) {
     const [formInstance, setFormInstance] = useState<FormInstance>();
     useEffect(() => {
@@ -46,17 +55,36 @@ export default function FormModal<T>({
         confirmLoading={confirmLoading}
         onCancel={() => setIsOpen(false)}
         destroyOnClose
-        className={"!w-[350px]"}
+        className={`${cn("!w-[350px]",modalClass)}`}
         centered
     >
-        <section className={"py-6"}>
-            <Form
-                form={form}
-                layout={"vertical"}
-                className={"!space-y-4 "}
-            >
-                {children}
-            </Form>
-        </section>
+        {
+            scrollArea ?
+                <ScrollArea className={"h-fit"}>
+                    <SectionForm form={form} sectionClass={sectionClass}>
+                        {children}
+                    </SectionForm>
+                    <Scrollbar orientation={"vertical"}/>
+                </ScrollArea> :
+                <SectionForm form={form} sectionClass={sectionClass}>
+                    {children}
+                </SectionForm>
+        }
     </Modal>
+}
+
+function SectionForm<T>({children, form, sectionClass}: {
+    children: ReactNode,
+    form: FormInstance<T>,
+    sectionClass?: string
+}) {
+    return <section className={`${cn("py-6")} `}>
+        <Form
+            form={form}
+            layout={"vertical"}
+            className={`${cn('',sectionClass)}`}
+        >
+            {children}
+        </Form>
+    </section>
 }
