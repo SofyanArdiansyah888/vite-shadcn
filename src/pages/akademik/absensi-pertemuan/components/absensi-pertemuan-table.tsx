@@ -37,8 +37,8 @@ export default function AbsensiPertemuanTable({params}: {
             width: '10%',
         },
         {
-            title: 'Matapelajaran',
-            dataIndex: 'matapelajaran',
+            title: 'MataPelajaran',
+            dataIndex: 'mata_pelajaran',
         },
         {
             title: 'Guru',

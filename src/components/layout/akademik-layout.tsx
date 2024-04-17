@@ -30,8 +30,8 @@ export default function AkademikLayout({children}: { children: React.ReactNode }
                     </ButtonSubNavigation>
                 },
                 {
-                    link: "/akademik/referensi/matapelajaran",
-                    button: <ButtonSubNavigation title={"Mata Pelajaran"} link={"/akademik/referensi/matapelajaran"}
+                    link: "/akademik/referensi/mata_pelajaran",
+                    button: <ButtonSubNavigation title={"Mata Pelajaran"} link={"/akademik/referensi/mata_pelajaran"}
                                                  router={router}>
                         <BookUp className={"w-4 h-4"} strokeWidth={1}/>
                     </ButtonSubNavigation>

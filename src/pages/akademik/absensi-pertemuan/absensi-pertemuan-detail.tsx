@@ -32,7 +32,7 @@ const AbsensiPertemuanDetail: React.FC = () => {
                     <JadwalPelajaranLabel label={"Sekolah"} value={data?.sekolah as string}/>
                     <JadwalPelajaranLabel label={"Tahun Ajaran"} value={data?.tahun_ajaran as string}/>
                     <JadwalPelajaranLabel label={"Kelas"} value={data?.kelas as string}/>
-                    <JadwalPelajaranLabel label={"Mata Pelajaran"} value={data?.matapelajaran as string}/>
+                    <JadwalPelajaranLabel label={"Mata Pelajaran"} value={data?.mata_pelajaran as string}/>
                     <JadwalPelajaranLabel label={"Guru"} value={data?.guru as string}/>
                     <JadwalPelajaranLabel label={"Tanggal"} value={data?.tanggal as string}/>
                     <JadwalPelajaranLabel label={"Materi"} value={data?.materi as string}/>

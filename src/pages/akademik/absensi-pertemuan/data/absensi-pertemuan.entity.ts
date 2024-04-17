@@ -13,7 +13,7 @@ export default interface AbsensiPertemuanEntity {
     tahun_ajaran: string,
     kelas: string,
     tanggal: string,
-    matapelajaran: string,
+    mata_pelajaran: string,
     guru: string,
     catatan: string,
     materi: string,
