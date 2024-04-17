@@ -35,7 +35,7 @@ import { Route as AkademikAnggotaKelasImport } from './routes/akademik/anggota-k
 import { Route as AkademikJadwalPelajaranIndexImport } from './routes/akademik/jadwal-pelajaran/index'
 import { Route as AkademikAbsensiPertemuanIndexImport } from './routes/akademik/absensi-pertemuan/index'
 import { Route as AkademikReferensiTahunAjaranImport } from './routes/akademik/referensi/tahun-ajaran'
-import { Route as AkademikReferensiMatapelajaranImport } from './routes/akademik/referensi/matapelajaran'
+import { Route as AkademikReferensiMataPelajaranImport } from './routes/akademik/referensi/mata-pelajaran'
 import { Route as AkademikReferensiKelasImport } from './routes/akademik/referensi/kelas'
 import { Route as AkademikJadwalPelajaranKelasIdImport } from './routes/akademik/jadwal-pelajaran/kelas.$id'
 import { Route as AkademikAbsensiPertemuanDetailIdImport } from './routes/akademik/absensi-pertemuan/detail.$id'
@@ -169,9 +169,9 @@ const AkademikReferensiTahunAjaranRoute =
     getParentRoute: () => rootRoute,
   } as any)
 
-const AkademikReferensiMatapelajaranRoute =
-  AkademikReferensiMatapelajaranImport.update({
-    path: '/akademik/referensi/matapelajaran',
+const AkademikReferensiMataPelajaranRoute =
+  AkademikReferensiMataPelajaranImport.update({
+    path: '/akademik/referensi/mata-pelajaran',
     getParentRoute: () => rootRoute,
   } as any)
 
@@ -284,8 +284,8 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AkademikReferensiKelasImport
       parentRoute: typeof rootRoute
     }
-    '/akademik/referensi/matapelajaran': {
-      preLoaderRoute: typeof AkademikReferensiMatapelajaranImport
+    '/akademik/referensi/mata-pelajaran': {
+      preLoaderRoute: typeof AkademikReferensiMataPelajaranImport
       parentRoute: typeof rootRoute
     }
     '/akademik/referensi/tahun-ajaran': {
@@ -336,7 +336,7 @@ export const routeTree = rootRoute.addChildren([
   SiswaIndexRoute,
   StaffIndexRoute,
   AkademikReferensiKelasRoute,
-  AkademikReferensiMatapelajaranRoute,
+  AkademikReferensiMataPelajaranRoute,
   AkademikReferensiTahunAjaranRoute,
   AkademikAbsensiPertemuanIndexRoute,
   AkademikJadwalPelajaranIndexRoute,

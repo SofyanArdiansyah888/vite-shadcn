@@ -6,28 +6,29 @@ import {tanggalID} from "@/lib/formatter.ts";
 import {IUseParams} from "@/hooks/useParams.tsx";
 import {Dispatch} from "react";
 import {deleteAlert} from "@/components/shared/alert.tsx";
-import MatapelajaranEntity from "@/pages/akademik/referensi/matapelajaran/data/matapelajaran.entity.ts";
+import MataPelajaranEntity from "@/pages/akademik/referensi/mata-pelajaran/data/mata-pelajaran.entity.ts";
 
-export default function MatapelajaranTable({handleGroupModal, params, setSelectedData, setDetail}: {
+
+export default function MataPelajaranTable({handleGroupModal, params, setSelectedData, setDetail}: {
     params: IUseParams,
     handleGroupModal: (key: string, value: boolean) => void,
-    setSelectedData: Dispatch<MatapelajaranEntity>
+    setSelectedData: Dispatch<MataPelajaranEntity>
     setDetail: Dispatch<{ key: string, value: string }[]>
 }) {
 
 
-    const {data, isLoading} = useGetList<MatapelajaranEntity[]>({
+    const {data, isLoading} = useGetList<MataPelajaranEntity[]>({
         endpoint: "/mata-pelajaran",
         name: "mata-pelajaran",
         params
     })
 
-    function handleEditClick(data: MatapelajaranEntity) {
+    function handleEditClick(data: MataPelajaranEntity) {
         setSelectedData(data)
         handleGroupModal("modal", true)
     }
 
-    function handleDeleteClick(data: MatapelajaranEntity) {
+    function handleDeleteClick(data: MataPelajaranEntity) {
         deleteAlert({
             data,
             handleSubmit: () => {
@@ -38,7 +39,7 @@ export default function MatapelajaranTable({handleGroupModal, params, setSelecte
         })
     }
 
-    function handleDetailClick(data: MatapelajaranEntity) {
+    function handleDetailClick(data: MataPelajaranEntity) {
         const temp = [
             {
                 key: "Nama Sekolah",
@@ -50,7 +51,7 @@ export default function MatapelajaranTable({handleGroupModal, params, setSelecte
             },
             {
                 key: "Mata Pelajaran",
-                value: data.matapelajaran
+                value: data.mata_pelajaran
             },
             {
                 key: "Created",
@@ -65,7 +66,7 @@ export default function MatapelajaranTable({handleGroupModal, params, setSelecte
         handleGroupModal("detailModal", true)
     }
 
-    const columns: TableProps<MatapelajaranEntity>['columns'] = [
+    const columns: TableProps<MataPelajaranEntity>['columns'] = [
         {
             title: 'Nama Sekolah',
             dataIndex: 'sekolah',
@@ -78,8 +79,8 @@ export default function MatapelajaranTable({handleGroupModal, params, setSelecte
             width: '15%',
         },
         {
-            title: 'Matapelajaran',
-            dataIndex: 'matapelajaran',
+            title: 'MataPelajaran',
+            dataIndex: 'mata_pelajaran',
         },
         {
             title: 'Created',

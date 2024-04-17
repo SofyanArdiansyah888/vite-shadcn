@@ -4,19 +4,19 @@ import FormInput from "@/components/shared/form/form-input.tsx";
 import {Dispatch, useEffect} from "react";
 import SekolahSelect from "@/components/shared/form/select/sekolah-select.tsx";
 import TahunAjaranSelect from "@/components/shared/form/select/tahun-ajaran-select.tsx";
-import MatapelajaranEntity from "@/pages/akademik/referensi/matapelajaran/data/matapelajaran.entity.ts";
+import MataPelajaranEntity from "@/pages/akademik/referensi/mata_pelajaran/data/mata_pelajaran.entity.ts";
 
 interface IKelasModal {
-    selectedData: MatapelajaranEntity | undefined,
-    setSelectedData: Dispatch<MatapelajaranEntity | undefined>,
+    selectedData: MataPelajaranEntity | undefined,
+    setSelectedData: Dispatch<MataPelajaranEntity | undefined>,
     isOpen: boolean,
     handleGroupModal: (key: string, value: boolean) => void
 }
 
-export default function MatapelajaranModal({isOpen, handleGroupModal, selectedData, setSelectedData}: IKelasModal) {
+export default function MataPelajaranModal({isOpen, handleGroupModal, selectedData, setSelectedData}: IKelasModal) {
     const [form] = Form.useForm();
 
-    function handleSubmit(value: MatapelajaranEntity) {
+    function handleSubmit(value: MataPelajaranEntity) {
         console.log(value)
         handleGroupModal("modal", false)
     }
@@ -33,7 +33,7 @@ export default function MatapelajaranModal({isOpen, handleGroupModal, selectedDa
     }, [form, selectedData, setSelectedData, isOpen])
 
 
-    return <FormModal<MatapelajaranEntity>
+    return <FormModal<MataPelajaranEntity>
         form={form}
         title={`${selectedData ? "Edit Mata Pelajaran" : "Tambah Mata Pelajaran"}`}
         isOpen={isOpen}
@@ -45,7 +45,7 @@ export default function MatapelajaranModal({isOpen, handleGroupModal, selectedDa
 
 
         <FormInput
-            name={"matapelajaran"}
+            name={"mata_pelajaran"}
             label={"Nama Mata Pelajaran"}
         />
     </FormModal>

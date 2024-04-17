@@ -2,13 +2,15 @@ import FormSelect, {IFormSelectValue} from "@/components/shared/form/form-select
 import {useEffect, useState} from "react";
 import FilterModal from "@/components/shared/modal/filter-modal.tsx";
 import {Form} from "antd";
-import {IFilterPayload} from "@/pages/akademik/referensi/kelas/data/useKelasStore.ts";
-import useMatapelajaranStore from "@/pages/akademik/referensi/matapelajaran/data/useMatapelajaranStore.ts";
+
+import useMataPelajaranStore, {
+    IFilterPayload
+} from "@/pages/akademik/referensi/mata-pelajaran/data/useMataPelajaranStore.ts";
 
 
-export default function MatapelajaranFilter() {
+export default function MataPelajaranFilter() {
     const [form] = Form.useForm();
-    const {changeFilterPayload, filterPayload} = useMatapelajaranStore();
+    const {changeFilterPayload, filterPayload} = useMataPelajaranStore();
 
     const [isOpen, setIsOpen] = useState(false)
 

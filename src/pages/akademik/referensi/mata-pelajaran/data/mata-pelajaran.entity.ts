@@ -1,8 +1,8 @@
-export default interface MatapelajaranEntity{
+export default interface MataPelajaranEntity{
     id: string,
     tahun_ajaran: string,
     sekolah: string,
-    matapelajaran: string,
+    mata_pelajaran: string,
     created_at: string,
     updated_at: string,
 }

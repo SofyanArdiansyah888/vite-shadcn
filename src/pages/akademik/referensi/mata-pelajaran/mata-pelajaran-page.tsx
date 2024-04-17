@@ -5,22 +5,23 @@ import AkademikLayout from "@/components/layout/akademik-layout.tsx";
 import useGroupModal from "@/hooks/useGroupModal.tsx";
 import useParams from "@/hooks/useParams.tsx";
 
-import MatapelajaranModal from "@/pages/akademik/referensi/matapelajaran/components/matapelajaran-modal.tsx";
-import MatapelajaranTable from "@/pages/akademik/referensi/matapelajaran/components/matapelajaran-table.tsx";
-import MatapelajaranFilter from "@/pages/akademik/referensi/matapelajaran/components/matapelajaran-filter.tsx";
-import MatapelajaranEntity from "@/pages/akademik/referensi/matapelajaran/data/matapelajaran.entity.ts";
-import useMatapelajaranStore from "@/pages/akademik/referensi/matapelajaran/data/useMatapelajaranStore.ts";
+
 import DetailModal from "@/components/shared/modal/detail-modal.tsx";
 import GroupBadgeFilter from "@/components/shared/group-badge-filter.tsx";
+import MataPelajaranEntity from "@/pages/akademik/referensi/mata-pelajaran/data/mata-pelajaran.entity.ts";
+import MataPelajaranFilter from "@/pages/akademik/referensi/mata-pelajaran/components/mata-pelajaran-filter.tsx";
+import MataPelajaranTable from "@/pages/akademik/referensi/mata-pelajaran/components/mata-pelajaran-table.tsx";
+import MataPelajaranModal from "@/pages/akademik/referensi/mata-pelajaran/components/mata-pelajaran-modal.tsx";
+import useMataPelajaranStore from "@/pages/akademik/referensi/mata-pelajaran/data/useMataPelajaranStore.ts";
 
 
-const MatapelajaranPage: React.FC = () => {
-    const {filterPayload, resetFilterPayload, deleteFilterPayload} = useMatapelajaranStore()
+const MataPelajaranPage: React.FC = () => {
+    const {filterPayload, resetFilterPayload, deleteFilterPayload} = useMataPelajaranStore()
     const {groupModal, handleGroupModal} = useGroupModal({
         modal: false
     })
     const {params, handleParamsChange} = useParams({})
-    const [selectedData, setSelectedData] = useState<MatapelajaranEntity | undefined>()
+    const [selectedData, setSelectedData] = useState<MataPelajaranEntity | undefined>()
     const [detail, setDetail] = useState<{ key: string, value: string }[]>([])
     useEffect(() => {
         return () => {
@@ -31,7 +32,7 @@ const MatapelajaranPage: React.FC = () => {
             <section className={"px-12 py-4"}>
                 <CustomHeader
                     title={"Mata Pelajaran"}
-                    additionalAction={<MatapelajaranFilter/>}
+                    additionalAction={<MataPelajaranFilter/>}
                     handleSearch={(value) => handleParamsChange("search", value)}
                 />
                 <div className={"flex justify-between  py-2 gap-1"}>
@@ -43,21 +44,21 @@ const MatapelajaranPage: React.FC = () => {
                     </div>
                     <AddButton onClick={() => handleGroupModal('modal', true)}/>
                 </div>
-                <MatapelajaranTable
+                <MataPelajaranTable
                     setSelectedData={setSelectedData}
                     handleGroupModal={handleGroupModal}
                     params={params}
                     setDetail={setDetail}
                 />
             </section>
-            <MatapelajaranModal
+            <MataPelajaranModal
                 isOpen={groupModal.modal}
                 handleGroupModal={handleGroupModal}
                 selectedData={selectedData}
                 setSelectedData={setSelectedData}
             />
             <DetailModal
-                title={"Detail Matapelajaran"}
+                title={"Detail MataPelajaran"}
                 isOpen={groupModal.detailModal}
                 setIsOpen={(value) => handleGroupModal("detailModal", value as boolean)}
                 details={detail}
@@ -67,4 +68,4 @@ const MatapelajaranPage: React.FC = () => {
     );
 };
 
-export default MatapelajaranPage;
+export default MataPelajaranPage;
