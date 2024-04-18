@@ -264,7 +264,7 @@
       "tahun_ajaran": "2022/2023",
       "kelas": "Kelas 1A",
       "tanggal": "2022-01-01",
-      "matapelajaran": "Matematika",
+      "mata_pelajaran": "Matematika",
       "guru": "Budi Santoso",
       "catatan": "Catatan pertemuan 1",
       "materi": "Pengenalan Bilangan Bulat",
@@ -297,7 +297,7 @@
       "tahun_ajaran": "2022/2023",
       "kelas": "Kelas 1B",
       "tanggal": "2022-01-02",
-      "matapelajaran": "Bahasa Indonesia",
+      "mata_pelajaran": "Bahasa Indonesia",
       "guru": "Ani Rahmawati",
       "catatan": "Catatan pertemuan 2",
       "materi": "Pengenalan Huruf Vokal",
@@ -330,7 +330,7 @@
       "tahun_ajaran": "2022/2023",
       "kelas": "Kelas 2A",
       "tanggal": "2022-01-03",
-      "matapelajaran": "IPA",
+      "mata_pelajaran": "IPA",
       "guru": "Cahyo Wibowo",
       "catatan": "Catatan pertemuan 3",
       "materi": "Pengenalan Sistem Pernapasan",
@@ -363,7 +363,7 @@
       "tahun_ajaran": "2022/2023",
       "kelas": "Kelas 2B",
       "tanggal": "2022-01-04",
-      "matapelajaran": "IPS",
+      "mata_pelajaran": "IPS",
       "guru": "Dewi Utami",
       "catatan": "Catatan pertemuan 4",
       "materi": "Pengenalan Sistem Pemerintahan",
@@ -396,7 +396,7 @@
       "tahun_ajaran": "2022/2023",
       "kelas": "Kelas 3A",
       "tanggal": "2022-01-05",
-      "matapelajaran": "Seni Budaya",
+      "mata_pelajaran": "Seni Budaya",
       "guru": "Eko Susilo",
       "catatan": "Catatan pertemuan 5",
       "materi": "Pengenalan Seni Lukis",
@@ -702,6 +702,103 @@
       "created_at": "2024-04-05T12:15:00Z",
       "updated_at": "2024-04-05T12:20:00Z",
       "deleted_at": ""
+    }
+  ],
+  "cbt": [
+    {
+      "sekolah": "ABC High School",
+      "tahun_ajaran": "2023/2024",
+      "mata_pelajaran": "Mathematics",
+      "kelas": "Grade 10",
+      "nama_ujian": "Midterm Exam",
+      "token": "abc123xyz456",
+      "waktu_ujian": "18-04-2024 09:00:00",
+      "pemeriksa": [
+        "Teacher1",
+        "Teacher2"
+      ],
+      "durasi": 120,
+      "soal_pilihan_ganda": 50,
+      "soal_essay": 10,
+      "soal": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "created_at": "2024-04-18T08:00:00Z",
+      "updated_at": "2024-04-18T08:30:00Z"
+    },
+    {
+      "sekolah": "XYZ Secondary School",
+      "tahun_ajaran": "2023/2024",
+      "mata_pelajaran": "Science",
+      "kelas": "Grade 9",
+      "nama_ujian": "Final Exam",
+      "token": "xyz789abc123",
+      "waktu_ujian": "20-04-2024 10:00:00",
+      "pemeriksa": [
+        "Teacher3",
+        "Teacher4"
+      ],
+      "durasi": 180,
+      "soal_pilihan_ganda": 60,
+      "soal_essay": 15,
+      "soal": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+      "created_at": "2024-04-20T09:00:00Z",
+      "updated_at": "2024-04-20T11:00:00Z"
+    },
+    {
+      "sekolah": "DEF High School",
+      "tahun_ajaran": "2023/2024",
+      "mata_pelajaran": "History",
+      "kelas": "Grade 11",
+      "nama_ujian": "Unit Test",
+      "token": "def456ghi789",
+      "waktu_ujian": "22-04-2024 11:00:00",
+      "pemeriksa": [
+        "Teacher5",
+        "Teacher6"
+      ],
+      "durasi": 90,
+      "soal_pilihan_ganda": 40,
+      "soal_essay": 10,
+      "soal": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
+      "created_at": "2024-04-22T10:00:00Z",
+      "updated_at": "2024-04-22T11:30:00Z"
+    },
+    {
+      "sekolah": "PQR Academy",
+      "tahun_ajaran": "2023/2024",
+      "mata_pelajaran": "English",
+      "kelas": "Grade 12",
+      "nama_ujian": "Mock Exam",
+      "token": "pqr123stu456",
+      "waktu_ujian": "24-04-2024 14:00:00",
+      "pemeriksa": [
+        "Teacher7",
+        "Teacher8"
+      ],
+      "durasi": 150,
+      "soal_pilihan_ganda": 55,
+      "soal_essay": 12,
+      "soal": "Et harum quidem rerum facilis est et expedita distinctio.",
+      "created_at": "2024-04-24T13:00:00Z",
+      "updated_at": "2024-04-24T15:30:00Z"
+    },
+    {
+      "sekolah": "LMN High School",
+      "tahun_ajaran": "2023/2024",
+      "mata_pelajaran": "Physics",
+      "kelas": "Grade 11",
+      "nama_ujian": "Quiz",
+      "token": "lmn789vwx123",
+      "waktu_ujian": "26-04-2024 08:30:00",
+      "pemeriksa": [
+        "Teacher9",
+        "Teacher10"
+      ],
+      "durasi": 60,
+      "soal_pilihan_ganda": 30,
+      "soal_essay": 8,
+      "soal": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
+      "created_at": "2024-04-26T07:30:00Z",
+      "updated_at": "2024-04-26T09:00:00Z"
     }
   ]
 }
