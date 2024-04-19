@@ -9,7 +9,7 @@ export interface IFormSelectValue {
 }
 
 interface IFormSelect {
-    type?: string,
+    type?: "number" | "text",
     name: string,
     label: string,
     value?: string,

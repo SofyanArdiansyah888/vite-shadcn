@@ -18,7 +18,6 @@ const CbtPage: React.FC = () => {
     const {params, handleParamsChange} = useParams({})
     const [selectedData, setSelectedData] = useState<CBTEntity>()
     const [detail, setDetail] = useState<IDetailInfoModal[]>([])
-
     return (<CbtLayout>
             <section className={"px-12 py-4"}>
                 <CustomHeader
