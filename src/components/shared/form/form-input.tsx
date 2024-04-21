@@ -9,7 +9,7 @@ export interface IFormSelectValue {
 }
 
 interface IFormSelect {
-    type?: "number" | "text",
+    type?: "number" | "text" | "password",
     name: string | number | (string | number)[],
     label: string,
     value?: string,
@@ -31,7 +31,7 @@ export default function FormInput({
         {
             type === "number" ?
                 <InputNumber className={"w-full"} onChange={onChange} placeholder={placeholder} value={value}/> :
-                <Input onChange={onChange} placeholder={placeholder} value={value}/>
+                <Input onChange={onChange} placeholder={placeholder} value={value} type={type}/>
         }
     </Form.Item>
 
