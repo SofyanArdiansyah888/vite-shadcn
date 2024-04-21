@@ -10,7 +10,7 @@ export interface IFormSelectValue {
 
 interface IFormSelect {
     type?: "number" | "text",
-    name: string,
+    name: string | number | (string | number)[],
     label: string,
     value?: string,
     onChange?: any,
