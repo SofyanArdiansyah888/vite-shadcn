@@ -20,6 +20,13 @@ export default function AbsensiLayout({children}: { children: React.ReactNode })
 
     const menus: IMenu[] = [
         {
+            link: "/absensi",
+            button: <div className={`gap-2 flex items-center ${activeCheck("/absensi", router)}`}>
+                <TimerReset className={"w-4 h-4"} strokeWidth={1}/>
+                Log Absensi
+            </div>,
+        },
+        {
             link: "/qrcode",
             button: <div className={`gap-2 flex items-center ${activeCheck("/qrcode", router)}`}>
                 <QrCodeIcon className={"w-4 h-4"} strokeWidth={1}/>
@@ -72,13 +79,7 @@ export default function AbsensiLayout({children}: { children: React.ReactNode })
                 Hari Libur
             </div>,
         },
-        {
-            link: "/libur",
-            button: <div className={`gap-2 flex items-center ${activeCheck("/jadwal", router)}`}>
-                <TimerReset className={"w-4 h-4"} strokeWidth={1}/>
-                Log Absensi
-            </div>,
-        },
+
         {
             link: "/libur",
             button: <div className={`gap-2 flex items-center ${activeCheck("/jadwal", router)}`}>

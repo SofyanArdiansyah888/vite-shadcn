@@ -4,6 +4,8 @@ import * as React from "react"
 import * as TabsPrimitive from "@radix-ui/react-tabs"
 
 import { cn } from "@/lib/utils"
+import {ReactNode} from "react";
+import {Button} from "@/components/ui/button.tsx";
 
 const Tabs = TabsPrimitive.Root
 
@@ -52,4 +54,18 @@ const TabsContent = React.forwardRef<
 ))
 TabsContent.displayName = TabsPrimitive.Content.displayName
 
-export { Tabs, TabsList, TabsTrigger, TabsContent }
+
+function TabsButton({
+                        value,
+                        title,
+                        icon
+                    }: { value: string, icon: ReactNode, title: string }) {
+    return <TabsTrigger value={value} asChild>
+        <Button size={"xs"} variant={"ghost"} className={"gap-2"}>
+            {icon}
+            {title}
+        </Button>
+    </TabsTrigger>
+}
+
+export { Tabs, TabsList, TabsTrigger, TabsContent,TabsButton }

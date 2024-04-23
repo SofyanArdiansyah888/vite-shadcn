@@ -1,10 +1,10 @@
 import {Form} from "antd";
 import {Separator} from "@/components/ui/separator.tsx";
-import {BackButton, Button, SaveButton} from "@/components/ui/button.tsx";
-import {ReactNode, useEffect} from "react";
+import {BackButton, SaveButton} from "@/components/ui/button.tsx";
+import {useEffect} from "react";
 import StaffEntity from "@/pages/staff/data/staff.entity.ts";
 import moment from "moment/moment";
-import {Tabs, TabsList, TabsTrigger} from "@/components/ui/tabs.tsx";
+import {Tabs, TabsButton, TabsList} from "@/components/ui/tabs.tsx";
 import SiswaTab from "@/pages/siswa/components/tabs/siswa-tab.tsx";
 import {PersonIcon} from "@radix-ui/react-icons";
 import {GraduationCapIcon, MapPinIcon, QrCodeIcon, StethoscopeIcon, UsersIcon} from "lucide-react";
@@ -88,24 +88,12 @@ export default function SiswaForm({title, staff}: ISiswaForm) {
 
             </TabsList>
             <SiswaTab/>
-            <TempatTinggalTab />
-            <KesehatanTab />
-            <KeluargaTab />
-            <PendidikanTab />
-            <RfidTab />
+            <TempatTinggalTab/>
+            <KesehatanTab/>
+            <KeluargaTab/>
+            <PendidikanTab/>
+            <RfidTab/>
         </Tabs>
     </Form>
 }
 
-function TabsButton({
-                        value,
-                        title,
-                        icon
-                    }: { value: string, icon: ReactNode, title: string }) {
-    return <TabsTrigger value={value} asChild>
-        <Button size={"xs"} variant={"ghost"} className={"gap-2"}>
-            {icon}
-            {title}
-        </Button>
-    </TabsTrigger>
-}
