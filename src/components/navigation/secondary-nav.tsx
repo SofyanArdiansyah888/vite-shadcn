@@ -1,10 +1,9 @@
 import {
     NavigationMenu,
-    NavigationMenuContent,
     NavigationMenuItem,
     NavigationMenuList,
     NavigationMenuTrigger
-} from "@/components/ui/navigation-menu.tsx";
+} from "@/components/ui/navigation-menu";
 import {Link} from "@tanstack/react-router";
 import {ReactNode} from "react";
 
@@ -13,17 +12,17 @@ interface ISubmenu {
     button: ReactNode
 }
 
-interface IMenu {
+export interface IMenu {
     link: string
     button: ReactNode
     submenu?: ISubmenu[]
 }
 
-interface ISecondaryNavProps {
+export interface ISecondaryNav {
     menus: IMenu[]
 }
 
-export default function SecondaryNav({menus}: ISecondaryNavProps) {
+export default function SecondaryNav({menus}: ISecondaryNav) {
     return <nav className="border-b bg-zinc-100 py-0 ">
         <div className="flex h-12 items-center px-6">
             <NavigationMenu>
@@ -41,19 +40,24 @@ export default function SecondaryNav({menus}: ISecondaryNavProps) {
                                 </NavigationMenuItem>
                             }
 
-                            return <NavigationMenuItem>
+                            return <NavigationMenuItem className={"group/item "}>
                                 <NavigationMenuTrigger
                                     className={"bg-transparent gap-2 hover:text-primary font-medium"}>
                                     {item.button}
                                 </NavigationMenuTrigger>
-                                <NavigationMenuContent>
-                                    <ul>
-                                        {item?.submenu?.map((subItem, subKey) =>  <li
+                                <div className={"absolute p-2 text-sm shadow-md hidden group-hover/item:block bg-white"}>
+                                    <ul className={"z-20"}>
+                                        {item?.submenu?.map((subItem, subKey) => <li
                                             key={subKey}><Link to={subItem.link}>{subItem.button}</Link></li>)}
                                     </ul>
-                                </NavigationMenuContent>
+                                </div>
+                                {/*<NavigationMenuContent>*/}
+                                {/*    <ul>*/}
+                                {/*        {item?.submenu?.map((subItem, subKey) => <li*/}
+                                {/*            key={subKey}><Link to={subItem.link}>{subItem.button}</Link></li>)}*/}
+                                {/*    </ul>*/}
+                                {/*</NavigationMenuContent>*/}
                             </NavigationMenuItem>
-
                         })
                     }
                     {/*<NavigationMenuItem>*/}

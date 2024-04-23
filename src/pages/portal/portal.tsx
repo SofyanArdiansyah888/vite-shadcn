@@ -45,7 +45,7 @@ export default function PortalPage() {
                     subtitle={"Kelola daftar hadir guru,staff dan siswa di sekolah anda"}
                     imageUrl={timeUrl}
                     color={"orange"}
-                    link={"/"}
+                    link={"/absensi"}
                 />
 
                 <PortalCard
