@@ -73,8 +73,8 @@ export default function AbsensiLayout({children}: { children: React.ReactNode })
             ]
         },
         {
-            link: "/libur",
-            button: <div className={`gap-2 flex items-center ${activeCheck("/jadwal", router)}`}>
+            link: "/absensi/libur",
+            button: <div className={`gap-2 flex items-center ${activeCheck("/absensi/libur", router)}`}>
                 <CalendarDays className={"w-4 h-4"} strokeWidth={1}/>
                 Hari Libur
             </div>,
