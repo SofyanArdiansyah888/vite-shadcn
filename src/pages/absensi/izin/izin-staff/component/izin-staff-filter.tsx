@@ -5,6 +5,7 @@ import {IFilterPayload} from "@/pages/akademik/referensi/mata-pelajaran/data/use
 import SekolahSelect from "@/components/shared/form/select/sekolah-select.tsx";
 import JenisIzinSelect from "@/components/shared/form/select/jenis-izin-select.tsx";
 import useIzinStaffStore from "@/pages/absensi/izin/izin-staff/data/useIzinStaffStore.ts";
+import StaffSelect from "@/components/shared/form/select/staff-select.tsx";
 
 
 export default function IzinStaffFilter() {
@@ -38,5 +39,6 @@ export default function IzinStaffFilter() {
     >
         <SekolahSelect/>
         <JenisIzinSelect/>
+        <StaffSelect/>
     </FilterModal>
 }
