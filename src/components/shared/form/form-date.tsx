@@ -17,7 +17,7 @@ export default function FormDate({
                                      rules,
                                      value
                                  }: IFormSelect) {
-    return <Form.Item name={name} label={label} rules={rules}>
+    return <Form.Item name={name} label={label} rules={rules} className={"!capitalize"}>
         <DatePicker
             onChange={onChange}
             needConfirm

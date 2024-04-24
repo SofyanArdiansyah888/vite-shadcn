@@ -48,24 +48,24 @@ export default function AbsensiLayout({children}: { children: React.ReactNode })
             </div>,
         },
         {
-            link: "/izin",
+            link: "#",
             button: <div className={`gap-2 flex items-center ${activeCheck("/izin", router)}`}>
                 <InfoIcon className={"w-4 h-4"} strokeWidth={1}/>
                 Izin
             </div>,
             submenu: [
                 {
-                    link: "/akademik/referensi/tahun-ajaran",
+                    link: "/absensi/izin/izin-staff",
                     button: <ButtonSubNavigation title={"Izin Guru"}
-                                                 link={"/akademik/referensi/tahun-ajaran"}
+                                                 link={"/absensi/izin/izin-staff"}
                                                  router={router}>
                         <CalendarDays className={"w-4 h-4"} strokeWidth={1}/>
                     </ButtonSubNavigation>
                 },
                 {
-                    link: "/akademik/referensi/kelas",
+                    link: "/absensi/izin/izin-siswa",
                     button: <ButtonSubNavigation title={"Izin Siswa"}
-                                                 link={"/akademik/referensi/kelas"}
+                                                 link={"/absensi/izin/izin-siswa"}
                                                  router={router}>
                         <ActivityIcon className={"w-4 h-4"} strokeWidth={1}/>
                     </ButtonSubNavigation>

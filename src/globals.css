@@ -57,7 +57,7 @@
   @apply border border-stone-200 bg-white hover:bg-stone-100 hover:text-stone-900 dark:border-stone-800 dark:bg-stone-950 dark:hover:bg-stone-800 dark:hover:text-stone-50
 }
 .ant-form-item{
-  @apply !mb-0
+  @apply !my-0
 }
 .ant-table-cell{
   @apply !py-1 !px-3

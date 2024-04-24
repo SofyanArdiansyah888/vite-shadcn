@@ -38,6 +38,8 @@ import { Route as AkademikAbsensiPertemuanIndexImport } from './routes/akademik/
 import { Route as AkademikReferensiTahunAjaranImport } from './routes/akademik/referensi/tahun-ajaran'
 import { Route as AkademikReferensiMataPelajaranImport } from './routes/akademik/referensi/mata-pelajaran'
 import { Route as AkademikReferensiKelasImport } from './routes/akademik/referensi/kelas'
+import { Route as AbsensiIzinIzinStaffImport } from './routes/absensi/izin/izin-staff'
+import { Route as AbsensiIzinIzinSiswaImport } from './routes/absensi/izin/izin-siswa'
 import { Route as AkademikJadwalPelajaranKelasIdImport } from './routes/akademik/jadwal-pelajaran/kelas.$id'
 import { Route as AkademikAbsensiPertemuanDetailIdImport } from './routes/akademik/absensi-pertemuan/detail.$id'
 
@@ -186,6 +188,16 @@ const AkademikReferensiKelasRoute = AkademikReferensiKelasImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const AbsensiIzinIzinStaffRoute = AbsensiIzinIzinStaffImport.update({
+  path: '/absensi/izin/izin-staff',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AbsensiIzinIzinSiswaRoute = AbsensiIzinIzinSiswaImport.update({
+  path: '/absensi/izin/izin-siswa',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const AkademikJadwalPelajaranKelasIdRoute =
   AkademikJadwalPelajaranKelasIdImport.update({
     path: '/akademik/jadwal-pelajaran/kelas/$id',
@@ -290,6 +302,14 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StaffIndexImport
       parentRoute: typeof rootRoute
     }
+    '/absensi/izin/izin-siswa': {
+      preLoaderRoute: typeof AbsensiIzinIzinSiswaImport
+      parentRoute: typeof rootRoute
+    }
+    '/absensi/izin/izin-staff': {
+      preLoaderRoute: typeof AbsensiIzinIzinStaffImport
+      parentRoute: typeof rootRoute
+    }
     '/akademik/referensi/kelas': {
       preLoaderRoute: typeof AkademikReferensiKelasImport
       parentRoute: typeof rootRoute
@@ -346,6 +366,8 @@ export const routeTree = rootRoute.addChildren([
   CbtIndexRoute,
   SiswaIndexRoute,
   StaffIndexRoute,
+  AbsensiIzinIzinSiswaRoute,
+  AbsensiIzinIzinStaffRoute,
   AkademikReferensiKelasRoute,
   AkademikReferensiMataPelajaranRoute,
   AkademikReferensiTahunAjaranRoute,
