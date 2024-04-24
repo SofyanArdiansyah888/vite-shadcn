@@ -12,7 +12,8 @@ import useAbsensiStore from "@/pages/absensi/absensi/data/useAbsensiStore.tsx";
 import {PersonIcon} from "@radix-ui/react-icons";
 import {Tabs, TabsButton, TabsContent, TabsList} from "@/components/ui/tabs.tsx";
 import AbsensiFilter from "@/pages/absensi/absensi/components/absensi-filter.tsx";
-import AbsensiTable from "@/pages/absensi/absensi/components/absensi-table.tsx";
+import AbsensiSiswaTable from "@/pages/absensi/absensi/components/absensi-siswa-table.tsx";
+import AbsensiStaffTable from "@/pages/absensi/absensi/components/absensi-staff-table.tsx";
 
 
 const AbsensiPage: React.FC = () => {
@@ -55,13 +56,18 @@ const AbsensiPage: React.FC = () => {
                         />
                     </div>
                     <TabsContent value={"siswa"}>
-                        <AbsensiTable
+                        <AbsensiSiswaTable
                             setDetail={setDetail}
                             handleGroupModal={handleGroupModal}
                             params={params}
                         />
                     </TabsContent>
                     <TabsContent value={"guru"}>
+                        <AbsensiStaffTable
+                            setDetail={setDetail}
+                            handleGroupModal={handleGroupModal}
+                            params={params}
+                        />
                     </TabsContent>
                 </Tabs>
 

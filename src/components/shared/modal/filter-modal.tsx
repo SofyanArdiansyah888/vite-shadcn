@@ -54,7 +54,7 @@ export default function FilterModal<T>({
                 <Form
                     form={form}
                     layout={"vertical"}
-                    className={"!space-y-4"}
+                    className={"!space-y-2"}
                 >
                     {children}
                 </Form>

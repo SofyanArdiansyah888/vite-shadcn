@@ -3,11 +3,10 @@ import FilterModal from "@/components/shared/modal/filter-modal.tsx";
 import {Form} from "antd";
 
 import SekolahSelect from "@/components/shared/form/select/sekolah-select.tsx";
-import TahunAjaranSelect from "@/components/shared/form/select/tahun-ajaran-select.tsx";
-import GuruSelect from "@/components/shared/form/select/guru-select.tsx";
-import HariSelect from "@/components/shared/form/select/hari-select.tsx";
 import {IFilterPayload} from "@/pages/akademik/jadwal-pengajar/data/useJadwalPengajarStore.ts";
 import useAbsensiStore from "@/pages/absensi/absensi/data/useAbsensiStore.tsx";
+import FormDate from "@/components/shared/form/form-date.tsx";
+import KelasSelect from "@/components/shared/form/select/kelas-select.tsx";
 
 
 export default function AbsensiFilter() {
@@ -29,16 +28,15 @@ export default function AbsensiFilter() {
 
     return <FilterModal<IFilterPayload>
         form={form}
-        title={"Filter Jadwal Pengajar"}
+        title={"Filter Absensi"}
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         onSubmit={handleSubmit}
     >
         <SekolahSelect/>
-        <TahunAjaranSelect/>
-        <GuruSelect/>
-        <HariSelect/>
-
+        <FormDate name={"dari"} label={"Dari"}/>
+        <FormDate name={"sampai"} label={"Sampai"}/>
+        <KelasSelect/>
     </FilterModal>
 }
 

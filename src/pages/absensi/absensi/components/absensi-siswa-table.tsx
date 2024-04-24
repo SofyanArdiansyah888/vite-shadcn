@@ -7,7 +7,7 @@ import {Dispatch} from "react";
 import {IDetailInfoModal} from "@/components/shared/modal/detail-modal.tsx";
 import AgendaEntity from "@/pages/agenda/data/agenda.entity.ts";
 
-export default function AbsensiTable({handleGroupModal, params, setDetail}: {
+export default function AbsensiSiswaTable({handleGroupModal, params, setDetail}: {
     params: IUseParams,
     handleGroupModal: (key: string, value: boolean) => void,
     setDetail: Dispatch<IDetailInfoModal[]>
@@ -59,32 +59,30 @@ export default function AbsensiTable({handleGroupModal, params, setDetail}: {
 
     const columns: TableProps<AgendaEntity>['columns'] = [
         {
-            title: 'Nama Sekolah',
-            dataIndex: 'sekolah',
+            title: 'Nama',
+            dataIndex: 'nama',
             sorter: true,
             width: '15%',
         },
         {
-            title: 'Acara',
-            dataIndex: 'acara',
-            width: '15%',
-        },
-        {
-            title: 'Keterangan',
-            dataIndex: 'keterangan',
-        },
-        {
-            title: 'Dari',
-            dataIndex: 'dari',
+            title: 'Tanggal',
+            dataIndex: 'tanggal',
             width: '17%',
             render: (_, item) => <div>{tanggalJamID(item.dari)}</div>
         },
         {
-            title: 'Sampai',
-            dataIndex: 'sampai',
-            width: '17%',
-            render: (_, item) => <div>{tanggalJamID(item.sampai)}</div>
+            title: 'Kelas',
+            dataIndex: 'kelas',
         },
+        {
+            title: 'Masuk',
+            dataIndex: 'masuk',
+        },
+        {
+            title: 'Pulang',
+            dataIndex: 'pulang',
+        },
+
         {
             title: 'Action',
             dataIndex: 'operation',
