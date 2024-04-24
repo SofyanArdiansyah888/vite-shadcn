@@ -27,7 +27,7 @@ export default function FormInput({
                                       value,
                                       type = "text"
                                   }: IFormSelect) {
-    return <Form.Item name={name} label={label} rules={rules}>
+    return <Form.Item name={name} label={label} rules={rules} className={"!capitalize"}>
         {
             type === "number" ?
                 <InputNumber className={"w-full"} onChange={onChange} placeholder={placeholder} value={value}/> :

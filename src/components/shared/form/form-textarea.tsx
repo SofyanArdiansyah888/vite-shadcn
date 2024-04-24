@@ -25,7 +25,7 @@ export default function FormTextarea({
                                       rules,
                                       value
                                   }: IFormSelect) {
-    return <Form.Item name={name} label={label} rules={rules}>
+    return <Form.Item name={name} label={label} rules={rules} className={"capitalize"}>
         <TextArea rows={4} onChange={onChange} placeholder={placeholder} value={value}/>
     </Form.Item>
 
