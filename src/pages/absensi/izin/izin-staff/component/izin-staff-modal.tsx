@@ -6,7 +6,7 @@ import IzinStaffEntity from "@/pages/absensi/izin/izin-staff/data/izin-staff.ent
 import FormDate from "@/components/shared/form/form-date.tsx";
 import FormTextarea from "@/components/shared/form/form-textarea.tsx";
 import JenisIzinSelect from "@/components/shared/form/select/jenis-izin-select.tsx";
-import GuruSelect from "@/components/shared/form/select/guru-select.tsx";
+import StaffSelect from "@/components/shared/form/select/staff-select.tsx";
 
 interface IIzinStaffModal {
     selectedData: IzinStaffEntity | undefined,
@@ -44,7 +44,7 @@ export default function IzinStaffModal({isOpen, handleGroupModal, selectedData, 
         scrollArea={true}
     >
         <SekolahSelect/>
-        <GuruSelect/>
+        <StaffSelect/>
         <FormDate name={"mulai"} label={"mulai"}/>
         <FormDate name={"sampai"} label={"sampai"}/>
         <JenisIzinSelect/>

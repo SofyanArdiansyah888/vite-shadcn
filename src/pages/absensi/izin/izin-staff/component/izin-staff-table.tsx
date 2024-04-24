@@ -63,8 +63,8 @@ export default function IzinStaffTable({handleGroupModal, params, setSelectedDat
             sorter: true,
         },
         {
-            title: 'Tahun Ajaran',
-            dataIndex: 'tahun_ajaran',
+            title: 'Staff',
+            dataIndex: 'staff',
         },
         {
             title: 'Mulai',
