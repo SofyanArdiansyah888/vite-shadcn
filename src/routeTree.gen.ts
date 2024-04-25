@@ -34,6 +34,7 @@ import { Route as AuthForgetPasswordImport } from './routes/auth/forget-password
 import { Route as AkademikJadwalPengajarImport } from './routes/akademik/jadwal-pengajar'
 import { Route as AkademikAnggotaKelasImport } from './routes/akademik/anggota-kelas'
 import { Route as AbsensiLiburImport } from './routes/absensi/libur'
+import { Route as AbsensiJadwalImport } from './routes/absensi/jadwal'
 import { Route as AkademikJadwalPelajaranIndexImport } from './routes/akademik/jadwal-pelajaran/index'
 import { Route as AkademikAbsensiPertemuanIndexImport } from './routes/akademik/absensi-pertemuan/index'
 import { Route as AkademikReferensiTahunAjaranImport } from './routes/akademik/referensi/tahun-ajaran'
@@ -165,6 +166,11 @@ const AbsensiLiburRoute = AbsensiLiburImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const AbsensiJadwalRoute = AbsensiJadwalImport.update({
+  path: '/absensi/jadwal',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const AkademikJadwalPelajaranIndexRoute =
   AkademikJadwalPelajaranIndexImport.update({
     path: '/akademik/jadwal-pelajaran/',
@@ -230,6 +236,10 @@ declare module '@tanstack/react-router' {
     }
     '/informasi': {
       preLoaderRoute: typeof InformasiImport
+      parentRoute: typeof rootRoute
+    }
+    '/absensi/jadwal': {
+      preLoaderRoute: typeof AbsensiJadwalImport
       parentRoute: typeof rootRoute
     }
     '/absensi/libur': {
@@ -357,6 +367,7 @@ export const routeTree = rootRoute.addChildren([
   IndexRoute,
   AgendaRoute,
   InformasiRoute,
+  AbsensiJadwalRoute,
   AbsensiLiburRoute,
   AkademikAnggotaKelasRoute,
   AkademikJadwalPengajarRoute,

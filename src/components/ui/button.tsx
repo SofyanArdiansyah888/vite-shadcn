@@ -14,6 +14,7 @@ const buttonVariants = cva(
         variants: {
             variant: {
                 primary: "bg-primary hover:bg-primary/90 text-white",
+                blue: "bg-blue-700 hover:bg-blue-700/90 text-white",
                 default: "bg-stone-900 text-stone-50 hover:bg-stone-900/90 dark:bg-stone-50 dark:text-stone-900 dark:hover:bg-stone-50/90",
                 destructive:
                     "bg-red-500 text-stone-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-stone-50 dark:hover:bg-red-900/90",
@@ -63,7 +64,7 @@ interface IButtonProps {
     onClick?: React.MouseEventHandler<HTMLButtonElement>,
     icon?: React.ReactNode,
     tooltip?: string,
-    variant?: "primary" | "default" | "destructive" | "outline" | "secondary" | "ghost" | "link",
+    variant?: "primary" | "default" | "destructive" | "outline" | "secondary" | "ghost" | "link" | "blue",
     className?: string
 }
 
@@ -110,7 +111,7 @@ function FilterButton({onClick}: IButtonProps) {
     </Button>
 }
 
-function ButtonIcon({onClick, icon, tooltip, variant,className}: IButtonProps) {
+function ButtonIcon({onClick, icon, tooltip, variant, className}: IButtonProps) {
     return (
         <TooltipProvider>
             <Tooltip>
@@ -127,11 +128,11 @@ function ButtonIcon({onClick, icon, tooltip, variant,className}: IButtonProps) {
     )
 }
 
-function EditButtonIcon(props: IButtonProps) {
-    return <ButtonIcon {...props}
+function EditButtonIcon({variant = "primary", tooltip = "Edit", ...rest}: IButtonProps) {
+    return <ButtonIcon {...rest}
                        icon={<PencilIcon className="h-4 w-4"/>}
-                       tooltip={"Edit"}
-                       variant={"primary"}
+                       tooltip={tooltip}
+                       variant={variant}
     />
 }
 

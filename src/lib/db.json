@@ -722,7 +722,8 @@
       "soal_essay": 10,
       "soal": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "created_at": "2024-04-18T08:00:00Z",
-      "updated_at": "2024-04-18T08:30:00Z"
+      "updated_at": "2024-04-18T08:30:00Z",
+      "id": "285b"
     },
     {
       "sekolah": "XYZ Secondary School",
@@ -741,7 +742,8 @@
       "soal_essay": 15,
       "soal": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
       "created_at": "2024-04-20T09:00:00Z",
-      "updated_at": "2024-04-20T11:00:00Z"
+      "updated_at": "2024-04-20T11:00:00Z",
+      "id": "6be8"
     },
     {
       "sekolah": "DEF High School",
@@ -760,7 +762,8 @@
       "soal_essay": 10,
       "soal": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
       "created_at": "2024-04-22T10:00:00Z",
-      "updated_at": "2024-04-22T11:30:00Z"
+      "updated_at": "2024-04-22T11:30:00Z",
+      "id": "ebd4"
     },
     {
       "sekolah": "PQR Academy",
@@ -779,7 +782,8 @@
       "soal_essay": 12,
       "soal": "Et harum quidem rerum facilis est et expedita distinctio.",
       "created_at": "2024-04-24T13:00:00Z",
-      "updated_at": "2024-04-24T15:30:00Z"
+      "updated_at": "2024-04-24T15:30:00Z",
+      "id": "3d62"
     },
     {
       "sekolah": "LMN High School",
@@ -798,7 +802,8 @@
       "soal_essay": 8,
       "soal": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
       "created_at": "2024-04-26T07:30:00Z",
-      "updated_at": "2024-04-26T09:00:00Z"
+      "updated_at": "2024-04-26T09:00:00Z",
+      "id": "0411"
     }
   ],
   "libur": [
@@ -841,8 +846,50 @@
       "sampai": "2024-09-02",
       "created_at": "2024-04-25",
       "updated_at": "2024-04-25"
+    },
+    {
+      "id": "86d8",
+      "nama_libur": "Malas",
+      "mulai": "2024-03-31T16:00:00.000Z",
+      "sampai": "2024-04-29T16:00:00.000Z"
+    },
+    {
+      "id": "97ce",
+      "nama_libur": "Malas 2",
+      "mulai": "2024-04-22T16:00:00.000Z",
+      "sampai": "2024-04-29T16:00:00.000Z"
+    },
+    {
+      "id": "9947",
+      "nama_libur": "Malas3",
+      "mulai": "2024-03-31T16:00:00.000Z",
+      "sampai": "2024-04-29T16:00:00.000Z"
+    },
+    {
+      "id": "a0df",
+      "nama_libur": "tes",
+      "mulai": "2024-04-24T16:00:00.000Z",
+      "sampai": "2024-04-29T16:00:00.000Z"
+    }
+  ],
+  "sekolah": [
+    {
+      "id": "abc123",
+      "nama_sekolah": "Sekolah X",
+      "created_at": "2024-04-26T08:15:00Z",
+      "updated_at": "2024-04-26T08:45:00Z"
+    },
+    {
+      "id": "def456",
+      "nama_sekolah": "Sekolah Y",
+      "created_at": "2024-04-26T09:15:00Z",
+      "updated_at": "2024-04-26T09:45:00Z"
+    },
+    {
+      "id": "ghi789",
+      "nama_sekolah": "Sekolah Z",
+      "created_at": "2024-04-26T10:15:00Z",
+      "updated_at": "2024-04-26T10:45:00Z"
     }
   ]
-
-
 }

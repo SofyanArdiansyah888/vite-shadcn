@@ -41,8 +41,8 @@ export default function AbsensiLayout({children}: { children: React.ReactNode })
             </div>,
         },
         {
-            link: "/jadwal",
-            button: <div className={`gap-2 flex items-center ${activeCheck("/jadwal", router)}`}>
+            link: "/absensi/jadwal",
+            button: <div className={`gap-2 flex items-center ${activeCheck("/absensi/jadwal", router)}`}>
                 <ClockIcon className={"w-4 h-4"} strokeWidth={1}/>
                 Jadwal
             </div>,

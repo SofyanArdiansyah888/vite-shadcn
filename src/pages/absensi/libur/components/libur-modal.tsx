@@ -15,9 +15,13 @@ interface ILiburModal {
 
 export default function LiburModal({isOpen, handleGroupModal, selectedData, setSelectedData}: ILiburModal) {
     const [form] = Form.useForm();
-
+    // const mutation= usePost({
+    //     name:"libur",
+    //     endpoint:"/libur",
+    // })
     function handleSubmit(value: LiburEntity) {
         console.log(value)
+        // mutation.mutate(value)
         handleGroupModal("modal", false)
     }
 

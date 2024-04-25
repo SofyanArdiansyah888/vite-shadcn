@@ -1,27 +1,28 @@
 import axios, {AxiosRequestConfig} from "axios";
 
-type IRequest<T> = {
+type IRequest<D> = {
     endpoint: string;
     method: AxiosRequestConfig["method"];
-    data?: T ;
+    data?: D;
     responseType: "json" | "blob" | "text" | "arraybuffer" | "document" | "stream"
 };
 
-export function apiRequest<T>({
-                               data,
-                               method,
-                               endpoint,
-                               responseType
-                           }: IRequest<T>): Promise<T> {
+export function apiRequest<T, D>({
+                                     data,
+                                     method,
+                                     endpoint,
+                                     responseType
+                                 }: IRequest<D>): Promise<T> {
 
     const config: AxiosRequestConfig = {
         method,
         url: `${import.meta.env.VITE_BASE_URL}${endpoint}`,
         headers: {
-            'Accept' : 'application/json',
+            'Accept': 'application/json',
             "Content-Type": "application/json",
         },
-        responseType
+        responseType,
+        data
     };
 
     // if (token) {
@@ -44,7 +45,6 @@ export function apiRequest<T>({
 }
 
 
-
 export function getList<T>(endpoint: string, params: any) {
     const urlSearchParams = new URLSearchParams();
     if (params) {
@@ -52,7 +52,7 @@ export function getList<T>(endpoint: string, params: any) {
             if (item[1] !== undefined) urlSearchParams.append(item[0], item[1] as string);
         });
     }
-    return apiRequest<T>({
+    return apiRequest<T, "">({
         // token: user?.token,
         method: "GET",
         endpoint: `${endpoint}?${urlSearchParams.toString()}`,
@@ -61,10 +61,20 @@ export function getList<T>(endpoint: string, params: any) {
 }
 
 export function getDetail<T>(endpoint: string, id: string) {
-    return apiRequest<T>({
+    return apiRequest<T, "">({
         // token: user?.token,
         method: "GET",
         endpoint: `${endpoint}/${id}`,
         responseType: 'json'
+    });
+}
+
+export function post<T,D>(endpoint: string, data: D) {
+    return apiRequest<T, D>({
+        // token: user?.token,
+        method: "POST",
+        endpoint: `${endpoint}`,
+        responseType: 'json',
+        data
     });
 }
