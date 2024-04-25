@@ -1,4 +1,4 @@
-import {getDetail, getList} from "@/service/api.ts";
+import {getDetail, getList} from "@/lib/api.ts";
 import {useQuery} from "@tanstack/react-query";
 
 

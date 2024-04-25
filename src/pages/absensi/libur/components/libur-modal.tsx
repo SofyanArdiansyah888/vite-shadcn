@@ -4,6 +4,7 @@ import FormInput from "@/components/shared/form/form-input.tsx";
 import {Dispatch, useEffect} from "react";
 import FormDate from "@/components/shared/form/form-date.tsx";
 import LiburEntity from "@/pages/absensi/libur/data/libur.entity.ts";
+import moment from "moment";
 
 interface ILiburModal {
     selectedData: LiburEntity | undefined,
@@ -22,7 +23,11 @@ export default function LiburModal({isOpen, handleGroupModal, selectedData, setS
 
     useEffect(() => {
         if (selectedData) {
-            form.setFieldsValue({...selectedData})
+            form.setFieldsValue({
+                ...selectedData,
+                mulai: moment(selectedData.mulai),
+                sampai: moment(selectedData.sampai)
+            })
         }
         if (!isOpen) {
             form.resetFields()
@@ -42,7 +47,7 @@ export default function LiburModal({isOpen, handleGroupModal, selectedData, setS
             name={"nama_libur"}
             label={"Nama Hari Libur"}
         />
-        <FormDate name={"dari"} label={"dari"}/>
+        <FormDate name={"mulai"} label={"mulai"}/>
         <FormDate name={"sampai"} label={"sampai"}/>
     </FormModal>
 }
