@@ -2,22 +2,20 @@ import FormModal from "@/components/shared/modal/form-modal.tsx";
 import {Form} from "antd";
 import FormInput from "@/components/shared/form/form-input.tsx";
 import {Dispatch, useEffect} from "react";
-import SekolahSelect from "@/components/shared/form/select/sekolah-select.tsx";
-import TahunAjaranSelect from "@/components/shared/form/select/tahun-ajaran-select.tsx";
-import MataPelajaranEntity from "@/pages/akademik/referensi/mata-pelajaran/data/mata-pelajaran.entity.ts";
+import FormDate from "@/components/shared/form/form-date.tsx";
+import LiburEntity from "@/pages/absensi/libur/data/libur.entity.ts";
 
-
-interface IKelasModal {
-    selectedData: MataPelajaranEntity | undefined,
-    setSelectedData: Dispatch<MataPelajaranEntity | undefined>,
+interface ILiburModal {
+    selectedData: LiburEntity | undefined,
+    setSelectedData: Dispatch<LiburEntity | undefined>,
     isOpen: boolean,
     handleGroupModal: (key: string, value: boolean) => void
 }
 
-export default function MataPelajaranModal({isOpen, handleGroupModal, selectedData, setSelectedData}: IKelasModal) {
+export default function LiburModal({isOpen, handleGroupModal, selectedData, setSelectedData}: ILiburModal) {
     const [form] = Form.useForm();
 
-    function handleSubmit(value: MataPelajaranEntity) {
+    function handleSubmit(value: LiburEntity) {
         console.log(value)
         handleGroupModal("modal", false)
     }
@@ -34,20 +32,17 @@ export default function MataPelajaranModal({isOpen, handleGroupModal, selectedDa
     }, [form, selectedData, setSelectedData, isOpen])
 
 
-    return <FormModal<MataPelajaranEntity>
+    return <FormModal<LiburEntity>
         form={form}
-        title={`${selectedData ? "Edit Mata Pelajaran" : "Tambah Mata Pelajaran"}`}
+        title={`${selectedData ? "Edit Libur" : "Tambah Libur"}`}
         isOpen={isOpen}
         setIsOpen={(value) => handleGroupModal("modal", value as boolean)}
         onSubmit={handleSubmit}>
-
-        <SekolahSelect/>
-        <TahunAjaranSelect/>
-
-
         <FormInput
-            name={"mata_pelajaran"}
-            label={"Nama Mata Pelajaran"}
+            name={"nama_libur"}
+            label={"Nama Hari Libur"}
         />
+        <FormDate name={"dari"} label={"dari"}/>
+        <FormDate name={"sampai"} label={"sampai"}/>
     </FormModal>
 }

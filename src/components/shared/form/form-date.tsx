@@ -20,7 +20,6 @@ export default function FormDate({
     return <Form.Item name={name} label={label} rules={rules} className={"!capitalize"}>
         <DatePicker
             onChange={onChange}
-            needConfirm
             value={value}
             format={['DD-MM-YYYY']}
             className={"!w-full"}/>

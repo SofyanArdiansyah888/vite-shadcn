@@ -4,7 +4,7 @@ import FormInput from "@/components/shared/form/form-input.tsx";
 import {Dispatch, useEffect} from "react";
 import SekolahSelect from "@/components/shared/form/select/sekolah-select.tsx";
 import TahunAjaranSelect from "@/components/shared/form/select/tahun-ajaran-select.tsx";
-import MataPelajaranEntity from "@/pages/akademik/referensi/mata-pelajaran/data/mata-pelajaran.entity.ts";
+import LiburEntity from "@/pages/akademik/referensi/mata-pelajaran/data/mata-pelajaran.entity.ts";
 
 
 interface IKelasModal {

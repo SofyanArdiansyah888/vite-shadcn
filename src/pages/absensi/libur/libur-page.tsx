@@ -1,64 +1,45 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {AddButton} from "@/components/ui/button.tsx";
 import CustomHeader from "@/components/shared/custom-header.tsx";
 import useGroupModal from "@/hooks/useGroupModal.tsx";
 import useParams from "@/hooks/useParams.tsx";
-
-
 import DetailModal from "@/components/shared/modal/detail-modal.tsx";
-import GroupBadgeFilter from "@/components/shared/group-badge-filter.tsx";
-import MataPelajaranEntity from "@/pages/akademik/referensi/mata-pelajaran/data/mata-pelajaran.entity.ts";
-import MataPelajaranFilter from "@/pages/akademik/referensi/mata-pelajaran/components/mata-pelajaran-filter.tsx";
-import MataPelajaranTable from "@/pages/akademik/referensi/mata-pelajaran/components/mata-pelajaran-table.tsx";
-import MataPelajaranModal from "@/pages/akademik/referensi/mata-pelajaran/components/mata-pelajaran-modal.tsx";
-import useMataPelajaranStore from "@/pages/akademik/referensi/mata-pelajaran/data/useMataPelajaranStore.ts";
 import AbsensiLayout from "@/components/layout/absensi-layout.tsx";
-
-
+import LiburTable from "@/pages/absensi/libur/components/libur-table.tsx";
+import LiburModal from "@/pages/absensi/libur/components/libur-modal.tsx";
+import LiburEntity from "@/pages/absensi/libur/data/libur.entity.ts";
 const LiburPage: React.FC = () => {
-    const {filterPayload, resetFilterPayload, deleteFilterPayload} = useMataPelajaranStore()
     const {groupModal, handleGroupModal} = useGroupModal({
         modal: false
     })
     const {params, handleParamsChange} = useParams({})
-    const [selectedData, setSelectedData] = useState<MataPelajaranEntity | undefined>()
+    const [selectedData, setSelectedData] = useState<LiburEntity | undefined>()
     const [detail, setDetail] = useState<{ key: string, value: string }[]>([])
-    useEffect(() => {
-        return () => {
-            resetFilterPayload()
-        }
-    }, [])
+
     return (<AbsensiLayout>
             <section className={"px-12 py-4"}>
                 <CustomHeader
                     title={"Data Hari Libur"}
-                    additionalAction={<MataPelajaranFilter/>}
                     handleSearch={(value) => handleParamsChange("search", value)}
                 />
-                <div className={"flex justify-between  py-2 gap-1"}>
-                    <div className={"overscroll-x-auto "}>
-                        <GroupBadgeFilter filterPayload={filterPayload}
-                                          deleteFilterPayload={deleteFilterPayload}
-                                          resetFilterPayload={resetFilterPayload}
-                        />
-                    </div>
+                <div className={"flex justify-end  py-2 gap-1"}>
                     <AddButton onClick={() => handleGroupModal('modal', true)}/>
                 </div>
-                <MataPelajaranTable
+                <LiburTable
                     setSelectedData={setSelectedData}
                     handleGroupModal={handleGroupModal}
                     params={params}
                     setDetail={setDetail}
                 />
             </section>
-            <MataPelajaranModal
+            <LiburModal
                 isOpen={groupModal.modal}
                 handleGroupModal={handleGroupModal}
                 selectedData={selectedData}
                 setSelectedData={setSelectedData}
             />
             <DetailModal
-                title={"Detail MataPelajaran"}
+                title={"Detail Libur"}
                 isOpen={groupModal.detailModal}
                 setIsOpen={(value) => handleGroupModal("detailModal", value as boolean)}
                 details={detail}
