@@ -37,10 +37,12 @@
     "clsx": "^2.1.0",
     "cmdk": "^1.0.0",
     "json-server": "^1.0.0-alpha.23",
+    "leaflet": "^1.9.4",
     "lucide-react": "^0.363.0",
     "moment": "^2.30.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "zustand": "^4.5.2"
@@ -48,6 +50,7 @@
   "devDependencies": {
     "@tanstack/router-vite-plugin": "^1.19.0",
     "@types/dropzone": "^5.7.8",
+    "@types/leaflet": "^1.9.12",
     "@types/node": "^20.11.24",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
