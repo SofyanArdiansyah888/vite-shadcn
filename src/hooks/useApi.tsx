@@ -1,5 +1,5 @@
-import {getDetail, getList} from "@/lib/api.ts";
-import {useQuery} from "@tanstack/react-query";
+import {create, destroy, getDetail, getList, update} from "@/lib/api.ts";
+import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 
 
 interface IGet {
@@ -37,29 +37,70 @@ export function useGetDetail<T>({
     });
 }
 
-// interface IPOST {
-//     name: string;
-//     endpoint: string;
-// }
+interface IPOST {
+    name: string;
+    endpoint: string;
+}
 
 
-// export function usePost({
-//                             name,
-//                             endpoint,
-//                         }: IPOST) {
-//     // const queryClient = new QueryClient()
-//     return useMutation({
-//
-//         onSuccess: () => {
-//             // queryClient.invalidateQueries({
-//             //     queryKey: [name]
-//             // })
-//         },
-//         onError: () => {
-//
-//         },
-//         mutationFn: (data) => {
-//             return post(endpoint, data)
-//         },
-//     })
-// }
+export function usePost({
+                            name,
+                            endpoint,
+                        }: IPOST) {
+    const queryClient = useQueryClient()
+    return useMutation({
+
+        onSuccess: async () => {
+            return await queryClient.invalidateQueries({
+                queryKey: [name]
+            })
+        },
+        onError: () => {
+
+        },
+        mutationFn: (data) => {
+            return create(endpoint, data)
+        },
+    })
+}
+
+export function usePut({
+                           name,
+                           endpoint,
+                           id
+                       }: IPOST & { id: string }) {
+    const queryClient = useQueryClient()
+    return useMutation({
+        onSuccess: async () => {
+            return await queryClient.invalidateQueries({
+                queryKey: [name]
+            })
+        },
+        onError: () => {
+
+        },
+        mutationFn: (data) => {
+            return update(id, endpoint, data)
+        },
+    })
+}
+
+export function useDelete({
+                              name,
+                              endpoint,
+                          }: IPOST) {
+    const queryClient = useQueryClient()
+    return useMutation({
+        onSuccess: async () => {
+            return await queryClient.invalidateQueries({
+                queryKey: [name]
+            })
+        },
+        onError: () => {
+
+        },
+        mutationFn: (id: string) => {
+            return destroy(id, endpoint)
+        },
+    })
+}
