@@ -5,6 +5,7 @@ import {Dispatch, useEffect} from "react";
 import FormDate from "@/components/shared/form/form-date.tsx";
 import LiburEntity from "@/pages/absensi/libur/data/libur.entity.ts";
 import moment from "moment";
+import {usePost, usePut} from "@/hooks/useApi.tsx";
 
 interface ILiburModal {
     selectedData: LiburEntity | undefined,
@@ -15,13 +16,19 @@ interface ILiburModal {
 
 export default function LiburModal({isOpen, handleGroupModal, selectedData, setSelectedData}: ILiburModal) {
     const [form] = Form.useForm();
-    // const mutation= usePost({
-    //     name:"libur",
-    //     endpoint:"/libur",
-    // })
+    const {mutate, isPending} = usePost({
+        name: "libur",
+        endpoint: "/libur",
+    })
+    const {mutate: mutateUpdate} = usePut({
+        name: "libur",
+        endpoint: "/libur",
+        id: selectedData?.id.toString() as string
+    })
     function handleSubmit(value: LiburEntity) {
-        console.log(value)
-        // mutation.mutate(value)
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        selectedData ? mutateUpdate(value) : mutate(value)
         handleGroupModal("modal", false)
     }
 
@@ -44,6 +51,7 @@ export default function LiburModal({isOpen, handleGroupModal, selectedData, setS
     return <FormModal<LiburEntity>
         form={form}
         title={`${selectedData ? "Edit Libur" : "Tambah Libur"}`}
+        confirmLoading={isPending}
         isOpen={isOpen}
         setIsOpen={(value) => handleGroupModal("modal", value as boolean)}
         onSubmit={handleSubmit}>

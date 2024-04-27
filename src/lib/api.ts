@@ -69,12 +69,31 @@ export function getDetail<T>(endpoint: string, id: string) {
     });
 }
 
-export function post<T,D>(endpoint: string, data: D) {
+export function create<T,D>(endpoint: string, data: D) {
     return apiRequest<T, D>({
         // token: user?.token,
         method: "POST",
         endpoint: `${endpoint}`,
         responseType: 'json',
         data
+    });
+}
+
+export function update<T,D>(id:string,endpoint: string, data: D) {
+    return apiRequest<T, D>({
+        // token: user?.token,
+        method: "PUT",
+        endpoint: `${endpoint}/${id}`,
+        responseType: 'json',
+        data
+    });
+}
+
+export function destroy(id:string,endpoint: string) {
+    return apiRequest({
+        // token: user?.token,
+        method: "DELETE",
+        endpoint: `${endpoint}/${id}`,
+        responseType: 'json',
     });
 }

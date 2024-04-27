@@ -5,7 +5,6 @@ import {
     ClockIcon,
     InfoIcon,
     LogOutIcon,
-    QrCodeIcon,
     SettingsIcon,
     TimerReset
 } from "lucide-react";
@@ -26,13 +25,13 @@ export default function AbsensiLayout({children}: { children: React.ReactNode })
                 Log Absensi
             </div>,
         },
-        {
-            link: "/qrcode",
-            button: <div className={`gap-2 flex items-center ${activeCheck("/qrcode", router)}`}>
-                <QrCodeIcon className={"w-4 h-4"} strokeWidth={1}/>
-                QRCode
-            </div>,
-        },
+        // {
+        //     link: "/qrcode",
+        //     button: <div className={`gap-2 flex items-center ${activeCheck("/qrcode", router)}`}>
+        //         <QrCodeIcon className={"w-4 h-4"} strokeWidth={1}/>
+        //         QRCode
+        //     </div>,
+        // },
         {
             link: "/pengaturan",
             button: <div className={`gap-2 flex items-center ${activeCheck("/pengaturan", router)}`}>
@@ -81,8 +80,8 @@ export default function AbsensiLayout({children}: { children: React.ReactNode })
         },
 
         {
-            link: "/libur",
-            button: <div className={`gap-2 flex items-center ${activeCheck("/jadwal", router)}`}>
+            link: "/absensi/recap",
+            button: <div className={`gap-2 flex items-center ${activeCheck("/absensi/recap", router)}`}>
                 <CalendarFold className={"w-4 h-4"} strokeWidth={1}/>
                 Recap Absensi
             </div>,

@@ -9,7 +9,7 @@ import FormDate from "@/components/shared/form/form-date.tsx";
 import KelasSelect from "@/components/shared/form/select/kelas-select.tsx";
 
 
-export default function AbsensiFilter() {
+export default function AbsensiFilter({selectedTab}: { selectedTab: "siswa" | "guru" }) {
     const {changeFilterPayload, filterPayload} = useAbsensiStore();
     const [form] = Form.useForm();
     const [isOpen, setIsOpen] = useState(false)
@@ -36,7 +36,9 @@ export default function AbsensiFilter() {
         <SekolahSelect/>
         <FormDate name={"dari"} label={"Dari"}/>
         <FormDate name={"sampai"} label={"Sampai"}/>
-        <KelasSelect/>
+        {
+            selectedTab === "siswa" && <KelasSelect/>
+        }
     </FilterModal>
 }
 

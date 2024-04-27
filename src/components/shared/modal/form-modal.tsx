@@ -30,7 +30,7 @@ export default function FormModal<T>({
                                          onSubmit,
                                          scrollArea = false,
                                          sectionClass,
-    modalClass
+                                         modalClass
                                      }: IFormModal<T>) {
     const [formInstance, setFormInstance] = useState<FormInstance>();
     useEffect(() => {
@@ -55,7 +55,7 @@ export default function FormModal<T>({
         confirmLoading={confirmLoading}
         onCancel={() => setIsOpen(false)}
         destroyOnClose
-        className={`${cn("!w-[350px]",modalClass)}`}
+        className={`${cn("!w-[350px]", modalClass)}`}
         centered
     >
         {
@@ -82,7 +82,7 @@ function SectionForm<T>({children, form, sectionClass}: {
         <Form
             form={form}
             layout={"vertical"}
-            className={`${cn('!space-y-2',sectionClass)}`}
+            className={`${cn('!space-y-2', sectionClass)}`}
         >
             {children}
         </Form>

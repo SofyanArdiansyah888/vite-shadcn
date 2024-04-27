@@ -1,6 +1,6 @@
 import {Table, TableProps} from "antd";
 import {DeleteButtonIcon, DetailButtonIcon, EditButtonIcon} from "@/components/ui/button.tsx";
-import {useGetList} from "@/hooks/useApi.tsx";
+import {useDelete, useGetList} from "@/hooks/useApi.tsx";
 
 import {tanggalID} from "@/lib/formatter.ts";
 import {IUseParams} from "@/hooks/useParams.tsx";
@@ -12,15 +12,18 @@ import LiburEntity from "@/pages/absensi/libur/data/libur.entity.ts";
 export default function LiburTable({handleGroupModal, params, setSelectedData, setDetail}: {
     params: IUseParams,
     handleGroupModal: (key: string, value: boolean) => void,
-    setSelectedData: Dispatch<LiburEntity>
+    setSelectedData: Dispatch<LiburEntity>,
     setDetail: Dispatch<{ key: string, value: string }[]>
 }) {
-
-
     const {data, isLoading} = useGetList<LiburEntity[]>({
         endpoint: "/libur",
         name: "libur",
         params
+    })
+
+    const {mutate} = useDelete({
+        endpoint: "/libur",
+        name: "libur"
     })
 
     function handleEditClick(data: LiburEntity) {
@@ -30,11 +33,9 @@ export default function LiburTable({handleGroupModal, params, setSelectedData, s
 
     function handleDeleteClick(data: LiburEntity) {
         deleteAlert({
-            data,
-            handleSubmit: () => {
-                return new Promise((resolve, reject) => {
-                    setTimeout(Math.random() > 0.5 ? resolve : reject, 1000);
-                }).catch(() => console.log('Oops errors!'));
+            data: data.nama_libur,
+            handleSubmit: async () => {
+               mutate(data.id)
             }
         })
     }
@@ -43,7 +44,7 @@ export default function LiburTable({handleGroupModal, params, setSelectedData, s
         const temp = Object.entries(data)
             .map((item) => {
                 let value = item[1]
-                if (["created_at", "updated_at","dari",'sampai'].includes(item[0])) {
+                if (["created_at", "updated_at", "dari", 'sampai'].includes(item[0])) {
                     value = tanggalID(value)
                 }
                 return {
