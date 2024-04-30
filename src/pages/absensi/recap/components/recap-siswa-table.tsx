@@ -1,61 +1,18 @@
 import {Table, TableProps} from "antd";
-import {DetailButtonIcon} from "@/components/ui/button.tsx";
 import {useGetList} from "@/hooks/useApi.tsx";
-import {tanggalID, tanggalJamID} from "@/lib/formatter.ts";
 import {IUseParams} from "@/hooks/useParams.tsx";
-import {Dispatch} from "react";
-import {IDetailInfoModal} from "@/components/shared/modal/detail-modal.tsx";
 import AgendaEntity from "@/pages/agenda/data/agenda.entity.ts";
 
-export default function RecapSiswaTable({handleGroupModal, params, setDetail}: {
+export default function RecapSiswaTable({params}: {
     params: IUseParams,
-    handleGroupModal: (key: string, value: boolean) => void,
-    setDetail: Dispatch<IDetailInfoModal[]>
 }) {
 
     const {data, isLoading} = useGetList<AgendaEntity[]>({
-        endpoint: "/agenda",
-        name: "agenda",
+        endpoint: "/recap-siswa",
+        name: "recap-siswa",
         params
     })
 
-
-    function handleDetailClick(data: AgendaEntity) {
-        const temp = [
-            {
-                key: "Sekolah",
-                value: data.sekolah,
-            },
-            {
-                key: "Acara",
-                value: data.acara,
-            },
-            {
-                key: "Dari",
-                value: data.dari,
-            },
-            {
-                key: "Sampai",
-                value: data.sampai,
-            },
-
-            {
-                key: "Keterangan",
-                value: data.keterangan,
-                colspan: "col-span-2"
-            },
-            {
-                key: "Created",
-                value: tanggalID(data.created_at),
-            },
-            {
-                key: "Updated",
-                value: tanggalID(data.updated_at),
-            },
-        ]
-        setDetail(temp)
-        handleGroupModal("detailModal", true)
-    }
 
     const columns: TableProps<AgendaEntity>['columns'] = [
         {
@@ -64,37 +21,57 @@ export default function RecapSiswaTable({handleGroupModal, params, setDetail}: {
             sorter: true,
             width: '15%',
         },
-        {
-            title: 'Tanggal',
-            dataIndex: 'tanggal',
-            width: '17%',
-            render: (_, item) => <div>{tanggalJamID(item.dari)}</div>
-        },
-        {
-            title: 'Kelas',
-            dataIndex: 'kelas',
-        },
-        {
-            title: 'Masuk',
-            dataIndex: 'masuk',
-        },
-        {
-            title: 'Pulang',
-            dataIndex: 'pulang',
-        },
 
         {
-            title: 'Action',
-            dataIndex: 'operation',
-            width: '100px',
-            render: (_, data) =>
-                <div className={"flex gap-1"}>
-                    {/*<EditButtonIcon onClick={() => handleEditClick(data)}/>*/}
-                    <DetailButtonIcon onClick={() => handleDetailClick(data)}/>
-                    {/*<DeleteButtonIcon onClick={() => handleDeleteClick(data)}/>*/}
-                </div>
-            ,
+            title: 'Jumlah Hari',
+            dataIndex: 'jumlah_hari',
         },
+        {
+            title: 'Hadir',
+            dataIndex: 'hadir',
+        },
+        {
+            title: 'Sakit',
+            dataIndex: 'sakit',
+        },
+        {
+            title: 'Izin',
+            dataIndex: 'izin',
+        },
+        {
+            title: 'Alfa',
+            dataIndex: 'alfa',
+        },
+        {
+            title: 'TL',
+            dataIndex: 'terlambat',
+        },
+        {
+            title: 'PC',
+            dataIndex: 'pulang_cepat',
+        },
+        {
+            title: 'TAM',
+            dataIndex: 'tidak_absen_masuk',
+        },
+        {
+            title: 'TPL',
+            dataIndex: 'tidak_absen_pulang',
+        },
+
+
+        // {
+        //     title: 'Action',
+        //     dataIndex: 'operation',
+        //     width: '100px',
+        //     render: (_, data) =>
+        //         <div className={"flex gap-1"}>
+        //             {/*<EditButtonIcon onClick={() => handleEditClick(data)}/>*/}
+        //             <DetailButtonIcon onClick={() => handleDetailClick(data)}/>
+        //             {/*<DeleteButtonIcon onClick={() => handleDeleteClick(data)}/>*/}
+        //         </div>
+        //     ,
+        // },
     ];
 
 

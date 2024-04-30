@@ -60,8 +60,6 @@ export default function RecapPage() {
                     </div>
                     <TabsContent value={"siswa"}>
                         <RecapSiswaTable
-                            setDetail={setDetail}
-                            handleGroupModal={handleGroupModal}
                             params={params}
                         />
                     </TabsContent>

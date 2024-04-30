@@ -35,7 +35,7 @@ export default function RecapFilter({selectedTab}: { selectedTab: "siswa" | "gur
     >
         <SekolahSelect/>
         <FormDate name={"dari"} label={"Dari"}/>
-        <FormDate name={"sampai"} label={"Sampaiz"}/>
+        <FormDate name={"sampai"} label={"Sampai"}/>
         {
             selectedTab === "siswa" && <KelasSelect/>
         }

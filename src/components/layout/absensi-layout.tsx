@@ -33,8 +33,8 @@ export default function AbsensiLayout({children}: { children: React.ReactNode })
         //     </div>,
         // },
         {
-            link: "/pengaturan",
-            button: <div className={`gap-2 flex items-center ${activeCheck("/pengaturan", router)}`}>
+            link: "/absensi/pengaturan",
+            button: <div className={`gap-2 flex items-center ${activeCheck("/absensi/pengaturan", router)}`}>
                 <SettingsIcon className={"w-4 h-4"} strokeWidth={1}/>
                 Pengaturan
             </div>,
