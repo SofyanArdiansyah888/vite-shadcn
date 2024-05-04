@@ -16,6 +16,7 @@ import { Route as AgendaImport } from './routes/agenda'
 import { Route as IndexImport } from './routes/index'
 import { Route as StaffIndexImport } from './routes/staff/index'
 import { Route as SiswaIndexImport } from './routes/siswa/index'
+import { Route as PenggajianIndexImport } from './routes/penggajian/index'
 import { Route as CbtIndexImport } from './routes/cbt/index'
 import { Route as AkademikIndexImport } from './routes/akademik/index'
 import { Route as AbsensiIndexImport } from './routes/absensi/index'
@@ -71,6 +72,11 @@ const StaffIndexRoute = StaffIndexImport.update({
 
 const SiswaIndexRoute = SiswaIndexImport.update({
   path: '/siswa/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PenggajianIndexRoute = PenggajianIndexImport.update({
+  path: '/penggajian/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -334,6 +340,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CbtIndexImport
       parentRoute: typeof rootRoute
     }
+    '/penggajian/': {
+      preLoaderRoute: typeof PenggajianIndexImport
+      parentRoute: typeof rootRoute
+    }
     '/siswa/': {
       preLoaderRoute: typeof SiswaIndexImport
       parentRoute: typeof rootRoute
@@ -408,6 +418,7 @@ export const routeTree = rootRoute.addChildren([
   AbsensiIndexRoute,
   AkademikIndexRoute,
   CbtIndexRoute,
+  PenggajianIndexRoute,
   SiswaIndexRoute,
   StaffIndexRoute,
   AbsensiIzinIzinSiswaRoute,

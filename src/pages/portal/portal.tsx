@@ -77,7 +77,7 @@ export default function PortalPage() {
                     subtitle={"Kelola pencatatan dan rekap gaji guru dan staff di sekolah anda"}
                     imageUrl={salaryUrl}
                     color={"orange"}
-                    link={"/"}
+                    link={"/penggajian"}
                 />
 
                 {/*<PortalCard*/}

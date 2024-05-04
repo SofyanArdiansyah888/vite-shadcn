@@ -82,7 +82,7 @@ function SectionForm<T>({children, form, sectionClass}: {
         <Form
             form={form}
             layout={"vertical"}
-            className={`${cn('!space-y-2', sectionClass)}`}
+            className={`${cn('', sectionClass)}`}
         >
             {children}
         </Form>
