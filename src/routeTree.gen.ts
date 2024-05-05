@@ -40,6 +40,8 @@ import { Route as AbsensiLiburImport } from './routes/absensi/libur'
 import { Route as AbsensiJadwalImport } from './routes/absensi/jadwal'
 import { Route as AkademikJadwalPelajaranIndexImport } from './routes/akademik/jadwal-pelajaran/index'
 import { Route as AkademikAbsensiPertemuanIndexImport } from './routes/akademik/absensi-pertemuan/index'
+import { Route as PenggajianReferensiTunjanganImport } from './routes/penggajian/referensi/tunjangan'
+import { Route as PenggajianReferensiPotonganImport } from './routes/penggajian/referensi/potongan'
 import { Route as PenggajianReferensiHonorStaffImport } from './routes/penggajian/referensi/honor-staff'
 import { Route as PenggajianReferensiHonorGuruImport } from './routes/penggajian/referensi/honor-guru'
 import { Route as AkademikReferensiTahunAjaranImport } from './routes/akademik/referensi/tahun-ajaran'
@@ -200,6 +202,18 @@ const AkademikJadwalPelajaranIndexRoute =
 const AkademikAbsensiPertemuanIndexRoute =
   AkademikAbsensiPertemuanIndexImport.update({
     path: '/akademik/absensi-pertemuan/',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const PenggajianReferensiTunjanganRoute =
+  PenggajianReferensiTunjanganImport.update({
+    path: '/penggajian/referensi/tunjangan',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const PenggajianReferensiPotonganRoute =
+  PenggajianReferensiPotonganImport.update({
+    path: '/penggajian/referensi/potongan',
     getParentRoute: () => rootRoute,
   } as any)
 
@@ -394,6 +408,14 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PenggajianReferensiHonorStaffImport
       parentRoute: typeof rootRoute
     }
+    '/penggajian/referensi/potongan': {
+      preLoaderRoute: typeof PenggajianReferensiPotonganImport
+      parentRoute: typeof rootRoute
+    }
+    '/penggajian/referensi/tunjangan': {
+      preLoaderRoute: typeof PenggajianReferensiTunjanganImport
+      parentRoute: typeof rootRoute
+    }
     '/akademik/absensi-pertemuan/': {
       preLoaderRoute: typeof AkademikAbsensiPertemuanIndexImport
       parentRoute: typeof rootRoute
@@ -450,6 +472,8 @@ export const routeTree = rootRoute.addChildren([
   AkademikReferensiTahunAjaranRoute,
   PenggajianReferensiHonorGuruRoute,
   PenggajianReferensiHonorStaffRoute,
+  PenggajianReferensiPotonganRoute,
+  PenggajianReferensiTunjanganRoute,
   AkademikAbsensiPertemuanIndexRoute,
   AkademikJadwalPelajaranIndexRoute,
   AkademikAbsensiPertemuanDetailIdRoute,
