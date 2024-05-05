@@ -6,29 +6,29 @@ import {tanggalID} from "@/lib/formatter.ts";
 import {IUseParams} from "@/hooks/useParams.tsx";
 import {Dispatch} from "react";
 import {deleteAlert} from "@/components/shared/alert.tsx";
-import MataPelajaranEntity from "@/pages/akademik/referensi/mata-pelajaran/data/mata-pelajaran.entity.ts";
+import HonorGuruEntity from "@/pages/penggajian/honor-guru/data/honor-guru.entity.ts";
 
 
-export default function MataPelajaranTable({handleGroupModal, params, setSelectedData, setDetail}: {
+export default function HonorGuruTable({handleGroupModal, params, setSelectedData, setDetail}: {
     params: IUseParams,
     handleGroupModal: (key: string, value: boolean) => void,
-    setSelectedData: Dispatch<MataPelajaranEntity>
+    setSelectedData: Dispatch<HonorGuruEntity>
     setDetail: Dispatch<{ key: string, value: string }[]>
 }) {
 
 
-    const {data, isLoading} = useGetList<MataPelajaranEntity[]>({
-        endpoint: "/mata-pelajaran",
-        name: "mata-pelajaran",
+    const {data, isLoading} = useGetList<HonorGuruEntity[]>({
+        endpoint: "/honor-guru",
+        name: "honor-guru",
         params
     })
 
-    function handleEditClick(data: MataPelajaranEntity) {
+    function handleEditClick(data: HonorGuruEntity) {
         setSelectedData(data)
         handleGroupModal("modal", true)
     }
 
-    function handleDeleteClick(data: MataPelajaranEntity) {
+    function handleDeleteClick(data: HonorGuruEntity) {
         deleteAlert({
             data,
             handleSubmit: () => {
@@ -39,48 +39,37 @@ export default function MataPelajaranTable({handleGroupModal, params, setSelecte
         })
     }
 
-    function handleDetailClick(data: MataPelajaranEntity) {
-        const temp = [
-            {
-                key: "Nama Sekolah",
-                value: data.sekolah
-            },
-            {
-                key: "Tahun Ajaran",
-                value: data.tahun_ajaran
-            },
-            {
-                key: "Mata Pelajaran",
-                value: data.mata_pelajaran
-            },
-            {
-                key: "Created",
-                value: tanggalID(data.created_at)
-            },
-            {
-                key: "Updated",
-                value: tanggalID(data.updated_at)
-            }
-        ]
+    function handleDetailClick(data: HonorGuruEntity) {
+        const temp = Object.entries(data)
+            .filter((item) => !["deleted_at", "id"].includes(item[0]))
+            .map((item) => {
+                let value = item[1]
+                if (["created_at", "updated_at"].includes(item[0])) {
+                    value = tanggalID(value)
+                }
+                return {
+                    key: item[0].replace("_", " "),
+                    value
+                }
+            })
         setDetail(temp)
         handleGroupModal("detailModal", true)
     }
 
-    const columns: TableProps<MataPelajaranEntity>['columns'] = [
+    const columns: TableProps<HonorGuruEntity>['columns'] = [
         {
             title: 'Nama Sekolah',
             dataIndex: 'sekolah',
-            // width: '25%',
             sorter: true,
         },
         {
-            title: 'Tahun Ajaran',
-            dataIndex: 'tahun_ajaran',
+            title: 'Kategori',
+            dataIndex: 'kategori',
             width: '15%',
         },
         {
-            title: 'MataPelajaran',
-            dataIndex: 'mata_pelajaran',
+            title: 'Honor Per Jam',
+            dataIndex: 'honor',
         },
         {
             title: 'Created',

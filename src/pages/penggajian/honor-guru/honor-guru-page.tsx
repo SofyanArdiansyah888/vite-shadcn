@@ -8,11 +8,11 @@ import useParams from "@/hooks/useParams.tsx";
 import DetailModal from "@/components/shared/modal/detail-modal.tsx";
 import GroupBadgeFilter from "@/components/shared/group-badge-filter.tsx";
 import MataPelajaranEntity from "@/pages/akademik/referensi/mata-pelajaran/data/mata-pelajaran.entity.ts";
-import MataPelajaranFilter from "@/pages/akademik/referensi/mata-pelajaran/components/mata-pelajaran-filter.tsx";
-import MataPelajaranTable from "@/pages/akademik/referensi/mata-pelajaran/components/mata-pelajaran-table.tsx";
-import MataPelajaranModal from "@/pages/akademik/referensi/mata-pelajaran/components/mata-pelajaran-modal.tsx";
 import useMataPelajaranStore from "@/pages/akademik/referensi/mata-pelajaran/data/useMataPelajaranStore.ts";
 import PenggajianLayout from "@/components/layout/penggajian-layout.tsx";
+import HonorGuruFilter from "@/pages/penggajian/honor-guru/components/honor-guru-filter.tsx";
+import HonorGuruTable from "@/pages/penggajian/honor-guru/components/honor-guru-table.tsx";
+import HonorGuruModal from "@/pages/penggajian/honor-guru/components/honor-guru-modal.tsx";
 
 
 export default function HonorGuruPage() {
@@ -31,8 +31,8 @@ export default function HonorGuruPage() {
     return (<PenggajianLayout>
             <section className={"px-12 py-4"}>
                 <CustomHeader
-                    title={"Mata Pelajaran"}
-                    additionalAction={<MataPelajaranFilter/>}
+                    title={"Honor Guru"}
+                    additionalAction={<HonorGuruFilter/>}
                     handleSearch={(value) => handleParamsChange("search", value)}
                 />
                 <div className={"flex justify-between  py-2 gap-1"}>
@@ -44,14 +44,14 @@ export default function HonorGuruPage() {
                     </div>
                     <AddButton onClick={() => handleGroupModal('modal', true)}/>
                 </div>
-                <MataPelajaranTable
+                <HonorGuruTable
                     setSelectedData={setSelectedData}
                     handleGroupModal={handleGroupModal}
                     params={params}
                     setDetail={setDetail}
                 />
             </section>
-            <MataPelajaranModal
+            <HonorGuruModal
                 isOpen={groupModal.modal}
                 handleGroupModal={handleGroupModal}
                 selectedData={selectedData}
@@ -66,6 +66,6 @@ export default function HonorGuruPage() {
         </PenggajianLayout>
 
     );
-};
+}
 
 

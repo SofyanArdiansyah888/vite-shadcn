@@ -1,4 +1,4 @@
-export default interface MataPelajaranEntity{
+export default interface HonorGuruEntity {
     id: string,
     tahun_ajaran: string,
     sekolah: string,
