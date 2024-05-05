@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
+import TunjanganPage from "@/pages/penggajian/tunjangan/tunjangan-page.tsx";
 
 export const Route = createFileRoute('/penggajian/referensi/tunjangan')({
-  component: () => <div>Hello /penggajian/referensi/tunjangan!</div>
+  component: () => <TunjanganPage />
 })
