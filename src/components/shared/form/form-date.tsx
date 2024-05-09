@@ -6,7 +6,7 @@ interface IFormSelect {
     name: string,
     label: string,
     value?: string,
-    onChange?: any,
+    onChange?: ((date: string, dateString: (string | string[])) => void) | undefined,
     type?: "date" | "time" | "week" | "month" | "quarter" | "year",
     showTime?: boolean,
     rules?: RuleObject[] | RuleRender[]
@@ -24,11 +24,14 @@ export default function FormDate({
     function getFormat() {
         let format: string[];
         switch (type) {
-            case "date":
-                format = ['DD-MM-YYYY'];
+            case "time":
+                format = ["hh:mm:ss"]
+                break;
+            case "month":
+                format = ['MM-YYYY']
                 break;
             default:
-                format = ["hh:mm:ss"]
+                format = ['DD-MM-YYYY'];
                 break;
         }
         return format;

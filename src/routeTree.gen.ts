@@ -24,6 +24,8 @@ import { Route as StaffCreateImport } from './routes/staff/create'
 import { Route as StaffIdImport } from './routes/staff/$id'
 import { Route as SiswaCreateImport } from './routes/siswa/create'
 import { Route as SiswaIdImport } from './routes/siswa/$id'
+import { Route as PenggajianProfilGajiStaffImport } from './routes/penggajian/profil-gaji-staff'
+import { Route as PenggajianProfilGajiGuruImport } from './routes/penggajian/profil-gaji-guru'
 import { Route as PelanggaranPoinPelanggaranImport } from './routes/pelanggaran/poin-pelanggaran'
 import { Route as PelanggaranPelanggaranSiswaImport } from './routes/pelanggaran/pelanggaran-siswa'
 import { Route as PelanggaranJenisPelanggaranImport } from './routes/pelanggaran/jenis-pelanggaran'
@@ -116,6 +118,16 @@ const SiswaCreateRoute = SiswaCreateImport.update({
 
 const SiswaIdRoute = SiswaIdImport.update({
   path: '/siswa/$id',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PenggajianProfilGajiStaffRoute = PenggajianProfilGajiStaffImport.update({
+  path: '/penggajian/profil-gaji-staff',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PenggajianProfilGajiGuruRoute = PenggajianProfilGajiGuruImport.update({
+  path: '/penggajian/profil-gaji-guru',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -340,6 +352,14 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PelanggaranPoinPelanggaranImport
       parentRoute: typeof rootRoute
     }
+    '/penggajian/profil-gaji-guru': {
+      preLoaderRoute: typeof PenggajianProfilGajiGuruImport
+      parentRoute: typeof rootRoute
+    }
+    '/penggajian/profil-gaji-staff': {
+      preLoaderRoute: typeof PenggajianProfilGajiStaffImport
+      parentRoute: typeof rootRoute
+    }
     '/siswa/$id': {
       preLoaderRoute: typeof SiswaIdImport
       parentRoute: typeof rootRoute
@@ -455,6 +475,8 @@ export const routeTree = rootRoute.addChildren([
   PelanggaranJenisPelanggaranRoute,
   PelanggaranPelanggaranSiswaRoute,
   PelanggaranPoinPelanggaranRoute,
+  PenggajianProfilGajiGuruRoute,
+  PenggajianProfilGajiStaffRoute,
   SiswaIdRoute,
   SiswaCreateRoute,
   StaffIdRoute,
