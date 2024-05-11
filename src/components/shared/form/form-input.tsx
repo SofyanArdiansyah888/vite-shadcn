@@ -30,7 +30,13 @@ export default function FormInput({
     return <Form.Item name={name} label={label} rules={rules} className={"!capitalize"}>
         {
             type === "number" ?
-                <InputNumber className={"w-full"} onChange={onChange} placeholder={placeholder} value={value}/> :
+                <InputNumber
+                    formatter={(value) => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+                    parser={(value) => value?.replace(/\./g,"").replace(".", "") as unknown as string}
+                    className={"w-full"}
+                    onChange={onChange}
+                    placeholder={placeholder}
+                    value={value}/> :
                 <Input onChange={onChange} placeholder={placeholder} value={value} type={type}/>
         }
     </Form.Item>

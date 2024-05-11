@@ -30,6 +30,9 @@ import { Route as PelanggaranPoinPelanggaranImport } from './routes/pelanggaran/
 import { Route as PelanggaranPelanggaranSiswaImport } from './routes/pelanggaran/pelanggaran-siswa'
 import { Route as PelanggaranJenisPelanggaranImport } from './routes/pelanggaran/jenis-pelanggaran'
 import { Route as MasterSchoolImport } from './routes/master/school'
+import { Route as KeuanganPengeluaranImport } from './routes/keuangan/pengeluaran'
+import { Route as KeuanganPembayaranImport } from './routes/keuangan/pembayaran'
+import { Route as KeuanganPemasukanImport } from './routes/keuangan/pemasukan'
 import { Route as CbtCreateSoalImport } from './routes/cbt/create-soal'
 import { Route as AuthRegisterImport } from './routes/auth/register'
 import { Route as AuthLoginImport } from './routes/auth/login'
@@ -46,6 +49,12 @@ import { Route as PenggajianReferensiTunjanganImport } from './routes/penggajian
 import { Route as PenggajianReferensiPotonganImport } from './routes/penggajian/referensi/potongan'
 import { Route as PenggajianReferensiHonorStaffImport } from './routes/penggajian/referensi/honor-staff'
 import { Route as PenggajianReferensiHonorGuruImport } from './routes/penggajian/referensi/honor-guru'
+import { Route as KeuanganSppTagihanKelasImport } from './routes/keuangan/spp/tagihan-kelas'
+import { Route as KeuanganSppTagihanImport } from './routes/keuangan/spp/tagihan'
+import { Route as KeuanganSppDataSppImport } from './routes/keuangan/spp/data-spp'
+import { Route as KeuanganReferensiSaldoKasImport } from './routes/keuangan/referensi/saldo-kas'
+import { Route as KeuanganReferensiKategoriPengeluaranImport } from './routes/keuangan/referensi/kategori-pengeluaran'
+import { Route as KeuanganReferensiKategoriPendapatanImport } from './routes/keuangan/referensi/kategori-pendapatan'
 import { Route as AkademikReferensiTahunAjaranImport } from './routes/akademik/referensi/tahun-ajaran'
 import { Route as AkademikReferensiMataPelajaranImport } from './routes/akademik/referensi/mata-pelajaran'
 import { Route as AkademikReferensiKelasImport } from './routes/akademik/referensi/kelas'
@@ -155,6 +164,21 @@ const MasterSchoolRoute = MasterSchoolImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const KeuanganPengeluaranRoute = KeuanganPengeluaranImport.update({
+  path: '/keuangan/pengeluaran',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const KeuanganPembayaranRoute = KeuanganPembayaranImport.update({
+  path: '/keuangan/pembayaran',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const KeuanganPemasukanRoute = KeuanganPemasukanImport.update({
+  path: '/keuangan/pemasukan',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const CbtCreateSoalRoute = CbtCreateSoalImport.update({
   path: '/cbt/create-soal',
   getParentRoute: () => rootRoute,
@@ -238,6 +262,38 @@ const PenggajianReferensiHonorStaffRoute =
 const PenggajianReferensiHonorGuruRoute =
   PenggajianReferensiHonorGuruImport.update({
     path: '/penggajian/referensi/honor-guru',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const KeuanganSppTagihanKelasRoute = KeuanganSppTagihanKelasImport.update({
+  path: '/keuangan/spp/tagihan-kelas',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const KeuanganSppTagihanRoute = KeuanganSppTagihanImport.update({
+  path: '/keuangan/spp/tagihan',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const KeuanganSppDataSppRoute = KeuanganSppDataSppImport.update({
+  path: '/keuangan/spp/data-spp',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const KeuanganReferensiSaldoKasRoute = KeuanganReferensiSaldoKasImport.update({
+  path: '/keuangan/referensi/saldo-kas',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const KeuanganReferensiKategoriPengeluaranRoute =
+  KeuanganReferensiKategoriPengeluaranImport.update({
+    path: '/keuangan/referensi/kategori-pengeluaran',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const KeuanganReferensiKategoriPendapatanRoute =
+  KeuanganReferensiKategoriPendapatanImport.update({
+    path: '/keuangan/referensi/kategori-pendapatan',
     getParentRoute: () => rootRoute,
   } as any)
 
@@ -336,6 +392,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CbtCreateSoalImport
       parentRoute: typeof rootRoute
     }
+    '/keuangan/pemasukan': {
+      preLoaderRoute: typeof KeuanganPemasukanImport
+      parentRoute: typeof rootRoute
+    }
+    '/keuangan/pembayaran': {
+      preLoaderRoute: typeof KeuanganPembayaranImport
+      parentRoute: typeof rootRoute
+    }
+    '/keuangan/pengeluaran': {
+      preLoaderRoute: typeof KeuanganPengeluaranImport
+      parentRoute: typeof rootRoute
+    }
     '/master/school': {
       preLoaderRoute: typeof MasterSchoolImport
       parentRoute: typeof rootRoute
@@ -420,6 +488,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AkademikReferensiTahunAjaranImport
       parentRoute: typeof rootRoute
     }
+    '/keuangan/referensi/kategori-pendapatan': {
+      preLoaderRoute: typeof KeuanganReferensiKategoriPendapatanImport
+      parentRoute: typeof rootRoute
+    }
+    '/keuangan/referensi/kategori-pengeluaran': {
+      preLoaderRoute: typeof KeuanganReferensiKategoriPengeluaranImport
+      parentRoute: typeof rootRoute
+    }
+    '/keuangan/referensi/saldo-kas': {
+      preLoaderRoute: typeof KeuanganReferensiSaldoKasImport
+      parentRoute: typeof rootRoute
+    }
+    '/keuangan/spp/data-spp': {
+      preLoaderRoute: typeof KeuanganSppDataSppImport
+      parentRoute: typeof rootRoute
+    }
+    '/keuangan/spp/tagihan': {
+      preLoaderRoute: typeof KeuanganSppTagihanImport
+      parentRoute: typeof rootRoute
+    }
+    '/keuangan/spp/tagihan-kelas': {
+      preLoaderRoute: typeof KeuanganSppTagihanKelasImport
+      parentRoute: typeof rootRoute
+    }
     '/penggajian/referensi/honor-guru': {
       preLoaderRoute: typeof PenggajianReferensiHonorGuruImport
       parentRoute: typeof rootRoute
@@ -471,6 +563,9 @@ export const routeTree = rootRoute.addChildren([
   AuthLoginRoute,
   AuthRegisterRoute,
   CbtCreateSoalRoute,
+  KeuanganPemasukanRoute,
+  KeuanganPembayaranRoute,
+  KeuanganPengeluaranRoute,
   MasterSchoolRoute,
   PelanggaranJenisPelanggaranRoute,
   PelanggaranPelanggaranSiswaRoute,
@@ -492,6 +587,12 @@ export const routeTree = rootRoute.addChildren([
   AkademikReferensiKelasRoute,
   AkademikReferensiMataPelajaranRoute,
   AkademikReferensiTahunAjaranRoute,
+  KeuanganReferensiKategoriPendapatanRoute,
+  KeuanganReferensiKategoriPengeluaranRoute,
+  KeuanganReferensiSaldoKasRoute,
+  KeuanganSppDataSppRoute,
+  KeuanganSppTagihanRoute,
+  KeuanganSppTagihanKelasRoute,
   PenggajianReferensiHonorGuruRoute,
   PenggajianReferensiHonorStaffRoute,
   PenggajianReferensiPotonganRoute,

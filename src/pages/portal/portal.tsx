@@ -69,7 +69,7 @@ export default function PortalPage() {
                     subtitle={"Kelola keuangan sekolah dengan mudah"}
                     imageUrl={moneyUrl}
                     color={"orange"}
-                    link={"/"}
+                    link={"/keuangan/referensi/saldo-kas"}
                 />
 
                 <PortalCard
