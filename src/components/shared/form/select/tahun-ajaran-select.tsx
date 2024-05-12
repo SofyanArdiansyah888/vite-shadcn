@@ -7,11 +7,11 @@ export default function TahunAjaranSelect({name = "tahun_ajaran", label = "Tahun
         label={label}
         options={[
             {
-                value: "",
+                value: "2022/2023",
                 label: "2022/2023"
             },
             {
-                value: "",
+                value: "2023/2024",
                 label: "2023/2024"
             }
         ]}

@@ -14,6 +14,9 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as InformasiImport } from './routes/informasi'
 import { Route as AgendaImport } from './routes/agenda'
 import { Route as IndexImport } from './routes/index'
+import { Route as authLoginImport } from './routes/(auth)/login'
+import { Route as authRegisterImport } from './routes/(auth)/register'
+import { Route as authForgetPasswordImport } from './routes/(auth)/forget-password'
 import { Route as StaffIndexImport } from './routes/staff/index'
 import { Route as SiswaIndexImport } from './routes/siswa/index'
 import { Route as PenggajianIndexImport } from './routes/penggajian/index'
@@ -30,13 +33,11 @@ import { Route as PelanggaranPoinPelanggaranImport } from './routes/pelanggaran/
 import { Route as PelanggaranPelanggaranSiswaImport } from './routes/pelanggaran/pelanggaran-siswa'
 import { Route as PelanggaranJenisPelanggaranImport } from './routes/pelanggaran/jenis-pelanggaran'
 import { Route as MasterSchoolImport } from './routes/master/school'
+import { Route as KeuanganRekapitulasiImport } from './routes/keuangan/rekapitulasi'
 import { Route as KeuanganPengeluaranImport } from './routes/keuangan/pengeluaran'
 import { Route as KeuanganPembayaranImport } from './routes/keuangan/pembayaran'
 import { Route as KeuanganPemasukanImport } from './routes/keuangan/pemasukan'
 import { Route as CbtCreateSoalImport } from './routes/cbt/create-soal'
-import { Route as AuthRegisterImport } from './routes/auth/register'
-import { Route as AuthLoginImport } from './routes/auth/login'
-import { Route as AuthForgetPasswordImport } from './routes/auth/forget-password'
 import { Route as AkademikJadwalPengajarImport } from './routes/akademik/jadwal-pengajar'
 import { Route as AkademikAnggotaKelasImport } from './routes/akademik/anggota-kelas'
 import { Route as AbsensiRecapImport } from './routes/absensi/recap'
@@ -49,7 +50,6 @@ import { Route as PenggajianReferensiTunjanganImport } from './routes/penggajian
 import { Route as PenggajianReferensiPotonganImport } from './routes/penggajian/referensi/potongan'
 import { Route as PenggajianReferensiHonorStaffImport } from './routes/penggajian/referensi/honor-staff'
 import { Route as PenggajianReferensiHonorGuruImport } from './routes/penggajian/referensi/honor-guru'
-import { Route as KeuanganSppTagihanKelasImport } from './routes/keuangan/spp/tagihan-kelas'
 import { Route as KeuanganSppTagihanImport } from './routes/keuangan/spp/tagihan'
 import { Route as KeuanganSppDataSppImport } from './routes/keuangan/spp/data-spp'
 import { Route as KeuanganReferensiSaldoKasImport } from './routes/keuangan/referensi/saldo-kas'
@@ -77,6 +77,21 @@ const AgendaRoute = AgendaImport.update({
 
 const IndexRoute = IndexImport.update({
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const authLoginRoute = authLoginImport.update({
+  path: '/login',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const authRegisterRoute = authRegisterImport.update({
+  path: '/register',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const authForgetPasswordRoute = authForgetPasswordImport.update({
+  path: '/forget-password',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -164,6 +179,11 @@ const MasterSchoolRoute = MasterSchoolImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const KeuanganRekapitulasiRoute = KeuanganRekapitulasiImport.update({
+  path: '/keuangan/rekapitulasi',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const KeuanganPengeluaranRoute = KeuanganPengeluaranImport.update({
   path: '/keuangan/pengeluaran',
   getParentRoute: () => rootRoute,
@@ -181,21 +201,6 @@ const KeuanganPemasukanRoute = KeuanganPemasukanImport.update({
 
 const CbtCreateSoalRoute = CbtCreateSoalImport.update({
   path: '/cbt/create-soal',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AuthRegisterRoute = AuthRegisterImport.update({
-  path: '/auth/register',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AuthLoginRoute = AuthLoginImport.update({
-  path: '/auth/login',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AuthForgetPasswordRoute = AuthForgetPasswordImport.update({
-  path: '/auth/forget-password',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -264,11 +269,6 @@ const PenggajianReferensiHonorGuruRoute =
     path: '/penggajian/referensi/honor-guru',
     getParentRoute: () => rootRoute,
   } as any)
-
-const KeuanganSppTagihanKelasRoute = KeuanganSppTagihanKelasImport.update({
-  path: '/keuangan/spp/tagihan-kelas',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const KeuanganSppTagihanRoute = KeuanganSppTagihanImport.update({
   path: '/keuangan/spp/tagihan',
@@ -376,18 +376,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AkademikJadwalPengajarImport
       parentRoute: typeof rootRoute
     }
-    '/auth/forget-password': {
-      preLoaderRoute: typeof AuthForgetPasswordImport
-      parentRoute: typeof rootRoute
-    }
-    '/auth/login': {
-      preLoaderRoute: typeof AuthLoginImport
-      parentRoute: typeof rootRoute
-    }
-    '/auth/register': {
-      preLoaderRoute: typeof AuthRegisterImport
-      parentRoute: typeof rootRoute
-    }
     '/cbt/create-soal': {
       preLoaderRoute: typeof CbtCreateSoalImport
       parentRoute: typeof rootRoute
@@ -402,6 +390,10 @@ declare module '@tanstack/react-router' {
     }
     '/keuangan/pengeluaran': {
       preLoaderRoute: typeof KeuanganPengeluaranImport
+      parentRoute: typeof rootRoute
+    }
+    '/keuangan/rekapitulasi': {
+      preLoaderRoute: typeof KeuanganRekapitulasiImport
       parentRoute: typeof rootRoute
     }
     '/master/school': {
@@ -508,10 +500,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KeuanganSppTagihanImport
       parentRoute: typeof rootRoute
     }
-    '/keuangan/spp/tagihan-kelas': {
-      preLoaderRoute: typeof KeuanganSppTagihanKelasImport
-      parentRoute: typeof rootRoute
-    }
     '/penggajian/referensi/honor-guru': {
       preLoaderRoute: typeof PenggajianReferensiHonorGuruImport
       parentRoute: typeof rootRoute
@@ -544,6 +532,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AkademikJadwalPelajaranKelasIdImport
       parentRoute: typeof rootRoute
     }
+    '/(auth)/forget-password': {
+      preLoaderRoute: typeof authForgetPasswordImport
+      parentRoute: typeof rootRoute
+    }
+    '/(auth)/register': {
+      preLoaderRoute: typeof authRegisterImport
+      parentRoute: typeof rootRoute
+    }
+    '/(auth)/login': {
+      preLoaderRoute: typeof authLoginImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -559,13 +559,11 @@ export const routeTree = rootRoute.addChildren([
   AbsensiRecapRoute,
   AkademikAnggotaKelasRoute,
   AkademikJadwalPengajarRoute,
-  AuthForgetPasswordRoute,
-  AuthLoginRoute,
-  AuthRegisterRoute,
   CbtCreateSoalRoute,
   KeuanganPemasukanRoute,
   KeuanganPembayaranRoute,
   KeuanganPengeluaranRoute,
+  KeuanganRekapitulasiRoute,
   MasterSchoolRoute,
   PelanggaranJenisPelanggaranRoute,
   PelanggaranPelanggaranSiswaRoute,
@@ -592,7 +590,6 @@ export const routeTree = rootRoute.addChildren([
   KeuanganReferensiSaldoKasRoute,
   KeuanganSppDataSppRoute,
   KeuanganSppTagihanRoute,
-  KeuanganSppTagihanKelasRoute,
   PenggajianReferensiHonorGuruRoute,
   PenggajianReferensiHonorStaffRoute,
   PenggajianReferensiPotonganRoute,
@@ -601,6 +598,9 @@ export const routeTree = rootRoute.addChildren([
   AkademikJadwalPelajaranIndexRoute,
   AkademikAbsensiPertemuanDetailIdRoute,
   AkademikJadwalPelajaranKelasIdRoute,
+  authForgetPasswordRoute,
+  authRegisterRoute,
+  authLoginRoute,
 ])
 
 /* prettier-ignore-end */

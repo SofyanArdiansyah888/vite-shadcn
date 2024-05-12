@@ -6,4 +6,5 @@ export interface ISelect {
     options?: { label: string, value: string }[]
     rules?: RuleObject[] | RuleRender[],
     mode?: "multiple" | "tags" | undefined,
+    disabled?: boolean
 }

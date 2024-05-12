@@ -17,7 +17,8 @@ interface IFormSelect {
     onChange?: ((value: Pick<IFormSelectValue, "value" | "label">, option: (IFormSelectValue | IFormSelectValue[])) => void) | undefined,
     mode?: "multiple" | "tags" | undefined,
     placeholder?: string,
-    rules?: RuleObject[] | RuleRender[]
+    rules?: RuleObject[] | RuleRender[],
+    disabled?: boolean
 }
 
 export default function FormSelect({
@@ -29,7 +30,8 @@ export default function FormSelect({
                                        mode,
                                        placeholder,
                                        rules,
-                                       value
+                                       value,
+                                       disabled
                                    }: IFormSelect) {
     return <Form.Item name={name} label={label} rules={rules} className={"!capitalize"}>
         <Select
@@ -44,6 +46,7 @@ export default function FormSelect({
             allowClear={true}
             placeholder={placeholder}
             labelInValue={true}
+            disabled={disabled}
         />
     </Form.Item>
 

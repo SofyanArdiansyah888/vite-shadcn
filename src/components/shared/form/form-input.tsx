@@ -15,6 +15,7 @@ interface IFormSelect {
     value?: string,
     onChange?: any,
     placeholder?: string,
+    disabled?: boolean,
     rules?: RuleObject[] | RuleRender[]
 }
 
@@ -25,19 +26,22 @@ export default function FormInput({
                                       placeholder,
                                       rules,
                                       value,
-                                      type = "text"
+                                      type = "text",
+                                      disabled = false
                                   }: IFormSelect) {
     return <Form.Item name={name} label={label} rules={rules} className={"!capitalize"}>
         {
             type === "number" ?
                 <InputNumber
                     formatter={(value) => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
-                    parser={(value) => value?.replace(/\./g,"").replace(".", "") as unknown as string}
+                    parser={(value) => value?.replace(/\./g, "").replace(".", "") as unknown as string}
                     className={"w-full"}
                     onChange={onChange}
                     placeholder={placeholder}
-                    value={value}/> :
-                <Input onChange={onChange} placeholder={placeholder} value={value} type={type}/>
+                    value={value}
+                    disabled={disabled}
+                /> :
+                <Input onChange={onChange} placeholder={placeholder} value={value} type={type} disabled={disabled}/>
         }
     </Form.Item>
 

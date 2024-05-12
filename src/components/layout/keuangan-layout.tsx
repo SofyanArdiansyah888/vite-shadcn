@@ -65,15 +65,6 @@ export default function KeuanganLayout({children}: { children: React.ReactNode }
                         <CoinsIcon className={"w-4 h-4"} strokeWidth={1}/>
                     </ButtonSubNavigation>
                 },
-                {
-                    link: "/keuangan/spp/tagihan-kelas",
-                    button: <ButtonSubNavigation
-                        title={"Tagihan Kelas"}
-                        link={"/keuangan/spp/tagihan-kelas"}
-                        router={router}>
-                        <BookUp className={"w-4 h-4"} strokeWidth={1}/>
-                    </ButtonSubNavigation>
-                }
             ]
         },
         {
@@ -95,6 +86,13 @@ export default function KeuanganLayout({children}: { children: React.ReactNode }
             button: <div className={`gap-2 flex items-center ${activeCheck("/keuangan/pengeluaran", router)}`}>
                 <ContactRoundIcon className={"w-4 h-4"} strokeWidth={1}/>
                 Pengeluaran
+            </div>,
+        },
+        {
+            link: "/keuangan/rekapitulasi",
+            button: <div className={`gap-2 flex items-center ${activeCheck("/keuangan/rekapitulasi", router)}`}>
+                <ContactRoundIcon className={"w-4 h-4"} strokeWidth={1}/>
+                Rekapitulasi
             </div>,
         },
         {

@@ -9,7 +9,8 @@ interface IFormSelect {
     onChange?: ((date: string, dateString: (string | string[])) => void) | undefined,
     type?: "date" | "time" | "week" | "month" | "quarter" | "year",
     showTime?: boolean,
-    rules?: RuleObject[] | RuleRender[]
+    rules?: RuleObject[] | RuleRender[],
+    disabled?: boolean
 }
 
 export default function FormDate({
@@ -20,6 +21,7 @@ export default function FormDate({
                                      type = "date",
                                      value,
                                      showTime = false,
+                                     disabled = false
                                  }: IFormSelect) {
     function getFormat() {
         let format: string[];
@@ -45,6 +47,7 @@ export default function FormDate({
             value={value}
             format={getFormat()}
             placeholder={""}
+            disabled={disabled}
             className={"!w-full"}/>
     </Form.Item>
 }
