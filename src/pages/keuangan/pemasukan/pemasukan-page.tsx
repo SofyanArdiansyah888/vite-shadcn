@@ -1,22 +1,21 @@
 import React, {useEffect, useState} from 'react';
-import {AddButton} from "@/components/ui/button.tsx";
 import CustomHeader from "@/components/shared/custom-header.tsx";
-import AkademikLayout from "@/components/layout/akademik-layout.tsx";
 import useGroupModal from "@/hooks/useGroupModal.tsx";
 import useParams from "@/hooks/useParams.tsx";
-
-
 import DetailModal from "@/components/shared/modal/detail-modal.tsx";
 import GroupBadgeFilter from "@/components/shared/group-badge-filter.tsx";
 import MataPelajaranEntity from "@/pages/akademik/referensi/mata-pelajaran/data/mata-pelajaran.entity.ts";
-import MataPelajaranFilter from "@/pages/akademik/referensi/mata-pelajaran/components/mata-pelajaran-filter.tsx";
-import MataPelajaranTable from "@/pages/akademik/referensi/mata-pelajaran/components/mata-pelajaran-table.tsx";
-import MataPelajaranModal from "@/pages/akademik/referensi/mata-pelajaran/components/mata-pelajaran-modal.tsx";
-import useMataPelajaranStore from "@/pages/akademik/referensi/mata-pelajaran/data/useMataPelajaranStore.ts";
+import KeuanganLayout from "@/components/layout/keuangan-layout.tsx";
+import {AddButton} from "@/components/ui/button.tsx";
+import PemasukanModal from "@/pages/keuangan/pemasukan/components/pemasukan-modal.tsx";
+import PemasukanTable from "@/pages/keuangan/pemasukan/components/pemasukan-table.tsx";
+import PemasukanFilter from "@/pages/keuangan/pemasukan/components/pemasukan-filter.tsx";
+import usePemasukanStore from "@/pages/keuangan/pemasukan/data/usePemasukanStore.ts";
+import {formatRupiah} from "@/lib/formatter.ts";
 
 
-const KategoriPembayaranPage: React.FC = () => {
-    const {filterPayload, resetFilterPayload, deleteFilterPayload} = useMataPelajaranStore()
+const PemasukanPage: React.FC = () => {
+    const {filterPayload, resetFilterPayload, deleteFilterPayload} = usePemasukanStore()
     const {groupModal, handleGroupModal} = useGroupModal({
         modal: false
     })
@@ -28,11 +27,11 @@ const KategoriPembayaranPage: React.FC = () => {
             resetFilterPayload()
         }
     }, [resetFilterPayload])
-    return (<AkademikLayout>
+    return (<KeuanganLayout>
             <section className={"px-12 py-4"}>
                 <CustomHeader
-                    title={"Mata Pelajaran"}
-                    additionalAction={<MataPelajaranFilter/>}
+                    title={"Pemasukan"}
+                    additionalAction={<PemasukanFilter/>}
                     handleSearch={(value) => handleParamsChange("search", value)}
                 />
                 <div className={"flex justify-between  py-2 gap-1"}>
@@ -44,28 +43,34 @@ const KategoriPembayaranPage: React.FC = () => {
                     </div>
                     <AddButton onClick={() => handleGroupModal('modal', true)}/>
                 </div>
-                <MataPelajaranTable
+                <div className={"flex w-full justify-end gap-2 items-end px-2 font-semibold text-xs space-y-1 my-1"}>
+                    <div className={"flex gap-2 text-green-700"}>
+                        <div>Total Pemasukan :</div>
+                        <div> {formatRupiah(20000, true)}</div>
+                    </div>
+                </div>
+                <PemasukanTable
                     setSelectedData={setSelectedData}
                     handleGroupModal={handleGroupModal}
                     params={params}
                     setDetail={setDetail}
                 />
             </section>
-            <MataPelajaranModal
+            <PemasukanModal
                 isOpen={groupModal.modal}
                 handleGroupModal={handleGroupModal}
                 selectedData={selectedData}
                 setSelectedData={setSelectedData}
             />
             <DetailModal
-                title={"Detail MataPelajaran"}
+                title={"Detail Data SPP"}
                 isOpen={groupModal.detailModal}
                 setIsOpen={(value) => handleGroupModal("detailModal", value as boolean)}
                 details={detail}
             />
-        </AkademikLayout>
+        </KeuanganLayout>
 
     );
 };
 
-export default KategoriPembayaranPage;
+export default PemasukanPage;

@@ -8,7 +8,7 @@ import useMataPelajaranStore, {
 } from "@/pages/akademik/referensi/mata-pelajaran/data/useMataPelajaranStore.ts";
 
 
-export default function KategoriPembayaranFilter() {
+export default function PembayaranNonSppFilter() {
     const [form] = Form.useForm();
     const {changeFilterPayload, filterPayload} = useMataPelajaranStore();
 

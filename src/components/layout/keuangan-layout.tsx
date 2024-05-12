@@ -69,10 +69,10 @@ export default function KeuanganLayout({children}: { children: React.ReactNode }
             ]
         },
         {
-            link: "/keuangan/pembayaran",
-            button: <div className={`gap-2 flex items-center ${activeCheck("/keuangan/pembayaran", router)}`}>
+            link: "/keuangan/pembayaran-non-spp",
+            button: <div className={`gap-2 flex items-center ${activeCheck("/keuangan/pembayaran-non-spp", router)}`}>
                 <ContactRoundIcon className={"w-4 h-4"} strokeWidth={1}/>
-                Pembayaran Siswa
+                Pembayaran Non SPP
             </div>,
         },
         {

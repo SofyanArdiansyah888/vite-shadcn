@@ -4,17 +4,17 @@ import FormInput from "@/components/shared/form/form-input.tsx";
 import {Dispatch, useEffect} from "react";
 import SekolahSelect from "@/components/shared/form/select/sekolah-select.tsx";
 import TahunAjaranSelect from "@/components/shared/form/select/tahun-ajaran-select.tsx";
-import KategoriPembayaranEntity from "@/pages/keuangan/kategori-pembayaran/data/kategori-pembayaran.entity.ts";
+import PembayaranNonSppEntity from "@/pages/keuangan/pembayaran-non-spp/data/pembayaran-non-spp.entity.ts";
 
 
 interface IKelasModal {
-    selectedData: KategoriPembayaranEntity | undefined,
-    setSelectedData: Dispatch<KategoriPembayaranEntity | undefined>,
+    selectedData: PembayaranNonSppEntity | undefined,
+    setSelectedData: Dispatch<PembayaranNonSppEntity | undefined>,
     isOpen: boolean,
     handleGroupModal: (key: string, value: boolean) => void
 }
 
-export default function KategoriPembayaranModal({
+export default function PembayaranNonSppModal({
                                                     isOpen,
                                                     handleGroupModal,
                                                     selectedData,
@@ -22,7 +22,7 @@ export default function KategoriPembayaranModal({
                                                 }: IKelasModal) {
     const [form] = Form.useForm();
 
-    function handleSubmit(value: KategoriPembayaranEntity) {
+    function handleSubmit(value: PembayaranNonSppEntity) {
         console.log(value)
         handleGroupModal("modal", false)
     }
@@ -39,7 +39,7 @@ export default function KategoriPembayaranModal({
     }, [form, selectedData, setSelectedData, isOpen])
 
 
-    return <FormModal<KategoriPembayaranEntity>
+    return <FormModal<PembayaranNonSppEntity>
         form={form}
         title={`${selectedData ? "Edit Mata Pelajaran" : "Tambah Mata Pelajaran"}`}
         isOpen={isOpen}

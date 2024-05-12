@@ -6,7 +6,7 @@ export interface IFilterPayload {
     sekolah?: Pick<IFormSelectValue, "value" | "label">;
     tahun_ajaran?: Pick<IFormSelectValue, "value" | "label">;
 }
-const useKategoriPembayaranStore = create<IFilterReducer<IFilterPayload>>((set) => ({
+const usePengeluaranStore = create<IFilterReducer<IFilterPayload>>((set) => ({
     ...filterReducer(set)
 }))
-export default useKategoriPembayaranStore
+export default usePengeluaranStore

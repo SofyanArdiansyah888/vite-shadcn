@@ -1,4 +1,4 @@
-export default interface KategoriPembayaranEntity {
+export default interface PemasukanEntity {
     id: string,
     tahun_ajaran: string,
     sekolah: string,

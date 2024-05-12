@@ -9,7 +9,7 @@ import {deleteAlert} from "@/components/shared/alert.tsx";
 import MataPelajaranEntity from "@/pages/akademik/referensi/mata-pelajaran/data/mata-pelajaran.entity.ts";
 
 
-export default function KategoriPembayaranTable({handleGroupModal, params, setSelectedData, setDetail}: {
+export default function PembayaranNonSppTable({handleGroupModal, params, setSelectedData, setDetail}: {
     params: IUseParams,
     handleGroupModal: (key: string, value: boolean) => void,
     setSelectedData: Dispatch<MataPelajaranEntity>

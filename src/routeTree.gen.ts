@@ -14,9 +14,6 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as InformasiImport } from './routes/informasi'
 import { Route as AgendaImport } from './routes/agenda'
 import { Route as IndexImport } from './routes/index'
-import { Route as authLoginImport } from './routes/(auth)/login'
-import { Route as authRegisterImport } from './routes/(auth)/register'
-import { Route as authForgetPasswordImport } from './routes/(auth)/forget-password'
 import { Route as StaffIndexImport } from './routes/staff/index'
 import { Route as SiswaIndexImport } from './routes/siswa/index'
 import { Route as PenggajianIndexImport } from './routes/penggajian/index'
@@ -35,7 +32,7 @@ import { Route as PelanggaranJenisPelanggaranImport } from './routes/pelanggaran
 import { Route as MasterSchoolImport } from './routes/master/school'
 import { Route as KeuanganRekapitulasiImport } from './routes/keuangan/rekapitulasi'
 import { Route as KeuanganPengeluaranImport } from './routes/keuangan/pengeluaran'
-import { Route as KeuanganPembayaranImport } from './routes/keuangan/pembayaran'
+import { Route as KeuanganPembayaranNonSppImport } from './routes/keuangan/pembayaran-non-spp'
 import { Route as KeuanganPemasukanImport } from './routes/keuangan/pemasukan'
 import { Route as CbtCreateSoalImport } from './routes/cbt/create-soal'
 import { Route as AkademikJadwalPengajarImport } from './routes/akademik/jadwal-pengajar'
@@ -44,6 +41,9 @@ import { Route as AbsensiRecapImport } from './routes/absensi/recap'
 import { Route as AbsensiPengaturanImport } from './routes/absensi/pengaturan'
 import { Route as AbsensiLiburImport } from './routes/absensi/libur'
 import { Route as AbsensiJadwalImport } from './routes/absensi/jadwal'
+import { Route as authRegisterImport } from './routes/(auth)/register'
+import { Route as authLoginImport } from './routes/(auth)/login'
+import { Route as authForgetPasswordImport } from './routes/(auth)/forget-password'
 import { Route as AkademikJadwalPelajaranIndexImport } from './routes/akademik/jadwal-pelajaran/index'
 import { Route as AkademikAbsensiPertemuanIndexImport } from './routes/akademik/absensi-pertemuan/index'
 import { Route as PenggajianReferensiTunjanganImport } from './routes/penggajian/referensi/tunjangan'
@@ -77,21 +77,6 @@ const AgendaRoute = AgendaImport.update({
 
 const IndexRoute = IndexImport.update({
   path: '/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const authLoginRoute = authLoginImport.update({
-  path: '/login',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const authRegisterRoute = authRegisterImport.update({
-  path: '/register',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const authForgetPasswordRoute = authForgetPasswordImport.update({
-  path: '/forget-password',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -189,8 +174,8 @@ const KeuanganPengeluaranRoute = KeuanganPengeluaranImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const KeuanganPembayaranRoute = KeuanganPembayaranImport.update({
-  path: '/keuangan/pembayaran',
+const KeuanganPembayaranNonSppRoute = KeuanganPembayaranNonSppImport.update({
+  path: '/keuangan/pembayaran-non-spp',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -231,6 +216,21 @@ const AbsensiLiburRoute = AbsensiLiburImport.update({
 
 const AbsensiJadwalRoute = AbsensiJadwalImport.update({
   path: '/absensi/jadwal',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const authRegisterRoute = authRegisterImport.update({
+  path: '/register',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const authLoginRoute = authLoginImport.update({
+  path: '/login',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const authForgetPasswordRoute = authForgetPasswordImport.update({
+  path: '/forget-password',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -352,6 +352,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InformasiImport
       parentRoute: typeof rootRoute
     }
+    '/(auth)/forget-password': {
+      preLoaderRoute: typeof authForgetPasswordImport
+      parentRoute: typeof rootRoute
+    }
+    '/(auth)/login': {
+      preLoaderRoute: typeof authLoginImport
+      parentRoute: typeof rootRoute
+    }
+    '/(auth)/register': {
+      preLoaderRoute: typeof authRegisterImport
+      parentRoute: typeof rootRoute
+    }
     '/absensi/jadwal': {
       preLoaderRoute: typeof AbsensiJadwalImport
       parentRoute: typeof rootRoute
@@ -384,8 +396,8 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KeuanganPemasukanImport
       parentRoute: typeof rootRoute
     }
-    '/keuangan/pembayaran': {
-      preLoaderRoute: typeof KeuanganPembayaranImport
+    '/keuangan/pembayaran-non-spp': {
+      preLoaderRoute: typeof KeuanganPembayaranNonSppImport
       parentRoute: typeof rootRoute
     }
     '/keuangan/pengeluaran': {
@@ -532,18 +544,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AkademikJadwalPelajaranKelasIdImport
       parentRoute: typeof rootRoute
     }
-    '/(auth)/forget-password': {
-      preLoaderRoute: typeof authForgetPasswordImport
-      parentRoute: typeof rootRoute
-    }
-    '/(auth)/register': {
-      preLoaderRoute: typeof authRegisterImport
-      parentRoute: typeof rootRoute
-    }
-    '/(auth)/login': {
-      preLoaderRoute: typeof authLoginImport
-      parentRoute: typeof rootRoute
-    }
   }
 }
 
@@ -553,6 +553,9 @@ export const routeTree = rootRoute.addChildren([
   IndexRoute,
   AgendaRoute,
   InformasiRoute,
+  authForgetPasswordRoute,
+  authLoginRoute,
+  authRegisterRoute,
   AbsensiJadwalRoute,
   AbsensiLiburRoute,
   AbsensiPengaturanRoute,
@@ -561,7 +564,7 @@ export const routeTree = rootRoute.addChildren([
   AkademikJadwalPengajarRoute,
   CbtCreateSoalRoute,
   KeuanganPemasukanRoute,
-  KeuanganPembayaranRoute,
+  KeuanganPembayaranNonSppRoute,
   KeuanganPengeluaranRoute,
   KeuanganRekapitulasiRoute,
   MasterSchoolRoute,
@@ -598,9 +601,6 @@ export const routeTree = rootRoute.addChildren([
   AkademikJadwalPelajaranIndexRoute,
   AkademikAbsensiPertemuanDetailIdRoute,
   AkademikJadwalPelajaranKelasIdRoute,
-  authForgetPasswordRoute,
-  authRegisterRoute,
-  authLoginRoute,
 ])
 
 /* prettier-ignore-end */
