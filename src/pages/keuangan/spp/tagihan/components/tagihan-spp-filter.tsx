@@ -1,20 +1,21 @@
-import FormSelect, {IFormSelectValue} from "@/components/shared/form/form-select.tsx";
 import {useEffect, useState} from "react";
 import FilterModal from "@/components/shared/modal/filter-modal.tsx";
 import {Form} from "antd";
 
-import useMataPelajaranStore, {
-    IFilterPayload
-} from "@/pages/akademik/referensi/mata-pelajaran/data/useMataPelajaranStore.ts";
+import {IFilterPayload} from "@/pages/akademik/referensi/mata-pelajaran/data/useMataPelajaranStore.ts";
+import SekolahSelect from "@/components/shared/form/select/sekolah-select.tsx";
+import TahunAjaranSelect from "@/components/shared/form/select/tahun-ajaran-select.tsx";
+import KelasSelect from "@/components/shared/form/select/kelas-select.tsx";
+import FormDate from "@/components/shared/form/form-date.tsx";
+import useTagihanSPPStore from "@/pages/keuangan/spp/tagihan/data/useTagihanSPPStore.ts";
 
 
 export default function TagihanSppFilter() {
     const [form] = Form.useForm();
-    const {changeFilterPayload, filterPayload} = useMataPelajaranStore();
-
+    const {changeFilterPayload, filterPayload} = useTagihanSPPStore();
     const [isOpen, setIsOpen] = useState(false)
 
-    function handleChange(name: string, value: Pick<IFormSelectValue, "value" | "label">) {
+    function handleChange(name: string, value: string) {
         form.setFieldValue(name, value)
     }
 
@@ -32,34 +33,14 @@ export default function TagihanSppFilter() {
 
     return <FilterModal<IFilterPayload>
         form={form}
-        title={"Filter Staff"}
+        title={"Filter"}
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         onSubmit={handleSubmit}
     >
-
-        <FormSelect
-            name={"sekolah"}
-            label={"Sekolah"}
-            defaultValue={filterPayload.sekolah}
-            onChange={(value) => handleChange("sekolah", value)}
-            options={[
-                {value: 'laki laki', label: 'Laki Laki'},
-                {value: 'perempuan', label: 'Perempuan'},
-            ]}
-        />
-
-        <FormSelect
-            name={"tahun_ajaran"}
-            label={"Tahun Ajaran"}
-            defaultValue={filterPayload.tahun_ajaran}
-            onChange={(value) => handleChange("jabatan", value)}
-            options={[
-                {value: 'guru', label: 'Guru'},
-                {value: 'kepala sekolah', label: 'Kepala Sekolah'},
-                {value: 'staff', label: 'Staff'},
-            ]}
-        />
-
+        <SekolahSelect/>
+        <TahunAjaranSelect/>
+        <KelasSelect/>
+        <FormDate name={"bulan"} label={"bulan"} type={"month"} onChange={(value) => handleChange("bulan", value)}/>
     </FilterModal>
 }

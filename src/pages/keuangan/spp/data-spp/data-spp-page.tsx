@@ -5,17 +5,17 @@ import useParams from "@/hooks/useParams.tsx";
 import DetailModal from "@/components/shared/modal/detail-modal.tsx";
 import GroupBadgeFilter from "@/components/shared/group-badge-filter.tsx";
 import MataPelajaranEntity from "@/pages/akademik/referensi/mata-pelajaran/data/mata-pelajaran.entity.ts";
-import useMataPelajaranStore from "@/pages/akademik/referensi/mata-pelajaran/data/useMataPelajaranStore.ts";
 import KeuanganLayout from "@/components/layout/keuangan-layout.tsx";
 import DataSppFilter from "@/pages/keuangan/spp/data-spp/components/data-spp-filter.tsx";
 import DataSppTable from "@/pages/keuangan/spp/data-spp/components/data-spp-table.tsx";
 import DataSppModal from "@/pages/keuangan/spp/data-spp/components/data-spp-modal.tsx";
 import {formatRupiah} from "@/lib/formatter.ts";
 import {Separator} from "@/components/ui/separator.tsx";
+import useDataSPPStore from "@/pages/keuangan/spp/data-spp/data/useDataSPPStore.ts";
 
 
 const DataSppPage: React.FC = () => {
-    const {filterPayload, resetFilterPayload, deleteFilterPayload} = useMataPelajaranStore()
+    const {filterPayload, resetFilterPayload, deleteFilterPayload} = useDataSPPStore()
     const {groupModal, handleGroupModal} = useGroupModal({
         modal: false
     })

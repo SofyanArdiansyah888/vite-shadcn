@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {AddButton} from "@/components/ui/button.tsx";
 import CustomHeader from "@/components/shared/custom-header.tsx";
-import AkademikLayout from "@/components/layout/akademik-layout.tsx";
 import useGroupModal from "@/hooks/useGroupModal.tsx";
 import useParams from "@/hooks/useParams.tsx";
 import DetailModal from "@/components/shared/modal/detail-modal.tsx";
@@ -11,7 +10,7 @@ import TagihanSppTable from "@/pages/keuangan/spp/tagihan/components/tagihan-spp
 import useTagihanSPPStore from "@/pages/keuangan/spp/tagihan/data/useTagihanSPPStore.ts";
 import TagihanSppEntity from "@/pages/keuangan/spp/tagihan/data/tagihan-spp.entity.ts";
 import TagihanSppFilter from "@/pages/keuangan/spp/tagihan/components/tagihan-spp-filter.tsx";
-
+import KeuanganLayout from "@/components/layout/keuangan-layout.tsx";
 
 
 const TagihanSppPage: React.FC = () => {
@@ -27,7 +26,7 @@ const TagihanSppPage: React.FC = () => {
             resetFilterPayload()
         }
     }, [resetFilterPayload])
-    return (<AkademikLayout>
+    return (<KeuanganLayout>
             <section className={"px-12 py-4"}>
                 <CustomHeader
                     title={"Tagihan SPP"}
@@ -62,7 +61,7 @@ const TagihanSppPage: React.FC = () => {
                 setIsOpen={(value) => handleGroupModal("detailModal", value as boolean)}
                 details={detail}
             />
-        </AkademikLayout>
+        </KeuanganLayout>
 
     );
 };

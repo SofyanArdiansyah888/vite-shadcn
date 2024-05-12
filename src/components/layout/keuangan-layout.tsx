@@ -15,6 +15,15 @@ export default function KeuanganLayout({children}: { children: React.ReactNode }
             </ButtonNavigation>,
             submenu: [
                 {
+                    link: "/keuangan/referensi/saldo-kas",
+                    button: <ButtonSubNavigation
+                        title={"Saldo Kas"}
+                        link={"/keuangan/referensi/saldo-kas"}
+                        router={router}>
+                        <BookUp className={"w-4 h-4"} strokeWidth={1}/>
+                    </ButtonSubNavigation>
+                },
+                {
                     link: "/keuangan/referensi/kategori-pendapatan",
                     button: <ButtonSubNavigation
                         title={"Kategori Pendapatan"}
@@ -31,15 +40,6 @@ export default function KeuanganLayout({children}: { children: React.ReactNode }
                         <CoinsIcon className={"w-4 h-4"} strokeWidth={1}/>
                     </ButtonSubNavigation>
                 },
-                {
-                    link: "/keuangan/referensi/saldo-kas",
-                    button: <ButtonSubNavigation
-                        title={"Saldo Kas"}
-                        link={"/keuangan/referensi/saldo-kas"}
-                        router={router}>
-                        <BookUp className={"w-4 h-4"} strokeWidth={1}/>
-                    </ButtonSubNavigation>
-                }
             ]
         },
         {
@@ -49,6 +49,14 @@ export default function KeuanganLayout({children}: { children: React.ReactNode }
             </ButtonNavigation>,
             submenu: [
                 {
+                    link: "/keuangan/spp/tagihan",
+                    button: <ButtonSubNavigation
+                        title={"Tagihan"}
+                        link={"/keuangan/spp/tagihan"} router={router}>
+                        <CoinsIcon className={"w-4 h-4"} strokeWidth={1}/>
+                    </ButtonSubNavigation>
+                },
+                {
                     link: "/keuangan/spp/data-spp",
                     button: <ButtonSubNavigation
                         title={"Data SPP"}
@@ -57,14 +65,7 @@ export default function KeuanganLayout({children}: { children: React.ReactNode }
                         <CoinsIcon className={"w-4 h-4"} strokeWidth={1}/>
                     </ButtonSubNavigation>
                 },
-                {
-                    link: "/keuangan/spp/tagihan",
-                    button: <ButtonSubNavigation
-                        title={"Tagihan"}
-                        link={"/keuangan/spp/tagihan"} router={router}>
-                        <CoinsIcon className={"w-4 h-4"} strokeWidth={1}/>
-                    </ButtonSubNavigation>
-                },
+
             ]
         },
         {

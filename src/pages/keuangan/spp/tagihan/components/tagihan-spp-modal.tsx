@@ -1,10 +1,12 @@
 import FormModal from "@/components/shared/modal/form-modal.tsx";
 import {Form} from "antd";
-import FormInput from "@/components/shared/form/form-input.tsx";
 import {Dispatch, useEffect} from "react";
 import SekolahSelect from "@/components/shared/form/select/sekolah-select.tsx";
 import TahunAjaranSelect from "@/components/shared/form/select/tahun-ajaran-select.tsx";
 import TagihanSppEntity from "@/pages/keuangan/spp/tagihan/data/tagihan-spp.entity.ts";
+import KelasSelect from "@/components/shared/form/select/kelas-select.tsx";
+import FormDate from "@/components/shared/form/form-date.tsx";
+import FormInput from "@/components/shared/form/form-input.tsx";
 
 
 interface IKelasModal {
@@ -36,18 +38,14 @@ export default function TagihanSppModal({isOpen, handleGroupModal, selectedData,
 
     return <FormModal<TagihanSppEntity>
         form={form}
-        title={`${selectedData ? "Edit Mata Pelajaran" : "Tambah Mata Pelajaran"}`}
+        title={`${selectedData ? "Edit Tagihan" : "Tambah Tagihan"}`}
         isOpen={isOpen}
         setIsOpen={(value) => handleGroupModal("modal", value as boolean)}
         onSubmit={handleSubmit}>
-
         <SekolahSelect/>
         <TahunAjaranSelect/>
-
-
-        <FormInput
-            name={"mata_pelajaran"}
-            label={"Nama Mata Pelajaran"}
-        />
+        <KelasSelect/>
+        <FormDate name={"bulan"} label={"bulan"} type={"month"}/>
+        <FormInput name={"nominal_spp"} label={"Nominal SPP"} type={"number"}/>
     </FormModal>
 }
