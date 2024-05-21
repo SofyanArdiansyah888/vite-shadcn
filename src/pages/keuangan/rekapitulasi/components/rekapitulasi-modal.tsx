@@ -16,7 +16,7 @@ interface IPengeluaranModal {
     handleGroupModal: (key: string, value: boolean) => void
 }
 
-export default function PengeluaranModal({isOpen, handleGroupModal, selectedData, setSelectedData}: IPengeluaranModal) {
+export default function RekapitulasiModal({isOpen, handleGroupModal, selectedData, setSelectedData}: IPengeluaranModal) {
     const [form] = Form.useForm();
 
     function handleSubmit(value: PengeluaranEntity) {
