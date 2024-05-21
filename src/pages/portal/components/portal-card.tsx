@@ -3,7 +3,7 @@ import {cva} from "class-variance-authority";
 import {cn} from "@/lib/utils.ts";
 import {Link} from "@tanstack/react-router";
 
-interface PortalPageProps {
+export interface PortalPageProps {
     title: string
     subtitle: string
     imageUrl: string
