@@ -1,4 +1,4 @@
-import {Table, TableColumnsType, TableProps} from "antd";
+import {Table, TableColumnsType} from "antd";
 import {formatRupiah} from "@/lib/formatter.ts";
 import {IUseParams} from "@/hooks/useParams.tsx";
 import RekapitulasiKeuanganEntity from "@/pages/keuangan/rekapitulasi/data/rekapitulasi-keuangan.entity.ts";

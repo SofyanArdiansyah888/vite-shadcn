@@ -1,14 +1,13 @@
 import {useEffect, useState} from "react";
 import {Form} from "antd";
 import FormDate from "@/components/shared/form/form-date.tsx";
-import {IFilterPayload} from "@/pages/keuangan/pengeluaran/data/usePengeluaranStore.ts";
-import FilterModal from "@/components/shared/modal/filter-modal.tsx";
-import useRekapitulasiStore from "@/pages/keuangan/rekapitulasi/data/useRekapitulasiStore.ts";
+import usePengeluaranStore, {IFilterPayload} from "@/pages/keuangan/pengeluaran/data/usePengeluaranStore.ts";
+import PrintModal from "@/components/shared/modal/print-modal.tsx";
 
 
-export default function RekapitulasiFilter() {
+export default function RekapitulasiPrint() {
     const [form] = Form.useForm();
-    const {changeFilterPayload, filterPayload} = useRekapitulasiStore();
+    const {changeFilterPayload, filterPayload} = usePengeluaranStore();
 
     const [isOpen, setIsOpen] = useState(false)
 
@@ -24,14 +23,14 @@ export default function RekapitulasiFilter() {
         })
     }, [filterPayload, form, isOpen]);
 
-    return <FilterModal<IFilterPayload>
+    return <PrintModal<IFilterPayload>
         form={form}
-        title={"Filter"}
+        title={"Print"}
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         onSubmit={handleSubmit}
     >
         <FormDate type={"date"} name={"dari"} label={"dari"}/>
         <FormDate type={"date"} name={"sampai"} label={"sampai"}/>
-    </FilterModal>
+    </PrintModal>
 }

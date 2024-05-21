@@ -3,7 +3,17 @@ import {Slot} from "@radix-ui/react-slot"
 import {cva, type VariantProps} from "class-variance-authority"
 
 import {cn} from "@/lib/utils"
-import {ArrowLeft, EyeIcon, FilterIcon, PencilIcon, PlusIcon, SaveIcon, TrashIcon} from "lucide-react";
+import {
+    ArrowLeft,
+    EyeIcon,
+    FilterIcon,
+    PencilIcon,
+    PlusIcon,
+    PrinterIcon,
+    SaveIcon,
+    SearchIcon,
+    TrashIcon
+} from "lucide-react";
 import {useRouter} from "@tanstack/react-router";
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip.tsx";
 
@@ -111,6 +121,29 @@ function FilterButton({onClick}: IButtonProps) {
     </Button>
 }
 
+function PrintButton({onClick}: IButtonProps) {
+    return <Button
+        size={"xs"}
+        variant={"blue"}
+        className={"flex gap-2 border-0"}
+        onClick={onClick}
+    >
+        <PrinterIcon className={"w-4 h-4 mt-1"} strokeWidth={1}/>
+        Print
+    </Button>
+}
+
+function ShowButton({onClick}: IButtonProps) {
+    return <Button
+        size={"xs"}
+        className={"flex gap-2 !bg-zinc-800 hover:!bg-zinc-500 border-0"}
+        onClick={onClick}
+    >
+        <SearchIcon className={"w-4 h-4 mt-1"} strokeWidth={1}/>
+        Tampilkan
+    </Button>
+}
+
 function ButtonIcon({onClick, icon, tooltip, variant, className}: IButtonProps) {
     return (
         <TooltipProvider>
@@ -164,5 +197,7 @@ export {
     ButtonIcon,
     EditButtonIcon,
     DeleteButtonIcon,
-    DetailButtonIcon
+    DetailButtonIcon,
+    PrintButton,
+    ShowButton
 }
