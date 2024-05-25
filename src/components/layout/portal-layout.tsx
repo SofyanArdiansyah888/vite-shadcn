@@ -23,7 +23,7 @@ export default function PortalLayout({children}: { children: React.ReactNode }) 
             </div>,
         },
         {
-            link: "/dashboard",
+            link: "/sekolah",
             button: <div className={"gap-2 flex items-center"}>
                 <SchoolIcon className={"w-4 h-4"} strokeWidth={1}/>
                 Data Sekolah
