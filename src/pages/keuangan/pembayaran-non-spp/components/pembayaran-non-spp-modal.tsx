@@ -2,9 +2,9 @@ import FormModal from "@/components/shared/modal/form-modal.tsx";
 import {Form} from "antd";
 import FormInput from "@/components/shared/form/form-input.tsx";
 import {Dispatch, useEffect} from "react";
-import SekolahSelect from "@/components/shared/form/select/sekolah-select.tsx";
 import TahunAjaranSelect from "@/components/shared/form/select/tahun-ajaran-select.tsx";
 import PembayaranNonSppEntity from "@/pages/keuangan/pembayaran-non-spp/data/pembayaran-non-spp.entity.ts";
+import KelasSelect from "@/components/shared/form/select/kelas-select.tsx";
 
 
 interface IKelasModal {
@@ -41,18 +41,22 @@ export default function PembayaranNonSppModal({
 
     return <FormModal<PembayaranNonSppEntity>
         form={form}
-        title={`${selectedData ? "Edit Mata Pelajaran" : "Tambah Mata Pelajaran"}`}
+        title={`${selectedData ? "Edit Pembayaran" : "Tambah Pembayaran"}`}
         isOpen={isOpen}
         setIsOpen={(value) => handleGroupModal("modal", value as boolean)}
         onSubmit={handleSubmit}>
 
-        <SekolahSelect/>
         <TahunAjaranSelect/>
-
-
         <FormInput
-            name={"mata_pelajaran"}
-            label={"Nama Mata Pelajaran"}
+            name={"nama_pembayaran"}
+            label={"Nama Pembayaran"}
+        />
+        <FormInput
+            name={"harga"}
+            label={"harga"}
+        />
+        <KelasSelect
+            mode={"multiple"}
         />
     </FormModal>
 }

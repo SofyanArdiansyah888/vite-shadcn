@@ -40,59 +40,44 @@ export default function PembayaranNonSppTable({handleGroupModal, params, setSele
     }
 
     function handleDetailClick(data: MataPelajaranEntity) {
-        const temp = [
-            {
-                key: "Nama Sekolah",
-                value: data.sekolah
-            },
-            {
-                key: "Tahun Ajaran",
-                value: data.tahun_ajaran
-            },
-            {
-                key: "Mata Pelajaran",
-                value: data.mata_pelajaran
-            },
-            {
-                key: "Created",
-                value: tanggalID(data.created_at)
-            },
-            {
-                key: "Updated",
-                value: tanggalID(data.updated_at)
-            }
-        ]
+        const temp = Object.entries(data)
+            .map((item) => {
+                let value = item[1]
+                if (["created_at", "updated_at"].includes(item[0])) {
+                    value = tanggalID(value)
+                }
+                return {
+                    key: item[0].replace("_", " "),
+                    value
+                }
+            })
         setDetail(temp)
         handleGroupModal("detailModal", true)
     }
 
     const columns: TableProps<MataPelajaranEntity>['columns'] = [
         {
-            title: 'Nama Sekolah',
-            dataIndex: 'sekolah',
-            // width: '25%',
-            sorter: true,
-        },
-        {
             title: 'Tahun Ajaran',
             dataIndex: 'tahun_ajaran',
-            width: '15%',
         },
         {
-            title: 'MataPelajaran',
-            dataIndex: 'mata_pelajaran',
+            title: 'Nama Pembayaran',
+            dataIndex: 'nama_pembayaran',
+        },
+        {
+            title: 'Harga',
+            dataIndex: 'harga',
+        },
+        {
+            title: 'Progress',
+            dataIndex: 'progress',
+            render: (_,item) => <div>{item.sekolah}</div>
         },
         {
             title: 'Created',
             dataIndex: 'created_at',
             width: '15%',
             render: (_, item) => <div>{tanggalID(item.created_at)}</div>
-        },
-        {
-            title: 'Updated',
-            dataIndex: 'updated_at',
-            width: '15%',
-            render: (_, item) => <div>{tanggalID(item.updated_at)}</div>
         },
         {
             title: 'Action',
