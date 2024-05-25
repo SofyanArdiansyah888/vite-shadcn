@@ -23,8 +23,8 @@ export default function PelanggaranLayout({children}: { children: React.ReactNod
             </div>,
         },
         {
-            link: "/pelanggaran/poin-pelanggaran",
-            button: <div className={`gap-2 flex items-center ${activeCheck("/pelanggaran/poin-pelanggaran", router)}`}>
+            link: "/pelanggaran/point-pelanggaran",
+            button: <div className={`gap-2 flex items-center ${activeCheck("/pelanggaran/point-pelanggaran", router)}`}>
                 <InfoIcon className={"w-4 h-4"} strokeWidth={1}/>
                 Poin Pelanggaran
             </div>,

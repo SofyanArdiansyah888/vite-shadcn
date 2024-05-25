@@ -1,4 +1,4 @@
-import PsbEntity from "@/pages/psb/data/psb.entity";
+import PsbEntity from "@/pages/psb/_data/psb.entity";
 import { faker } from "@faker-js/faker";
 
 function createRandomPsb() {
