@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-type IUseGroupModal = {
+export type IUseGroupModal = {
     [key: string]: boolean;
 };
 export default function useGroupModal(initialState: IUseGroupModal) {

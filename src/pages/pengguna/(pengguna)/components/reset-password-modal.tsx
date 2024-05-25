@@ -3,17 +3,18 @@ import {Form} from "antd";
 import FormInput from "@/components/shared/form/form-input.tsx";
 import {Dispatch, useEffect} from "react";
 import UserEntity from "@/pages/pengguna/(pengguna)/data/user.entity.ts";
+import {IUseGroupModal} from "@/hooks/useGroupModal.tsx";
 
 
 export interface IResetPasswordModal {
     selectedData: UserEntity | undefined,
     setSelectedData: Dispatch<UserEntity | undefined>,
-    isOpen: boolean,
+    groupModal: IUseGroupModal,
     handleGroupModal: (key: string, value: boolean) => void
 }
 
 export default function ResetPasswordModal({
-                                               isOpen,
+                                               groupModal,
                                                handleGroupModal,
                                                selectedData,
                                                setSelectedData
@@ -29,18 +30,18 @@ export default function ResetPasswordModal({
         if (selectedData) {
             form.setFieldsValue({...selectedData})
         }
-        if (!isOpen) {
+        if (!groupModal.resetPasswordModal && !groupModal.modal) {
             form.resetFields()
             setSelectedData(undefined)
         }
 
-    }, [form, selectedData, setSelectedData, isOpen])
+    }, [form, selectedData, setSelectedData, groupModal])
 
 
     return <FormModal<UserEntity>
         form={form}
         title={"Reset Password"}
-        isOpen={isOpen}
+        isOpen={groupModal.resetPasswordModal}
         setIsOpen={(value) => handleGroupModal("resetPasswordModal", value as boolean)}
         onSubmit={handleSubmit}>
 

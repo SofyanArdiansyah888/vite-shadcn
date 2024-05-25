@@ -52,9 +52,10 @@ const PenggunaPage: React.FC = () => {
                                isOpen={groupModal.modal}
                                handleGroupModal={handleGroupModal}
                 />
-                <ResetPasswordModal selectedData={selectedData}
+                <ResetPasswordModal
+                               selectedData={selectedData}
                                setSelectedData={setSelectedData}
-                               isOpen={groupModal.resetPasswordModal}
+                               groupModal={groupModal}
                                handleGroupModal={handleGroupModal}
                 />
             </section>
