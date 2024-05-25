@@ -1,7 +1,7 @@
 import {Form, GetProp, Image, Upload, UploadFile, UploadProps} from "antd";
 import {Separator} from "@/components/ui/separator.tsx";
 import FormInput from "@/components/shared/form/form-input.tsx";
-import {BackButton, SaveButton} from "@/components/ui/button.tsx";
+import {SaveButton} from "@/components/ui/button.tsx";
 import {useEffect, useState} from "react";
 import StaffEntity from "@/pages/staff/data/staff.entity.ts";
 import moment from "moment/moment";
@@ -38,7 +38,6 @@ export default function ProfilForm({title,staff}:IStaffForm) {
                 </h2>
             </div>
             <div className={"flex justify-end gap-2"}>
-                <BackButton/>
                 <SaveButton/>
             </div>
         </div>
