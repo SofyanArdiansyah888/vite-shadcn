@@ -16,6 +16,7 @@ interface IFormSelect {
     onChange?: any,
     placeholder?: string,
     disabled?: boolean,
+    help?: string,
     rules?: RuleObject[] | RuleRender[]
 }
 
@@ -27,9 +28,10 @@ export default function FormInput({
                                       rules,
                                       value,
                                       type = "text",
+                                      help,
                                       disabled = false
                                   }: IFormSelect) {
-    return <Form.Item name={name} label={label} rules={rules} className={"!capitalize"}>
+    return <Form.Item name={name} label={label} help={help} rules={rules} className={"!capitalize"}>
         {
             type === "number" ?
                 <InputNumber
@@ -41,7 +43,11 @@ export default function FormInput({
                     value={value}
                     disabled={disabled}
                 /> :
-                <Input onChange={onChange} placeholder={placeholder} value={value} type={type} disabled={disabled}/>
+                type === "password" ?
+                    <Input.Password onChange={onChange} placeholder={placeholder} value={value} type={type}
+                                    disabled={disabled}/> :
+
+                    <Input onChange={onChange} placeholder={placeholder} value={value} type={type} disabled={disabled}/>
         }
     </Form.Item>
 

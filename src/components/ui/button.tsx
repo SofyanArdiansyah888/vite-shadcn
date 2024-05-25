@@ -7,6 +7,7 @@ import {
     ArrowLeft,
     EyeIcon,
     FilterIcon,
+    LockOpenIcon,
     PencilIcon,
     PlusIcon,
     PrinterIcon,
@@ -186,6 +187,14 @@ function DeleteButtonIcon(props: IButtonProps) {
     />
 }
 
+function PasswordButtonIcon(props: IButtonProps) {
+    return <ButtonIcon {...props}
+                       icon={<LockOpenIcon className="h-4 w-4"/>}
+                       tooltip={"Reset Password"}
+                       variant={"blue"}
+    />
+}
+
 // eslint-disable-next-line react-refresh/only-export-components
 export {
     Button,
@@ -199,5 +208,6 @@ export {
     DeleteButtonIcon,
     DetailButtonIcon,
     PrintButton,
-    ShowButton
+    ShowButton,
+    PasswordButtonIcon
 }

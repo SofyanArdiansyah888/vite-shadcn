@@ -30,7 +30,7 @@ export default function PortalLayout({children}: { children: React.ReactNode }) 
             </div>,
         },
         {
-            link: "/dashboard",
+            link: "/pengguna",
             button: <div className={"gap-2 flex items-center"}>
                 <CircleUserIcon className={"w-4 h-4"} strokeWidth={1}/>
                 Manajemen Pengguna
