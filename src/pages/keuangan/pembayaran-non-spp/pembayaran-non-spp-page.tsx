@@ -9,10 +9,10 @@ import DetailModal from "@/components/shared/modal/detail-modal.tsx";
 import GroupBadgeFilter from "@/components/shared/group-badge-filter.tsx";
 import MataPelajaranEntity from "@/pages/akademik/referensi/mata-pelajaran/data/mata-pelajaran.entity.ts";
 import MataPelajaranFilter from "@/pages/akademik/referensi/mata-pelajaran/components/mata-pelajaran-filter.tsx";
-import MataPelajaranTable from "@/pages/akademik/referensi/mata-pelajaran/components/mata-pelajaran-table.tsx";
-import MataPelajaranModal from "@/pages/akademik/referensi/mata-pelajaran/components/mata-pelajaran-modal.tsx";
 import useMataPelajaranStore from "@/pages/akademik/referensi/mata-pelajaran/data/useMataPelajaranStore.ts";
 import KeuanganLayout from "@/components/layout/keuangan-layout.tsx";
+import PembayaranNonSppTable from "@/pages/keuangan/pembayaran-non-spp/components/pembayaran-non-spp-table.tsx";
+import PembayaranNonSppModal from "@/pages/keuangan/pembayaran-non-spp/components/pembayaran-non-spp-modal.tsx";
 
 
 const PembayaranNonSppPage: React.FC = () => {
@@ -44,21 +44,21 @@ const PembayaranNonSppPage: React.FC = () => {
                     </div>
                     <AddButton onClick={() => handleGroupModal('modal', true)}/>
                 </div>
-                <MataPelajaranTable
+                <PembayaranNonSppTable
                     setSelectedData={setSelectedData}
                     handleGroupModal={handleGroupModal}
                     params={params}
                     setDetail={setDetail}
                 />
             </section>
-            <MataPelajaranModal
+            <PembayaranNonSppModal
                 isOpen={groupModal.modal}
                 handleGroupModal={handleGroupModal}
                 selectedData={selectedData}
                 setSelectedData={setSelectedData}
             />
             <DetailModal
-                title={"Detail MataPelajaran"}
+                title={"Detail"}
                 isOpen={groupModal.detailModal}
                 setIsOpen={(value) => handleGroupModal("detailModal", value as boolean)}
                 details={detail}
