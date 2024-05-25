@@ -1,6 +1,5 @@
 import {PrimaryNav} from "@/components/navigation/primary-nav.tsx";
 import {UserNav} from "@/components/navigation/user-nav.tsx";
-import {BranchSwitcher} from "@/components/navigation/branch-switcher.tsx";
 
 export default function MainLayout({children}: { children: React.ReactNode }) {
     return <main>
@@ -9,7 +8,6 @@ export default function MainLayout({children}: { children: React.ReactNode }) {
                 <div className="flex h-12 items-center px-4">
                     <PrimaryNav className="mx-6"/>
                     <div className="ml-auto flex items-center space-x-4">
-                        <BranchSwitcher isCollapsed={false}/>
                         <UserNav/>
                     </div>
                 </div>

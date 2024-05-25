@@ -1,0 +1,75 @@
+import React, {useEffect, useState} from 'react';
+import {AddButton} from "@/components/ui/button.tsx";
+import CustomHeader from "@/components/shared/custom-header.tsx";
+import AkademikLayout from "@/components/layout/akademik-layout.tsx";
+import useGroupModal from "@/hooks/useGroupModal.tsx";
+import useParams from "@/hooks/useParams.tsx";
+
+
+import DetailModal from "@/components/shared/modal/detail-modal.tsx";
+import GroupBadgeFilter from "@/components/shared/group-badge-filter.tsx";
+import MataPelajaranEntity from "@/pages/akademik/referensi/mata-pelajaran/_data/mata-pelajaran.entity.ts";
+import MataPelajaranFilter from "@/pages/akademik/referensi/mata-pelajaran/_components/mata-pelajaran-filter.tsx";
+import MataPelajaranTable from "@/pages/akademik/referensi/mata-pelajaran/_components/mata-pelajaran-table.tsx";
+import MataPelajaranModal from "@/pages/akademik/referensi/mata-pelajaran/_components/mata-pelajaran-modal.tsx";
+import useMataPelajaranStore from "@/pages/akademik/referensi/mata-pelajaran/_data/useMataPelajaranStore.ts";
+import {createFileRoute} from "@tanstack/react-router";
+
+export const Route = createFileRoute('/akademik/referensi/mata-pelajaran/')({
+    component: () => <Index />
+})
+
+const Index: React.FC = () => {
+    const {filterPayload, resetFilterPayload, deleteFilterPayload} = useMataPelajaranStore()
+    const {groupModal, handleGroupModal} = useGroupModal({
+        modal: false
+    })
+    const {params, handleParamsChange} = useParams({})
+    const [selectedData, setSelectedData] = useState<MataPelajaranEntity | undefined>()
+    const [detail, setDetail] = useState<{ key: string, value: string }[]>([])
+    useEffect(() => {
+        return () => {
+            resetFilterPayload()
+        }
+    }, [])
+    return (<AkademikLayout>
+            <section className={"px-12 py-4"}>
+                <CustomHeader
+                    title={"Mata Pelajaran"}
+                    additionalAction={<MataPelajaranFilter/>}
+                    handleSearch={(value) => handleParamsChange("search", value)}
+                />
+                <div className={"flex justify-between  py-2 gap-1"}>
+                    <div className={"overscroll-x-auto "}>
+                        <GroupBadgeFilter filterPayload={filterPayload}
+                                          deleteFilterPayload={deleteFilterPayload}
+                                          resetFilterPayload={resetFilterPayload}
+                        />
+                    </div>
+                    <AddButton onClick={() => handleGroupModal('modal', true)}/>
+                </div>
+                <MataPelajaranTable
+                    setSelectedData={setSelectedData}
+                    handleGroupModal={handleGroupModal}
+                    params={params}
+                    setDetail={setDetail}
+                />
+            </section>
+            <MataPelajaranModal
+                isOpen={groupModal.modal}
+                handleGroupModal={handleGroupModal}
+                selectedData={selectedData}
+                setSelectedData={setSelectedData}
+            />
+            <DetailModal
+                title={"Detail MataPelajaran"}
+                isOpen={groupModal.detailModal}
+                setIsOpen={(value) => handleGroupModal("detailModal", value as boolean)}
+                details={detail}
+            />
+        </AkademikLayout>
+
+    );
+};
+
+export default Index;

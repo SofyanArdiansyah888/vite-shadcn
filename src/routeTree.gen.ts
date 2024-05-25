@@ -10,80 +10,62 @@
 
 // Import Routes
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as SekolahImport } from './routes/sekolah'
-import { Route as InformasiImport } from './routes/informasi'
-import { Route as AgendaImport } from './routes/agenda'
-import { Route as IndexImport } from './routes/index'
-import { Route as StaffIndexImport } from './routes/staff/index'
-import { Route as SiswaIndexImport } from './routes/siswa/index'
-import { Route as PsbIndexImport } from './routes/psb/index'
-import { Route as PenggunaIndexImport } from './routes/pengguna/index'
-import { Route as PenggajianIndexImport } from './routes/penggajian/index'
-import { Route as CbtIndexImport } from './routes/cbt/index'
-import { Route as AkademikIndexImport } from './routes/akademik/index'
-import { Route as AbsensiIndexImport } from './routes/absensi/index'
-import { Route as StaffCreateImport } from './routes/staff/create'
-import { Route as StaffIdImport } from './routes/staff/$id'
-import { Route as SiswaCreateImport } from './routes/siswa/create'
-import { Route as SiswaIdImport } from './routes/siswa/$id'
-import { Route as PsbIdImport } from './routes/psb/$id'
-import { Route as PenggunaProfilImport } from './routes/pengguna/profil'
-import { Route as PenggajianProfilGajiStaffImport } from './routes/penggajian/profil-gaji-staff'
-import { Route as PenggajianProfilGajiGuruImport } from './routes/penggajian/profil-gaji-guru'
-import { Route as PelanggaranPoinPelanggaranImport } from './routes/pelanggaran/poin-pelanggaran'
-import { Route as PelanggaranPelanggaranSiswaImport } from './routes/pelanggaran/pelanggaran-siswa'
-import { Route as PelanggaranJenisPelanggaranImport } from './routes/pelanggaran/jenis-pelanggaran'
-import { Route as MasterSchoolImport } from './routes/master/school'
-import { Route as KeuanganRekapitulasiImport } from './routes/keuangan/rekapitulasi'
-import { Route as KeuanganPengeluaranImport } from './routes/keuangan/pengeluaran'
-import { Route as KeuanganPembayaranNonSppImport } from './routes/keuangan/pembayaran-non-spp'
-import { Route as KeuanganPemasukanImport } from './routes/keuangan/pemasukan'
-import { Route as CbtCreateSoalImport } from './routes/cbt/create-soal'
-import { Route as AkademikJadwalPengajarImport } from './routes/akademik/jadwal-pengajar'
-import { Route as AkademikAnggotaKelasImport } from './routes/akademik/anggota-kelas'
-import { Route as AbsensiRecapImport } from './routes/absensi/recap'
-import { Route as AbsensiPengaturanImport } from './routes/absensi/pengaturan'
-import { Route as AbsensiLiburImport } from './routes/absensi/libur'
-import { Route as AbsensiJadwalImport } from './routes/absensi/jadwal'
-import { Route as authRegisterImport } from './routes/(auth)/register'
-import { Route as authLoginImport } from './routes/(auth)/login'
-import { Route as authForgetPasswordImport } from './routes/(auth)/forget-password'
-import { Route as AkademikJadwalPelajaranIndexImport } from './routes/akademik/jadwal-pelajaran/index'
-import { Route as AkademikAbsensiPertemuanIndexImport } from './routes/akademik/absensi-pertemuan/index'
-import { Route as PenggajianReferensiTunjanganImport } from './routes/penggajian/referensi/tunjangan'
-import { Route as PenggajianReferensiPotonganImport } from './routes/penggajian/referensi/potongan'
-import { Route as PenggajianReferensiHonorStaffImport } from './routes/penggajian/referensi/honor-staff'
-import { Route as PenggajianReferensiHonorGuruImport } from './routes/penggajian/referensi/honor-guru'
-import { Route as KeuanganSppTagihanImport } from './routes/keuangan/spp/tagihan'
-import { Route as KeuanganSppDataSppImport } from './routes/keuangan/spp/data-spp'
-import { Route as KeuanganReferensiSaldoKasImport } from './routes/keuangan/referensi/saldo-kas'
-import { Route as KeuanganReferensiKategoriPengeluaranImport } from './routes/keuangan/referensi/kategori-pengeluaran'
-import { Route as KeuanganReferensiKategoriPendapatanImport } from './routes/keuangan/referensi/kategori-pendapatan'
-import { Route as AkademikReferensiTahunAjaranImport } from './routes/akademik/referensi/tahun-ajaran'
-import { Route as AkademikReferensiMataPelajaranImport } from './routes/akademik/referensi/mata-pelajaran'
-import { Route as AkademikReferensiKelasImport } from './routes/akademik/referensi/kelas'
-import { Route as AbsensiIzinIzinStaffImport } from './routes/absensi/izin/izin-staff'
-import { Route as AbsensiIzinIzinSiswaImport } from './routes/absensi/izin/izin-siswa'
-import { Route as AkademikJadwalPelajaranKelasIdImport } from './routes/akademik/jadwal-pelajaran/kelas.$id'
-import { Route as AkademikAbsensiPertemuanDetailIdImport } from './routes/akademik/absensi-pertemuan/detail.$id'
+import { Route as rootRoute } from './pages/__root'
+import { Route as IndexImport } from './pages/index'
+import { Route as StaffIndexImport } from './pages/staff/index'
+import { Route as SiswaIndexImport } from './pages/siswa/index'
+import { Route as SekolahIndexImport } from './pages/sekolah/index'
+import { Route as PsbIndexImport } from './pages/psb/index'
+import { Route as PortalIndexImport } from './pages/portal/index'
+import { Route as InformasiIndexImport } from './pages/informasi/index'
+import { Route as DashboardIndexImport } from './pages/dashboard/index'
+import { Route as CbtIndexImport } from './pages/cbt/index'
+import { Route as AkademikIndexImport } from './pages/akademik/index'
+import { Route as AgendaIndexImport } from './pages/agenda/index'
+import { Route as StaffStaffEditImport } from './pages/staff/staff-edit'
+import { Route as StaffStaffCreateImport } from './pages/staff/staff-create'
+import { Route as SiswaSiswaDetailImport } from './pages/siswa/siswa-detail'
+import { Route as PsbPsbDetailImport } from './pages/psb/psb-detail'
+import { Route as CbtCbtSoalFormImport } from './pages/cbt/cbt-soal-form'
+import { Route as authLoginImport } from './pages/(auth)/login'
+import { Route as PenggunaProfilIndexImport } from './pages/pengguna/profil/index'
+import { Route as PenggunapenggunaIndexImport } from './pages/pengguna/(pengguna)/index'
+import { Route as PenggajianProfilGajiStaffIndexImport } from './pages/penggajian/profil-gaji-staff/index'
+import { Route as PenggajianProfilGajiGuruIndexImport } from './pages/penggajian/profil-gaji-guru/index'
+import { Route as PenggajianpenggajianIndexImport } from './pages/penggajian/(penggajian)/index'
+import { Route as PelanggaranPointPelanggaranIndexImport } from './pages/pelanggaran/point-pelanggaran/index'
+import { Route as PelanggaranPelanggaranSiswaIndexImport } from './pages/pelanggaran/pelanggaran-siswa/index'
+import { Route as PelanggaranJenisPelanggaranIndexImport } from './pages/pelanggaran/jenis-pelanggaran/index'
+import { Route as KeuanganRekapitulasiIndexImport } from './pages/keuangan/rekapitulasi/index'
+import { Route as KeuanganPengeluaranIndexImport } from './pages/keuangan/pengeluaran/index'
+import { Route as KeuanganPembayaranNonSppIndexImport } from './pages/keuangan/pembayaran-non-spp/index'
+import { Route as KeuanganPemasukanIndexImport } from './pages/keuangan/pemasukan/index'
+import { Route as AkademikJadwalPengajarIndexImport } from './pages/akademik/jadwal-pengajar/index'
+import { Route as AkademikJadwalPelajaranIndexImport } from './pages/akademik/jadwal-pelajaran/index'
+import { Route as AkademikAbsensiPertemuanIndexImport } from './pages/akademik/absensi-pertemuan/index'
+import { Route as AbsensiRecapIndexImport } from './pages/absensi/recap/index'
+import { Route as AbsensiPengaturanIndexImport } from './pages/absensi/pengaturan/index'
+import { Route as AbsensiLiburIndexImport } from './pages/absensi/libur/index'
+import { Route as AbsensiJadwalIndexImport } from './pages/absensi/jadwal/index'
+import { Route as AbsensiabsensiIndexImport } from './pages/absensi/(absensi)/index'
+import { Route as AkademikJadwalPelajaranJadwalPelajaranDetailImport } from './pages/akademik/jadwal-pelajaran/jadwal-pelajaran-detail'
+import { Route as AkademikAbsensiPertemuanAbsensiPertemuanDetailImport } from './pages/akademik/absensi-pertemuan/absensi-pertemuan-detail'
+import { Route as PenggajianReferensiTunjanganIndexImport } from './pages/penggajian/referensi/tunjangan/index'
+import { Route as PenggajianReferensiPotonganIndexImport } from './pages/penggajian/referensi/potongan/index'
+import { Route as PenggajianReferensiHonorStaffIndexImport } from './pages/penggajian/referensi/honor-staff/index'
+import { Route as PenggajianReferensiHonorGuruIndexImport } from './pages/penggajian/referensi/honor-guru/index'
+import { Route as KeuanganSppTagihanIndexImport } from './pages/keuangan/spp/tagihan/index'
+import { Route as KeuanganSppDataSppIndexImport } from './pages/keuangan/spp/data-spp/index'
+import { Route as KeuanganReferensiSaldoKasIndexImport } from './pages/keuangan/referensi/saldo-kas/index'
+import { Route as KeuanganReferensiKategoriPengeluaranIndexImport } from './pages/keuangan/referensi/kategori-pengeluaran/index'
+import { Route as KeuanganReferensiKategoriPendapatanIndexImport } from './pages/keuangan/referensi/kategori-pendapatan/index'
+import { Route as AkademikReferensiTahunAjaranIndexImport } from './pages/akademik/referensi/tahun-ajaran/index'
+import { Route as AkademikReferensiMataPelajaranIndexImport } from './pages/akademik/referensi/mata-pelajaran/index'
+import { Route as AkademikReferensiKelasIndexImport } from './pages/akademik/referensi/kelas/index'
+import { Route as AbsensiIzinIzinStaffIndexImport } from './pages/absensi/izin/izin-staff/index'
+import { Route as AbsensiIzinIzinSiswaIndexImport } from './pages/absensi/izin/izin-siswa/index'
 
 // Create/Update Routes
-
-const SekolahRoute = SekolahImport.update({
-  path: '/sekolah',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const InformasiRoute = InformasiImport.update({
-  path: '/informasi',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AgendaRoute = AgendaImport.update({
-  path: '/agenda',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const IndexRoute = IndexImport.update({
   path: '/',
@@ -100,18 +82,28 @@ const SiswaIndexRoute = SiswaIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const SekolahIndexRoute = SekolahIndexImport.update({
+  path: '/sekolah/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const PsbIndexRoute = PsbIndexImport.update({
   path: '/psb/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const PenggunaIndexRoute = PenggunaIndexImport.update({
-  path: '/pengguna/',
+const PortalIndexRoute = PortalIndexImport.update({
+  path: '/portal/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const PenggajianIndexRoute = PenggajianIndexImport.update({
-  path: '/penggajian/',
+const InformasiIndexRoute = InformasiIndexImport.update({
+  path: '/informasi/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashboardIndexRoute = DashboardIndexImport.update({
+  path: '/dashboard/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -125,132 +117,33 @@ const AkademikIndexRoute = AkademikIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const AbsensiIndexRoute = AbsensiIndexImport.update({
-  path: '/absensi/',
+const AgendaIndexRoute = AgendaIndexImport.update({
+  path: '/agenda/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const StaffCreateRoute = StaffCreateImport.update({
-  path: '/staff/create',
+const StaffStaffEditRoute = StaffStaffEditImport.update({
+  path: '/staff/staff-edit',
   getParentRoute: () => rootRoute,
 } as any)
 
-const StaffIdRoute = StaffIdImport.update({
-  path: '/staff/$id',
+const StaffStaffCreateRoute = StaffStaffCreateImport.update({
+  path: '/staff/staff-create',
   getParentRoute: () => rootRoute,
 } as any)
 
-const SiswaCreateRoute = SiswaCreateImport.update({
-  path: '/siswa/create',
+const SiswaSiswaDetailRoute = SiswaSiswaDetailImport.update({
+  path: '/siswa/siswa-detail',
   getParentRoute: () => rootRoute,
 } as any)
 
-const SiswaIdRoute = SiswaIdImport.update({
-  path: '/siswa/$id',
+const PsbPsbDetailRoute = PsbPsbDetailImport.update({
+  path: '/psb/psb-detail',
   getParentRoute: () => rootRoute,
 } as any)
 
-const PsbIdRoute = PsbIdImport.update({
-  path: '/psb/$id',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const PenggunaProfilRoute = PenggunaProfilImport.update({
-  path: '/pengguna/profil',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const PenggajianProfilGajiStaffRoute = PenggajianProfilGajiStaffImport.update({
-  path: '/penggajian/profil-gaji-staff',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const PenggajianProfilGajiGuruRoute = PenggajianProfilGajiGuruImport.update({
-  path: '/penggajian/profil-gaji-guru',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const PelanggaranPoinPelanggaranRoute = PelanggaranPoinPelanggaranImport.update(
-  {
-    path: '/pelanggaran/poin-pelanggaran',
-    getParentRoute: () => rootRoute,
-  } as any,
-)
-
-const PelanggaranPelanggaranSiswaRoute =
-  PelanggaranPelanggaranSiswaImport.update({
-    path: '/pelanggaran/pelanggaran-siswa',
-    getParentRoute: () => rootRoute,
-  } as any)
-
-const PelanggaranJenisPelanggaranRoute =
-  PelanggaranJenisPelanggaranImport.update({
-    path: '/pelanggaran/jenis-pelanggaran',
-    getParentRoute: () => rootRoute,
-  } as any)
-
-const MasterSchoolRoute = MasterSchoolImport.update({
-  path: '/master/school',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const KeuanganRekapitulasiRoute = KeuanganRekapitulasiImport.update({
-  path: '/keuangan/rekapitulasi',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const KeuanganPengeluaranRoute = KeuanganPengeluaranImport.update({
-  path: '/keuangan/pengeluaran',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const KeuanganPembayaranNonSppRoute = KeuanganPembayaranNonSppImport.update({
-  path: '/keuangan/pembayaran-non-spp',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const KeuanganPemasukanRoute = KeuanganPemasukanImport.update({
-  path: '/keuangan/pemasukan',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const CbtCreateSoalRoute = CbtCreateSoalImport.update({
-  path: '/cbt/create-soal',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AkademikJadwalPengajarRoute = AkademikJadwalPengajarImport.update({
-  path: '/akademik/jadwal-pengajar',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AkademikAnggotaKelasRoute = AkademikAnggotaKelasImport.update({
-  path: '/akademik/anggota-kelas',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AbsensiRecapRoute = AbsensiRecapImport.update({
-  path: '/absensi/recap',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AbsensiPengaturanRoute = AbsensiPengaturanImport.update({
-  path: '/absensi/pengaturan',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AbsensiLiburRoute = AbsensiLiburImport.update({
-  path: '/absensi/libur',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const AbsensiJadwalRoute = AbsensiJadwalImport.update({
-  path: '/absensi/jadwal',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const authRegisterRoute = authRegisterImport.update({
-  path: '/register',
+const CbtCbtSoalFormRoute = CbtCbtSoalFormImport.update({
+  path: '/cbt/cbt-soal-form',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -259,10 +152,77 @@ const authLoginRoute = authLoginImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const authForgetPasswordRoute = authForgetPasswordImport.update({
-  path: '/forget-password',
+const PenggunaProfilIndexRoute = PenggunaProfilIndexImport.update({
+  path: '/pengguna/profil/',
   getParentRoute: () => rootRoute,
 } as any)
+
+const PenggunapenggunaIndexRoute = PenggunapenggunaIndexImport.update({
+  path: '/pengguna/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PenggajianProfilGajiStaffIndexRoute =
+  PenggajianProfilGajiStaffIndexImport.update({
+    path: '/penggajian/profil-gaji-staff/',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const PenggajianProfilGajiGuruIndexRoute =
+  PenggajianProfilGajiGuruIndexImport.update({
+    path: '/penggajian/profil-gaji-guru/',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const PenggajianpenggajianIndexRoute = PenggajianpenggajianIndexImport.update({
+  path: '/penggajian/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PelanggaranPointPelanggaranIndexRoute =
+  PelanggaranPointPelanggaranIndexImport.update({
+    path: '/pelanggaran/point-pelanggaran/',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const PelanggaranPelanggaranSiswaIndexRoute =
+  PelanggaranPelanggaranSiswaIndexImport.update({
+    path: '/pelanggaran/pelanggaran-siswa/',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const PelanggaranJenisPelanggaranIndexRoute =
+  PelanggaranJenisPelanggaranIndexImport.update({
+    path: '/pelanggaran/jenis-pelanggaran/',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const KeuanganRekapitulasiIndexRoute = KeuanganRekapitulasiIndexImport.update({
+  path: '/keuangan/rekapitulasi/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const KeuanganPengeluaranIndexRoute = KeuanganPengeluaranIndexImport.update({
+  path: '/keuangan/pengeluaran/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const KeuanganPembayaranNonSppIndexRoute =
+  KeuanganPembayaranNonSppIndexImport.update({
+    path: '/keuangan/pembayaran-non-spp/',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const KeuanganPemasukanIndexRoute = KeuanganPemasukanIndexImport.update({
+  path: '/keuangan/pemasukan/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AkademikJadwalPengajarIndexRoute =
+  AkademikJadwalPengajarIndexImport.update({
+    path: '/akademik/jadwal-pengajar/',
+    getParentRoute: () => rootRoute,
+  } as any)
 
 const AkademikJadwalPelajaranIndexRoute =
   AkademikJadwalPelajaranIndexImport.update({
@@ -276,95 +236,122 @@ const AkademikAbsensiPertemuanIndexRoute =
     getParentRoute: () => rootRoute,
   } as any)
 
-const PenggajianReferensiTunjanganRoute =
-  PenggajianReferensiTunjanganImport.update({
-    path: '/penggajian/referensi/tunjangan',
-    getParentRoute: () => rootRoute,
-  } as any)
-
-const PenggajianReferensiPotonganRoute =
-  PenggajianReferensiPotonganImport.update({
-    path: '/penggajian/referensi/potongan',
-    getParentRoute: () => rootRoute,
-  } as any)
-
-const PenggajianReferensiHonorStaffRoute =
-  PenggajianReferensiHonorStaffImport.update({
-    path: '/penggajian/referensi/honor-staff',
-    getParentRoute: () => rootRoute,
-  } as any)
-
-const PenggajianReferensiHonorGuruRoute =
-  PenggajianReferensiHonorGuruImport.update({
-    path: '/penggajian/referensi/honor-guru',
-    getParentRoute: () => rootRoute,
-  } as any)
-
-const KeuanganSppTagihanRoute = KeuanganSppTagihanImport.update({
-  path: '/keuangan/spp/tagihan',
+const AbsensiRecapIndexRoute = AbsensiRecapIndexImport.update({
+  path: '/absensi/recap/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const KeuanganSppDataSppRoute = KeuanganSppDataSppImport.update({
-  path: '/keuangan/spp/data-spp',
+const AbsensiPengaturanIndexRoute = AbsensiPengaturanIndexImport.update({
+  path: '/absensi/pengaturan/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const KeuanganReferensiSaldoKasRoute = KeuanganReferensiSaldoKasImport.update({
-  path: '/keuangan/referensi/saldo-kas',
+const AbsensiLiburIndexRoute = AbsensiLiburIndexImport.update({
+  path: '/absensi/libur/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const KeuanganReferensiKategoriPengeluaranRoute =
-  KeuanganReferensiKategoriPengeluaranImport.update({
-    path: '/keuangan/referensi/kategori-pengeluaran',
-    getParentRoute: () => rootRoute,
-  } as any)
-
-const KeuanganReferensiKategoriPendapatanRoute =
-  KeuanganReferensiKategoriPendapatanImport.update({
-    path: '/keuangan/referensi/kategori-pendapatan',
-    getParentRoute: () => rootRoute,
-  } as any)
-
-const AkademikReferensiTahunAjaranRoute =
-  AkademikReferensiTahunAjaranImport.update({
-    path: '/akademik/referensi/tahun-ajaran',
-    getParentRoute: () => rootRoute,
-  } as any)
-
-const AkademikReferensiMataPelajaranRoute =
-  AkademikReferensiMataPelajaranImport.update({
-    path: '/akademik/referensi/mata-pelajaran',
-    getParentRoute: () => rootRoute,
-  } as any)
-
-const AkademikReferensiKelasRoute = AkademikReferensiKelasImport.update({
-  path: '/akademik/referensi/kelas',
+const AbsensiJadwalIndexRoute = AbsensiJadwalIndexImport.update({
+  path: '/absensi/jadwal/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const AbsensiIzinIzinStaffRoute = AbsensiIzinIzinStaffImport.update({
-  path: '/absensi/izin/izin-staff',
+const AbsensiabsensiIndexRoute = AbsensiabsensiIndexImport.update({
+  path: '/absensi/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const AbsensiIzinIzinSiswaRoute = AbsensiIzinIzinSiswaImport.update({
-  path: '/absensi/izin/izin-siswa',
+const AkademikJadwalPelajaranJadwalPelajaranDetailRoute =
+  AkademikJadwalPelajaranJadwalPelajaranDetailImport.update({
+    path: '/akademik/jadwal-pelajaran/jadwal-pelajaran-detail',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const AkademikAbsensiPertemuanAbsensiPertemuanDetailRoute =
+  AkademikAbsensiPertemuanAbsensiPertemuanDetailImport.update({
+    path: '/akademik/absensi-pertemuan/absensi-pertemuan-detail',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const PenggajianReferensiTunjanganIndexRoute =
+  PenggajianReferensiTunjanganIndexImport.update({
+    path: '/penggajian/referensi/tunjangan/',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const PenggajianReferensiPotonganIndexRoute =
+  PenggajianReferensiPotonganIndexImport.update({
+    path: '/penggajian/referensi/potongan/',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const PenggajianReferensiHonorStaffIndexRoute =
+  PenggajianReferensiHonorStaffIndexImport.update({
+    path: '/penggajian/referensi/honor-staff/',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const PenggajianReferensiHonorGuruIndexRoute =
+  PenggajianReferensiHonorGuruIndexImport.update({
+    path: '/penggajian/referensi/honor-guru/',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const KeuanganSppTagihanIndexRoute = KeuanganSppTagihanIndexImport.update({
+  path: '/keuangan/spp/tagihan/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const AkademikJadwalPelajaranKelasIdRoute =
-  AkademikJadwalPelajaranKelasIdImport.update({
-    path: '/akademik/jadwal-pelajaran/kelas/$id',
+const KeuanganSppDataSppIndexRoute = KeuanganSppDataSppIndexImport.update({
+  path: '/keuangan/spp/data-spp/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const KeuanganReferensiSaldoKasIndexRoute =
+  KeuanganReferensiSaldoKasIndexImport.update({
+    path: '/keuangan/referensi/saldo-kas/',
     getParentRoute: () => rootRoute,
   } as any)
 
-const AkademikAbsensiPertemuanDetailIdRoute =
-  AkademikAbsensiPertemuanDetailIdImport.update({
-    path: '/akademik/absensi-pertemuan/detail/$id',
+const KeuanganReferensiKategoriPengeluaranIndexRoute =
+  KeuanganReferensiKategoriPengeluaranIndexImport.update({
+    path: '/keuangan/referensi/kategori-pengeluaran/',
     getParentRoute: () => rootRoute,
   } as any)
+
+const KeuanganReferensiKategoriPendapatanIndexRoute =
+  KeuanganReferensiKategoriPendapatanIndexImport.update({
+    path: '/keuangan/referensi/kategori-pendapatan/',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const AkademikReferensiTahunAjaranIndexRoute =
+  AkademikReferensiTahunAjaranIndexImport.update({
+    path: '/akademik/referensi/tahun-ajaran/',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const AkademikReferensiMataPelajaranIndexRoute =
+  AkademikReferensiMataPelajaranIndexImport.update({
+    path: '/akademik/referensi/mata-pelajaran/',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const AkademikReferensiKelasIndexRoute =
+  AkademikReferensiKelasIndexImport.update({
+    path: '/akademik/referensi/kelas/',
+    getParentRoute: () => rootRoute,
+  } as any)
+
+const AbsensiIzinIzinStaffIndexRoute = AbsensiIzinIzinStaffIndexImport.update({
+  path: '/absensi/izin/izin-staff/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AbsensiIzinIzinSiswaIndexRoute = AbsensiIzinIzinSiswaIndexImport.update({
+  path: '/absensi/izin/izin-siswa/',
+  getParentRoute: () => rootRoute,
+} as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -374,124 +361,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/agenda': {
-      preLoaderRoute: typeof AgendaImport
-      parentRoute: typeof rootRoute
-    }
-    '/informasi': {
-      preLoaderRoute: typeof InformasiImport
-      parentRoute: typeof rootRoute
-    }
-    '/sekolah': {
-      preLoaderRoute: typeof SekolahImport
-      parentRoute: typeof rootRoute
-    }
-    '/(auth)/forget-password': {
-      preLoaderRoute: typeof authForgetPasswordImport
-      parentRoute: typeof rootRoute
-    }
     '/(auth)/login': {
       preLoaderRoute: typeof authLoginImport
       parentRoute: typeof rootRoute
     }
-    '/(auth)/register': {
-      preLoaderRoute: typeof authRegisterImport
+    '/cbt/cbt-soal-form': {
+      preLoaderRoute: typeof CbtCbtSoalFormImport
       parentRoute: typeof rootRoute
     }
-    '/absensi/jadwal': {
-      preLoaderRoute: typeof AbsensiJadwalImport
+    '/psb/psb-detail': {
+      preLoaderRoute: typeof PsbPsbDetailImport
       parentRoute: typeof rootRoute
     }
-    '/absensi/libur': {
-      preLoaderRoute: typeof AbsensiLiburImport
+    '/siswa/siswa-detail': {
+      preLoaderRoute: typeof SiswaSiswaDetailImport
       parentRoute: typeof rootRoute
     }
-    '/absensi/pengaturan': {
-      preLoaderRoute: typeof AbsensiPengaturanImport
+    '/staff/staff-create': {
+      preLoaderRoute: typeof StaffStaffCreateImport
       parentRoute: typeof rootRoute
     }
-    '/absensi/recap': {
-      preLoaderRoute: typeof AbsensiRecapImport
+    '/staff/staff-edit': {
+      preLoaderRoute: typeof StaffStaffEditImport
       parentRoute: typeof rootRoute
     }
-    '/akademik/anggota-kelas': {
-      preLoaderRoute: typeof AkademikAnggotaKelasImport
-      parentRoute: typeof rootRoute
-    }
-    '/akademik/jadwal-pengajar': {
-      preLoaderRoute: typeof AkademikJadwalPengajarImport
-      parentRoute: typeof rootRoute
-    }
-    '/cbt/create-soal': {
-      preLoaderRoute: typeof CbtCreateSoalImport
-      parentRoute: typeof rootRoute
-    }
-    '/keuangan/pemasukan': {
-      preLoaderRoute: typeof KeuanganPemasukanImport
-      parentRoute: typeof rootRoute
-    }
-    '/keuangan/pembayaran-non-spp': {
-      preLoaderRoute: typeof KeuanganPembayaranNonSppImport
-      parentRoute: typeof rootRoute
-    }
-    '/keuangan/pengeluaran': {
-      preLoaderRoute: typeof KeuanganPengeluaranImport
-      parentRoute: typeof rootRoute
-    }
-    '/keuangan/rekapitulasi': {
-      preLoaderRoute: typeof KeuanganRekapitulasiImport
-      parentRoute: typeof rootRoute
-    }
-    '/master/school': {
-      preLoaderRoute: typeof MasterSchoolImport
-      parentRoute: typeof rootRoute
-    }
-    '/pelanggaran/jenis-pelanggaran': {
-      preLoaderRoute: typeof PelanggaranJenisPelanggaranImport
-      parentRoute: typeof rootRoute
-    }
-    '/pelanggaran/pelanggaran-siswa': {
-      preLoaderRoute: typeof PelanggaranPelanggaranSiswaImport
-      parentRoute: typeof rootRoute
-    }
-    '/pelanggaran/poin-pelanggaran': {
-      preLoaderRoute: typeof PelanggaranPoinPelanggaranImport
-      parentRoute: typeof rootRoute
-    }
-    '/penggajian/profil-gaji-guru': {
-      preLoaderRoute: typeof PenggajianProfilGajiGuruImport
-      parentRoute: typeof rootRoute
-    }
-    '/penggajian/profil-gaji-staff': {
-      preLoaderRoute: typeof PenggajianProfilGajiStaffImport
-      parentRoute: typeof rootRoute
-    }
-    '/pengguna/profil': {
-      preLoaderRoute: typeof PenggunaProfilImport
-      parentRoute: typeof rootRoute
-    }
-    '/psb/$id': {
-      preLoaderRoute: typeof PsbIdImport
-      parentRoute: typeof rootRoute
-    }
-    '/siswa/$id': {
-      preLoaderRoute: typeof SiswaIdImport
-      parentRoute: typeof rootRoute
-    }
-    '/siswa/create': {
-      preLoaderRoute: typeof SiswaCreateImport
-      parentRoute: typeof rootRoute
-    }
-    '/staff/$id': {
-      preLoaderRoute: typeof StaffIdImport
-      parentRoute: typeof rootRoute
-    }
-    '/staff/create': {
-      preLoaderRoute: typeof StaffCreateImport
-      parentRoute: typeof rootRoute
-    }
-    '/absensi/': {
-      preLoaderRoute: typeof AbsensiIndexImport
+    '/agenda/': {
+      preLoaderRoute: typeof AgendaIndexImport
       parentRoute: typeof rootRoute
     }
     '/akademik/': {
@@ -502,16 +397,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CbtIndexImport
       parentRoute: typeof rootRoute
     }
-    '/penggajian/': {
-      preLoaderRoute: typeof PenggajianIndexImport
+    '/dashboard/': {
+      preLoaderRoute: typeof DashboardIndexImport
       parentRoute: typeof rootRoute
     }
-    '/pengguna/': {
-      preLoaderRoute: typeof PenggunaIndexImport
+    '/informasi/': {
+      preLoaderRoute: typeof InformasiIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/portal/': {
+      preLoaderRoute: typeof PortalIndexImport
       parentRoute: typeof rootRoute
     }
     '/psb/': {
       preLoaderRoute: typeof PsbIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/sekolah/': {
+      preLoaderRoute: typeof SekolahIndexImport
       parentRoute: typeof rootRoute
     }
     '/siswa/': {
@@ -522,60 +425,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StaffIndexImport
       parentRoute: typeof rootRoute
     }
-    '/absensi/izin/izin-siswa': {
-      preLoaderRoute: typeof AbsensiIzinIzinSiswaImport
+    '/akademik/absensi-pertemuan/absensi-pertemuan-detail': {
+      preLoaderRoute: typeof AkademikAbsensiPertemuanAbsensiPertemuanDetailImport
       parentRoute: typeof rootRoute
     }
-    '/absensi/izin/izin-staff': {
-      preLoaderRoute: typeof AbsensiIzinIzinStaffImport
+    '/akademik/jadwal-pelajaran/jadwal-pelajaran-detail': {
+      preLoaderRoute: typeof AkademikJadwalPelajaranJadwalPelajaranDetailImport
       parentRoute: typeof rootRoute
     }
-    '/akademik/referensi/kelas': {
-      preLoaderRoute: typeof AkademikReferensiKelasImport
+    '/absensi/(absensi)/': {
+      preLoaderRoute: typeof AbsensiabsensiIndexImport
       parentRoute: typeof rootRoute
     }
-    '/akademik/referensi/mata-pelajaran': {
-      preLoaderRoute: typeof AkademikReferensiMataPelajaranImport
+    '/absensi/jadwal/': {
+      preLoaderRoute: typeof AbsensiJadwalIndexImport
       parentRoute: typeof rootRoute
     }
-    '/akademik/referensi/tahun-ajaran': {
-      preLoaderRoute: typeof AkademikReferensiTahunAjaranImport
+    '/absensi/libur/': {
+      preLoaderRoute: typeof AbsensiLiburIndexImport
       parentRoute: typeof rootRoute
     }
-    '/keuangan/referensi/kategori-pendapatan': {
-      preLoaderRoute: typeof KeuanganReferensiKategoriPendapatanImport
+    '/absensi/pengaturan/': {
+      preLoaderRoute: typeof AbsensiPengaturanIndexImport
       parentRoute: typeof rootRoute
     }
-    '/keuangan/referensi/kategori-pengeluaran': {
-      preLoaderRoute: typeof KeuanganReferensiKategoriPengeluaranImport
-      parentRoute: typeof rootRoute
-    }
-    '/keuangan/referensi/saldo-kas': {
-      preLoaderRoute: typeof KeuanganReferensiSaldoKasImport
-      parentRoute: typeof rootRoute
-    }
-    '/keuangan/spp/data-spp': {
-      preLoaderRoute: typeof KeuanganSppDataSppImport
-      parentRoute: typeof rootRoute
-    }
-    '/keuangan/spp/tagihan': {
-      preLoaderRoute: typeof KeuanganSppTagihanImport
-      parentRoute: typeof rootRoute
-    }
-    '/penggajian/referensi/honor-guru': {
-      preLoaderRoute: typeof PenggajianReferensiHonorGuruImport
-      parentRoute: typeof rootRoute
-    }
-    '/penggajian/referensi/honor-staff': {
-      preLoaderRoute: typeof PenggajianReferensiHonorStaffImport
-      parentRoute: typeof rootRoute
-    }
-    '/penggajian/referensi/potongan': {
-      preLoaderRoute: typeof PenggajianReferensiPotonganImport
-      parentRoute: typeof rootRoute
-    }
-    '/penggajian/referensi/tunjangan': {
-      preLoaderRoute: typeof PenggajianReferensiTunjanganImport
+    '/absensi/recap/': {
+      preLoaderRoute: typeof AbsensiRecapIndexImport
       parentRoute: typeof rootRoute
     }
     '/akademik/absensi-pertemuan/': {
@@ -586,12 +461,112 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AkademikJadwalPelajaranIndexImport
       parentRoute: typeof rootRoute
     }
-    '/akademik/absensi-pertemuan/detail/$id': {
-      preLoaderRoute: typeof AkademikAbsensiPertemuanDetailIdImport
+    '/akademik/jadwal-pengajar/': {
+      preLoaderRoute: typeof AkademikJadwalPengajarIndexImport
       parentRoute: typeof rootRoute
     }
-    '/akademik/jadwal-pelajaran/kelas/$id': {
-      preLoaderRoute: typeof AkademikJadwalPelajaranKelasIdImport
+    '/keuangan/pemasukan/': {
+      preLoaderRoute: typeof KeuanganPemasukanIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/keuangan/pembayaran-non-spp/': {
+      preLoaderRoute: typeof KeuanganPembayaranNonSppIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/keuangan/pengeluaran/': {
+      preLoaderRoute: typeof KeuanganPengeluaranIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/keuangan/rekapitulasi/': {
+      preLoaderRoute: typeof KeuanganRekapitulasiIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/pelanggaran/jenis-pelanggaran/': {
+      preLoaderRoute: typeof PelanggaranJenisPelanggaranIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/pelanggaran/pelanggaran-siswa/': {
+      preLoaderRoute: typeof PelanggaranPelanggaranSiswaIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/pelanggaran/point-pelanggaran/': {
+      preLoaderRoute: typeof PelanggaranPointPelanggaranIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/penggajian/(penggajian)/': {
+      preLoaderRoute: typeof PenggajianpenggajianIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/penggajian/profil-gaji-guru/': {
+      preLoaderRoute: typeof PenggajianProfilGajiGuruIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/penggajian/profil-gaji-staff/': {
+      preLoaderRoute: typeof PenggajianProfilGajiStaffIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/pengguna/(pengguna)/': {
+      preLoaderRoute: typeof PenggunapenggunaIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/pengguna/profil/': {
+      preLoaderRoute: typeof PenggunaProfilIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/absensi/izin/izin-siswa/': {
+      preLoaderRoute: typeof AbsensiIzinIzinSiswaIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/absensi/izin/izin-staff/': {
+      preLoaderRoute: typeof AbsensiIzinIzinStaffIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/akademik/referensi/kelas/': {
+      preLoaderRoute: typeof AkademikReferensiKelasIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/akademik/referensi/mata-pelajaran/': {
+      preLoaderRoute: typeof AkademikReferensiMataPelajaranIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/akademik/referensi/tahun-ajaran/': {
+      preLoaderRoute: typeof AkademikReferensiTahunAjaranIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/keuangan/referensi/kategori-pendapatan/': {
+      preLoaderRoute: typeof KeuanganReferensiKategoriPendapatanIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/keuangan/referensi/kategori-pengeluaran/': {
+      preLoaderRoute: typeof KeuanganReferensiKategoriPengeluaranIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/keuangan/referensi/saldo-kas/': {
+      preLoaderRoute: typeof KeuanganReferensiSaldoKasIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/keuangan/spp/data-spp/': {
+      preLoaderRoute: typeof KeuanganSppDataSppIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/keuangan/spp/tagihan/': {
+      preLoaderRoute: typeof KeuanganSppTagihanIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/penggajian/referensi/honor-guru/': {
+      preLoaderRoute: typeof PenggajianReferensiHonorGuruIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/penggajian/referensi/honor-staff/': {
+      preLoaderRoute: typeof PenggajianReferensiHonorStaffIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/penggajian/referensi/potongan/': {
+      preLoaderRoute: typeof PenggajianReferensiPotonganIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/penggajian/referensi/tunjangan/': {
+      preLoaderRoute: typeof PenggajianReferensiTunjanganIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -601,61 +576,58 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexRoute,
-  AgendaRoute,
-  InformasiRoute,
-  SekolahRoute,
-  authForgetPasswordRoute,
   authLoginRoute,
-  authRegisterRoute,
-  AbsensiJadwalRoute,
-  AbsensiLiburRoute,
-  AbsensiPengaturanRoute,
-  AbsensiRecapRoute,
-  AkademikAnggotaKelasRoute,
-  AkademikJadwalPengajarRoute,
-  CbtCreateSoalRoute,
-  KeuanganPemasukanRoute,
-  KeuanganPembayaranNonSppRoute,
-  KeuanganPengeluaranRoute,
-  KeuanganRekapitulasiRoute,
-  MasterSchoolRoute,
-  PelanggaranJenisPelanggaranRoute,
-  PelanggaranPelanggaranSiswaRoute,
-  PelanggaranPoinPelanggaranRoute,
-  PenggajianProfilGajiGuruRoute,
-  PenggajianProfilGajiStaffRoute,
-  PenggunaProfilRoute,
-  PsbIdRoute,
-  SiswaIdRoute,
-  SiswaCreateRoute,
-  StaffIdRoute,
-  StaffCreateRoute,
-  AbsensiIndexRoute,
+  CbtCbtSoalFormRoute,
+  PsbPsbDetailRoute,
+  SiswaSiswaDetailRoute,
+  StaffStaffCreateRoute,
+  StaffStaffEditRoute,
+  AgendaIndexRoute,
   AkademikIndexRoute,
   CbtIndexRoute,
-  PenggajianIndexRoute,
-  PenggunaIndexRoute,
+  DashboardIndexRoute,
+  InformasiIndexRoute,
+  PortalIndexRoute,
   PsbIndexRoute,
+  SekolahIndexRoute,
   SiswaIndexRoute,
   StaffIndexRoute,
-  AbsensiIzinIzinSiswaRoute,
-  AbsensiIzinIzinStaffRoute,
-  AkademikReferensiKelasRoute,
-  AkademikReferensiMataPelajaranRoute,
-  AkademikReferensiTahunAjaranRoute,
-  KeuanganReferensiKategoriPendapatanRoute,
-  KeuanganReferensiKategoriPengeluaranRoute,
-  KeuanganReferensiSaldoKasRoute,
-  KeuanganSppDataSppRoute,
-  KeuanganSppTagihanRoute,
-  PenggajianReferensiHonorGuruRoute,
-  PenggajianReferensiHonorStaffRoute,
-  PenggajianReferensiPotonganRoute,
-  PenggajianReferensiTunjanganRoute,
+  AkademikAbsensiPertemuanAbsensiPertemuanDetailRoute,
+  AkademikJadwalPelajaranJadwalPelajaranDetailRoute,
+  AbsensiabsensiIndexRoute,
+  AbsensiJadwalIndexRoute,
+  AbsensiLiburIndexRoute,
+  AbsensiPengaturanIndexRoute,
+  AbsensiRecapIndexRoute,
   AkademikAbsensiPertemuanIndexRoute,
   AkademikJadwalPelajaranIndexRoute,
-  AkademikAbsensiPertemuanDetailIdRoute,
-  AkademikJadwalPelajaranKelasIdRoute,
+  AkademikJadwalPengajarIndexRoute,
+  KeuanganPemasukanIndexRoute,
+  KeuanganPembayaranNonSppIndexRoute,
+  KeuanganPengeluaranIndexRoute,
+  KeuanganRekapitulasiIndexRoute,
+  PelanggaranJenisPelanggaranIndexRoute,
+  PelanggaranPelanggaranSiswaIndexRoute,
+  PelanggaranPointPelanggaranIndexRoute,
+  PenggajianpenggajianIndexRoute,
+  PenggajianProfilGajiGuruIndexRoute,
+  PenggajianProfilGajiStaffIndexRoute,
+  PenggunapenggunaIndexRoute,
+  PenggunaProfilIndexRoute,
+  AbsensiIzinIzinSiswaIndexRoute,
+  AbsensiIzinIzinStaffIndexRoute,
+  AkademikReferensiKelasIndexRoute,
+  AkademikReferensiMataPelajaranIndexRoute,
+  AkademikReferensiTahunAjaranIndexRoute,
+  KeuanganReferensiKategoriPendapatanIndexRoute,
+  KeuanganReferensiKategoriPengeluaranIndexRoute,
+  KeuanganReferensiSaldoKasIndexRoute,
+  KeuanganSppDataSppIndexRoute,
+  KeuanganSppTagihanIndexRoute,
+  PenggajianReferensiHonorGuruIndexRoute,
+  PenggajianReferensiHonorStaffIndexRoute,
+  PenggajianReferensiPotonganIndexRoute,
+  PenggajianReferensiTunjanganIndexRoute,
 ])
 
 /* prettier-ignore-end */

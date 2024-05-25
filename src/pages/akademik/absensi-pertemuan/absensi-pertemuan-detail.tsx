@@ -2,12 +2,17 @@ import React from 'react';
 import CustomHeader from "@/components/shared/custom-header.tsx";
 import AkademikLayout from "@/components/layout/akademik-layout.tsx";
 import {BackButton} from "@/components/ui/button.tsx";
-import {Link, useParams} from "@tanstack/react-router";
+import {createFileRoute, Link, useParams} from "@tanstack/react-router";
 import AbsensiPertemuanDetailTable
-    from "@/pages/akademik/absensi-pertemuan/components/absensi-pertemuan-detail-table.tsx";
+    from "@/pages/akademik/absensi-pertemuan/_components/absensi-pertemuan-detail-table.tsx";
 import {Separator} from "@/components/ui/separator.tsx";
 import {useGetDetail} from "@/hooks/useApi.tsx";
-import AbsensiPertemuanEntity from "@/pages/akademik/absensi-pertemuan/data/absensi-pertemuan.entity.ts";
+import AbsensiPertemuanEntity from "@/pages/akademik/absensi-pertemuan/_data/absensi-pertemuan.entity.ts";
+import Index from "@/pages/agenda";
+
+export const Route = createFileRoute('/akademik/absensi-pertemuan/absensi-pertemuan-detail')({
+    component: () => <Index />
+})
 
 
 const AbsensiPertemuanDetail: React.FC = () => {
